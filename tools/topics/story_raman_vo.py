@@ -177,3 +177,32 @@ for s in _st[1:-1]: SFX += [(s - 0.05, "swoosh")]
 SFX += [(_st[0] + 0.3, "pop"), (_st[0] + 8.6, "pop"), (_st[0] + 9.4, "pop"), (_st[2] + 1.9, "pop"), (_st[3] + 3.9, "thud"),
         (_st[3] + 4.66, "ding"), (_st[5] + 0.7, "pop"), (_st[5] + 2.6, "pop"), (_st[5] + 4.9, "chime"), (_st[6] + 3.75, "ding")]
 MUSIC = [(0.0, "cinematic"), (11.15, "ocean"), (21.55, "tension"), (27.95, "curious"), (33.9, "uplift")]
+
+# ---------- word-by-word captions synced to the voice (replaces full-sentence subtitles) ----------
+from captions import Captions
+_so = standard_overlay
+def standard_overlay(fr, t, head, sub, src=None, cap=None, **k):
+    _so(fr, t, head, None, src, cap, head_at=k.get("head_at", 0.15))
+_VO = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), VOICE)
+CAP = Captions([
+    ("1921. ഒരു കപ്പൽ ബോംബെയിൽ നിന്ന് *London*-ലേക്ക് യാത്ര തിരിച്ചു. അതിലൊരു യാത്രക്കാരൻ ഉണ്ടായിരുന്നു, *C.V. Raman*.", 0.0, 8.5, YELLOW),
+    ("കപ്പൽ *Mediterranean* കടലിലൂടെ കടന്നുപോയി.", 8.58, 11.0, CYAN),
+    ("കടലിന്റെ ആ കടും *നീല* നിറം രാമനെ ചിന്തിപ്പിച്ചു.", 11.29, 14.3, CYAN),
+    ("ഈ *നീല* എവിടെ നിന്നാണ് വരുന്നത്?", 14.60, 16.4, CYAN),
+    ("അന്നത്തെ വിശ്വാസം: കടൽ നീല ആകാശത്തിന്റെ *reflection* മാത്രമാണ് എന്നായിരുന്നു.", 16.73, 21.5, ORANGE),
+    ("രാമൻ തന്റെ കയ്യിലുണ്ടായിരുന്ന ഒരു *Nicol prism* വെച്ച് ആ *reflection* തടഞ്ഞു.", 21.71, 25.9, YELLOW),
+    ("എന്നിട്ടും കടൽ *നീല* തന്നെ!", 26.21, 27.8, CYAN),
+    ("രാമന്റെ ഉത്തരം: *water molecules* light-നെ *scatter* ചെയ്യുന്നു.", 28.03, 31.5, CYAN),
+    ("*Blue light* ആണ് കൂടുതൽ *scatter* ആകുന്നത്.", 31.71, 33.9, CYAN),
+    ("ഈ ചിന്ത 1928-ൽ *Raman effect* കണ്ടെത്തലിലേക്ക് നയിച്ചു. 1930-ൽ *Nobel Prize.* *February 28*, നമ്മൾ *National Science Day* ആയി ആഘോഷിക്കുന്നു.", 34.08, 42.6, YELLOW),
+    ("ഇന്ന് നമുക്കറിയാം, water *red light* absorb ചെയ്യുന്നതും കടൽ നീലയാകാൻ ഒരു കാരണമാണ്.", 42.79, 48.45, ORANGE),
+    ("ഒരു ചെറിയ ചോദ്യത്തിൽ നിന്ന് *Nobel Prize* വരെ.", 48.56, 52.1, YELLOW),
+], voice_wav=_VO, size=54)
+_starts = [0]
+for _d, _ in SCENES: _starts.append(_starts[-1] + _d)
+def _with_caps(fn, s0, last=False):
+    def g(fr, t, d):
+        fn(fr, t, d)
+        CAP.draw(fr, s0 + t, 1000 if last else 1300)
+    return g
+SCENES = [(dd, _with_caps(fn, _starts[i], i == len(SCENES) - 1)) for i, (dd, fn) in enumerate(SCENES)]

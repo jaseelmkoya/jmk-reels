@@ -119,6 +119,8 @@ def standard_overlay(fr, t, head, sub, src=None, cap=None, sub_at=0.5, head_at=0
         paste(fr, src, W / 2, y, ease_out(prog(t, head_at + 0.5, 0.5))); y += src.height + 24
     else:
         y += 10
+    if sub is None:
+        return y
     if sub2 is not None and sub2_at is not None and t >= sub2_at:
         appear(fr, sub2, W / 2, y, t, sub2_at)
     else:

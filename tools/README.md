@@ -10,3 +10,8 @@ Music changes with the scene and the video. In a topic file set
 Pick moods by what the scene is doing (story opening → cinematic, space → space, explaining → curious,
 quiz / "why?" → tension, discovery / ending → uplift, electricity/magnetism → electric).
 The key changes per video (seed from the topic name), so no two videos sound the same.
+
+## Word-by-word captions (captions.py)
+Narration text appears word by word, in time with the voice (word times spread over the real speech
+found by silencedetect). Without voice, words appear at reading pace. Malayalam is revealed per word,
+never per letter (conjuncts would break). See topics/story_raman_vo.py (CAP = Captions(...); CAP.draw(fr, time, y)).

@@ -55,7 +55,8 @@ def runs(word):
         out.append((kind, cur))
     return out
 
-def text_img(s, size=64, weight="bold", color=WHITE, max_w=900, align="center", hl=YELLOW, lh=1.5):
+def text_img(s, size=64, weight="bold", color=WHITE, max_w=900, align="center", hl=YELLOW, lh=1.5, reveal=None):
+    """reveal=(n, a): show only the first n words (word n at alpha a) — layout stays fixed."""
     """Render mixed-script text to an RGBA image. Wrap *words* in asterisks to colour them `hl`.
     Use '|' for a forced line break."""
     space = font("lat", weight, size).getlength(" ")
@@ -78,13 +79,30 @@ def text_img(s, size=64, weight="bold", color=WHITE, max_w=900, align="center", 
     lhp = int(size * lh)
     img = Image.new("RGBA", (max_w, lhp * len(lines) + int(size * 0.3)), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
+    wi = 0
     for i, (ln, w) in enumerate(lines):
         x = (max_w - w) / 2 if align == "center" else 0
         base = i * lhp + int(size * 1.05)
         for rs, ww in ln:
-            for k, t, f, col in rs:
-                d.text((x, base), t, font=f, fill=col, anchor="ls")
-                x += f.getlength(t)
+            wi += 1
+            al = 255
+            if reveal is not None:
+                n, a = reveal
+                al = 255 if wi < n else int(255 * a) if wi == n else 0
+            if al > 0:
+                lay = d if al == 255 else None
+                for k, t, f, col in rs:
+                    if lay is not None:
+                        d.text((x, base), t, font=f, fill=col, anchor="ls")
+                    else:
+                        tmp = Image.new("RGBA", img.size, (0, 0, 0, 0))
+                        ImageDraw.Draw(tmp).text((x, base), t, font=f, fill=tuple(col[:3]) + (al,), anchor="ls")
+                        img.alpha_composite(tmp)
+                    x += f.getlength(t)
+            else:
+                x += ww
+                x += space
+                continue
             x += space
     return img
 

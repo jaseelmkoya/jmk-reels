@@ -1,14 +1,14 @@
-Shooting stars — voice-over (AI voice, synced)
+Shooting stars — voice-over (AI voice, synced; times from transcript)
 
 [00.00s] ഈ ആഴ്ച രാത്രി ആകാശത്ത് shooting stars കാണാം! November 12-ന് Taurid meteor shower peak ചെയ്യും.
-[06.87s] പക്ഷേ shooting stars ശരിക്കും നക്ഷത്രങ്ങളല്ല. ചിന്തിച്ചിട്ടുണ്ടോ, അവ കത്തുന്നത് എന്തുകൊണ്ടാണ്?
-[13.31s] ബഹിരാകാശത്ത് നിന്ന് വരുന്ന ചെറിയ കല്ലുകളും പൊടിയുമാണ് meteors. അവ വളരെ വലിയ velocity-യിലാണ് atmosphere-ലേക്ക് കയറുന്നത്.
-[20.85s] Velocity കൂടുമ്പോൾ kinetic energy വളരെ കൂടും. K equals half m v squared.
-[26.48s] Air resistance ആ kinetic energy-യെ heat-ഉം light-ഉം ആക്കി മാറ്റുന്നു. അതുകൊണ്ടാണ് meteor തിളങ്ങി കത്തിത്തീരുന്നത്.
-[33.50s] അപ്പോൾ നമുക്ക് നോക്കാം, Work-energy theorem.
-[35.96s] The change in kinetic energy of a particle is equal to the work done on it by the net force.
-[41.14s] ഇവിടെ air resistance negative work ചെയ്യുന്നു. അതുകൊണ്ട് kinetic energy കുറയുന്നു.
-[46.15s] Friction, air resistance ഒക്കെ non-conservative forces ആണ്. Energy നഷ്ടപ്പെടുന്നില്ല, heat-ഉം light-ഉം ആയി മാറുന്നു.
-[52.90s] ഇനി quiz time! 2024-ൽ exam-ന് ചോദിച്ച question ആണ്.
-[57.24s] Frictional force conservative ആണോ, non-conservative ആണോ?
-[60.66s] A or B? ഉത്തരം comment ചെയ്യൂ. Follow ചെയ്ത് കൂടെ കൂടിക്കോ.
+[06.92s] പക്ഷേ shooting stars ശരിക്കും നക്ഷത്രങ്ങളല്ല. ചിന്തിച്ചിട്ടുണ്ടോ, അവ കത്തുന്നത് എന്തുകൊണ്ടാണ്?
+[13.17s] ബഹിരാകാശത്ത് നിന്ന് വരുന്ന ചെറിയ കല്ലുകളും പൊടിയുമാണ് meteors. അവ വളരെ വലിയ velocity-യിലാണ് atmosphere-ലേക്ക് കയറുന്നത്.
+[21.12s] Velocity കൂടുമ്പോൾ kinetic energy വളരെ കൂടും. K equals half m v squared.
+[26.72s] Air resistance ആ kinetic energy-യെ heat-ഉം light-ഉം ആക്കി മാറ്റുന്നു. അതുകൊണ്ടാണ് meteor തിളങ്ങി കത്തിത്തീരുന്നത്.
+[33.88s] അപ്പോൾ നമുക്ക് നോക്കാം, Work-energy theorem.
+[36.52s] The change in kinetic energy of a particle is equal to the work done on it by the net force.
+[41.79s] ഇവിടെ air resistance negative work ചെയ്യുന്നു. അതുകൊണ്ട് kinetic energy കുറയുന്നു.
+[46.84s] Friction, air resistance ഒക്കെ non-conservative forces ആണ്. Energy നഷ്ടപ്പെടുന്നില്ല, heat-ഉം light-ഉം ആയി മാറുന്നു.
+[54.03s] ഇനി quiz time! 2024-ൽ exam-ന് ചോദിച്ച question ആണ്.
+[58.52s] Frictional force conservative ആണോ, non-conservative ആണോ?
+[62.00s] A or B? ഉത്തരം comment ചെയ്യൂ. Follow ചെയ്ത് കൂടെ കൂടിക്കോ.

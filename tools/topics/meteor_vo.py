@@ -15,7 +15,7 @@ T = [0.0] * 13   # T[1]..T[12] = start of narration line 1..12; T[0] unused
 END = 60.0
 try:
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    from meteor_times import T, END   # written by the sync step
+    from meteor_times import T, END, WT   # written by the sync step
 except Exception:
     pass
 
@@ -99,6 +99,40 @@ TB = text_img("B) Non-conservative", 38, max_w=460)
 CMT = text_img("ഉത്തരം *comment* ചെയ്യൂ!", 56, max_w=900, hl=CYAN)
 FOL = text_img("*Follow* ചെയ്യൂ", 52, max_w=900, hl=YELLOW, color=WHITE)
 
+# ---------------- word-by-word reveal (times from the voice transcript) ----------------
+SPEC = dict(
+    HOOK=("ഈ ആഴ്ച രാത്രി ആകാശത്ത് *shooting stars!*", dict(size=64, max_w=940, hl=YELLOW)),
+    WHY=("അവ *കത്തുന്നത്* എന്തുകൊണ്ട്?", dict(size=66, max_w=940, hl=ORANGE)),
+    M1=("*Meteors* = ബഹിരാകാശത്ത് നിന്നുള്ള ചെറിയ കല്ലുകളും പൊടിയും", dict(size=46, max_w=940, hl=CYAN)),
+    KE_ML=("*Velocity* കൂടുമ്പോൾ *kinetic energy* വളരെ കൂടും", dict(size=46, max_w=940, hl=YELLOW)),
+    THM=("The change in *kinetic energy* of a particle is equal to the *work done* on it by the *net force*.", dict(size=50, max_w=880, hl=YELLOW, lh=1.45)),
+    NEG=("*Air resistance* → *negative work* → *K* കുറയുന്നു", dict(size=46, max_w=960, hl=PINK)),
+    NC_L=("*Friction*, *air resistance*, *viscous force*", dict(size=46, max_w=960, hl=ORANGE)),
+    NC_ML=("*Energy* നഷ്ടപ്പെടുന്നില്ല — *heat*-ഉം *light*-ഉം ആയി മാറുന്നു", dict(size=46, max_w=960, hl=GREEN)),
+    Q=("*Frictional force* conservative ആണോ, non-conservative ആണോ?", dict(size=58, max_w=920, hl=YELLOW)),
+    CMT=("ഉത്തരം *comment* ചെയ്യൂ!", dict(size=56, max_w=900, hl=CYAN)),
+    FOL=("*Follow* ചെയ്യൂ", dict(size=52, max_w=900, hl=YELLOW, color=WHITE)),
+)
+for _k, (_s, _kw) in SPEC.items():
+    assert len(_s.split()) == len(WT[_k]), _k
+_RC = {}
+def say(fr, key, x, y, t, s0, out_at=None):
+    """Reveal block `key` word by word; t is scene time, s0 the scene start (global)."""
+    times = [g - s0 for g in WT[key]]
+    n = sum(1 for v in times if v <= t)
+    if n == 0: return
+    a = min(1.0, (t - times[n - 1]) / 0.12)
+    oa = 1.0 if out_at is None else 1 - prog(t, out_at, 0.25)
+    if oa <= 0: return
+    ck = (key, n, round(a, 1))
+    if ck not in _RC:
+        s, kw = SPEC[key]; kw = dict(kw); size = kw.pop("size")
+        _RC[ck] = text_img(s, size, reveal=(n, a), **kw)
+    paste(fr, _RC[ck], x, y, oa)
+
+def g(key, s0):  # global event time -> scene time
+    return WT[key] - s0
+
 # ---------------- scenes (t = time inside scene; a(i) = line i start inside scene) ----------------
 def mk(scene_idx):
     b = bounds()
@@ -106,20 +140,19 @@ def mk(scene_idx):
     return lambda i: T[i] - s0
 
 def s1(fr, t, d):
-    a = mk(0)
+    a = mk(0); s0 = bounds()[0]
     draw_sky(fr, t)
     shower(d, t)
     top_tag(fr, t, fade=True)
-    appear(fr, HOOK, W / 2, 330, t, 0.15, pop=True)
-    appear(fr, NEWS, W / 2, 545, t, 0.9)
-    appear(fr, WHY, W / 2, 1300, t, a(2) + 0.6, pop=True)
+    say(fr, "HOOK", W / 2, 330, t, s0)
+    appear(fr, NEWS, W / 2, 545, t, 3.6)
+    say(fr, "WHY", W / 2, 1300, t, s0)
 
 def s2(fr, t, d):
-    a = mk(1)
+    a = mk(1); s0 = bounds()[1]
     draw_sky(fr, t + 20, tint=0.8)
     top_tag(fr, t)
-    appear(fr, M1, W / 2, 340, t, 0.1)
-    # one big meteor entering the atmosphere, getting brighter then burning out
+    say(fr, "M1", W / 2, 340, t, s0)
     p = clamp((t - 0.3) / max(1.0, (a(5) + 3.0)))
     x = 120 + p * 760; y = 640 + p * 420
     glow = 0.3 + 0.7 * ease_in_out(prog(t, a(5), 1.2))
@@ -130,23 +163,21 @@ def s2(fr, t, d):
                 dd.ellipse(L.s(x - r * glow, y - 330 - r * glow, x + r * glow, y - 330 + r * glow), fill=(255, 190, 90, int(70 * glow)))
         fr.paste(L.done(), (0, 330), L.done())
         meteor(d, x, y, math.atan2(420, 760), 160 + 260 * glow, 1.0, int(6 + 6 * glow))
-    # atmosphere band
     d.line((0, 760, W, 760), fill=(79, 209, 255), width=3)
     paste(fr, text_img("atmosphere", 30, max_w=300, color=CYAN), 920, 715, 0.9)
-    appear(fr, KE, W / 2, 1180, t, a(4), pop=True, out_at=a(5) + 0.1)
-    appear(fr, KE_ML, W / 2, 1320, t, a(4) + 0.3, out_at=a(5) + 0.1)
-    appear(fr, AIR, W / 2, 1250, t, a(5) + 0.2)
+    appear(fr, KE, W / 2, 1180, t, g("K", s0), pop=True, out_at=g("AIR", s0) - 0.1)
+    say(fr, "KE_ML", W / 2, 1320, t, s0, out_at=g("AIR", s0) - 0.1)
+    appear(fr, AIR, W / 2, 1250, t, g("AIR", s0) + 0.1)
 
 def s3(fr, t, d):
-    a = mk(2)
+    a = mk(2); s0 = bounds()[2]
     top_tag(fr, t)
     appear(fr, THM_PILL, W / 2, 330, t, 0.1, pop=True)
-    appear(fr, THM_CARD, W / 2, 440, t, a(7))
-    appear(fr, THM, W / 2, 462, t, a(7) + 0.1)
-    appear(fr, THM_EQ, W / 2, 470 + THM.height + 70, t, a(7) + 2.5, pop=True)
-    appear(fr, NEG, W / 2, 1250, t, a(8))
+    appear(fr, THM_CARD, W / 2, 440, t, a(7) - 0.3)
+    say(fr, "THM", W / 2, 462, t, s0)
+    appear(fr, THM_EQ, W / 2, 470 + THM.height + 70, t, g("THM_EQ", s0), pop=True)
+    say(fr, "NEG", W / 2, 1250, t, s0)
     if t > a(8):
-        # small meteor slowing down: arrow of motion vs arrow of air resistance
         k = ease_out(prog(t, a(8), 0.6))
         y0 = 1060
         arrow(d, 300, y0, 300 + 220 * k, y0, YELLOW, 10, 30)
@@ -156,12 +187,11 @@ def s3(fr, t, d):
         d.ellipse((520, y0, 560, y0 + 40), fill=(255, 240, 200))
 
 def s4(fr, t, d):
-    a = mk(3)
+    a = mk(3); s0 = bounds()[3]
     top_tag(fr, t)
-    appear(fr, NC_T, W / 2, 330, t, 0.1, pop=True)
-    appear(fr, NC_L, W / 2, 460, t, 0.8)
-    # energy bars: KE drains into heat + light, total stays the same
-    k = ease_in_out(prog(t, 1.5, max(1.0, (T[10] - T[9]) - 3.0)))
+    appear(fr, NC_T, W / 2, 330, t, max(0.1, g("NC_T", s0)), pop=True)
+    say(fr, "NC_L", W / 2, 460, t, s0)
+    k = ease_in_out(prog(t, g("BARS", s0), 2.6))
     vals = (1 - k, 0.7 * k, 0.3 * k)
     base, H, bw = 1230, 520, 170
     for i, (v, col) in enumerate(zip(vals, (YELLOW, ORANGE, CYAN))):
@@ -170,22 +200,22 @@ def s4(fr, t, d):
         if (H - 8) * v > 6:
             d.rectangle((x + 4, base - int((H - 8) * v), x + bw - 4, base - 4), fill=col)
         paste(fr, BAR_LBL[i], x + bw / 2, base + 14, 1.0)
-    paste(fr, text_img("Total energy = constant", 38, max_w=700, color=GREEN), W / 2, base + 80, ease_out(prog(t, 2.0, 0.5)))
-    appear(fr, NC_ML, W / 2, 1400, t, max(1.2, (T[10] - T[9]) * 0.45), out_at=None)
+    paste(fr, text_img("Total energy = constant", 38, max_w=700, color=GREEN), W / 2, base + 80, ease_out(prog(t, g("BARS", s0) + 0.5, 0.5)))
+    say(fr, "NC_ML", W / 2, 1400, t, s0)
 
 def s5(fr, t, d):
-    a = mk(4)
-    appear(fr, QUIZ, W / 2, 290, t, 0.1, pop=True)
-    appear(fr, PYQ, W / 2, 380, t, 0.9, pop=True)
-    appear(fr, Q, W / 2, 470, t, a(11))
-    for i, (c, tx, cx) in enumerate(((OPT_A, TA, 280), (OPT_B, TB, 800))):
-        st = a(12) - 0.2 + i * 0.4
+    a = mk(4); s0 = bounds()[4]
+    appear(fr, QUIZ, W / 2, 290, t, max(0.1, g("QUIZ", s0)), pop=True)
+    appear(fr, PYQ, W / 2, 380, t, g("PYQ", s0), pop=True)
+    say(fr, "Q", W / 2, 470, t, s0)
+    for i, (c, tx, cx, key) in enumerate(((OPT_A, TA, 280, "OPT_A"), (OPT_B, TB, 800, "OPT_B"))):
+        st = g(key, s0)
         pulse = 1 + 0.03 * math.sin((t - st) * 6 + i * 3) if t > st + 0.6 else 1
         appear(fr, c, cx, 860, t, st, pop=True)
-        if t > st + 0.2:
-            paste(fr, tx, cx, 900, ease_out(prog(t, st + 0.1, 0.4)), pulse)
-    appear(fr, CMT, W / 2, 1110, t, a(12) + 1.2, pop=True)
-    appear(fr, FOL, W / 2, 1270, t, a(12) + 2.6, pop=True)
+        if t > st + 0.1:
+            paste(fr, tx, cx, 900, ease_out(prog(t, st + 0.05, 0.3)), pulse)
+    say(fr, "CMT", W / 2, 1110, t, s0)
+    say(fr, "FOL", W / 2, 1270, t, s0)
 
 _b = bounds()
 SCENES = [(_b[i + 1] - _b[i], f) for i, f in enumerate((s1, s2, s3, s4, s5))]
@@ -194,8 +224,8 @@ VOICE = "vo/meteor_voice.wav"
 SFX = [(0.0, "whoosh"), (0.15, "pop"), (0.9, "pop"), (T[2] + 0.6, "boing")]
 for i, s0 in enumerate(_b[1:5]):
     SFX += [(s0, "whoosh"), (s0 + 0.1, "pop")]
-SFX += [(T[4], "ding"), (T[5] + 0.2, "swoosh"), (T[7], "ding"), (T[7] + 2.5, "pop"), (T[8], "pop"),
-        (T[9] + 0.8, "pop"), (T[11], "pop"), (T[12] - 0.2, "pop"), (T[12] + 0.2, "pop"), (T[11] + 1.0, "ticks"),
-        (T[12] + 1.2, "pop"), (T[12] + 2.6, "chime")]
+SFX += [(WT["K"], "ding"), (WT["AIR"] + 0.1, "swoosh"), (T[7], "ding"), (WT["THM_EQ"], "pop"), (T[8], "pop"),
+        (WT["BARS"], "pop"), (WT["PYQ"], "pop"), (T[11], "pop"), (WT["OPT_A"], "pop"), (WT["OPT_B"], "pop"), (T[11] + 1.0, "ticks"),
+        (WT["CMT"][0], "pop"), (WT["FOL"][0], "chime")]
 SFX = [(max(0.0, s), k) for s, k in SFX if s < END - 0.3]
 MUSIC = [(0.0, "space"), (_b[2], "curious"), (_b[4], "tension"), (T[12] + 1.0, "uplift")]

@@ -84,7 +84,9 @@ def main(topic_path, video, out):
     tp = importlib.util.module_from_spec(spec); spec.loader.exec_module(tp)
     total = sum(d for d, _ in tp.SCENES)
     n = int(total * SR)
-    voice = np.zeros(n); v = read_wav(os.path.join(os.path.dirname(os.path.abspath(__file__)), tp.VOICE))[:n]; voice[:len(v)] = v
+    voice = np.zeros(n)
+    if getattr(tp, "VOICE", None):  # VOICE = None -> music + SFX only (fallback version)
+        v = read_wav(os.path.join(os.path.dirname(os.path.abspath(__file__)), tp.VOICE))[:n]; voice[:len(v)] = v
     fx = np.zeros(n)
     for t0, kind in tp.SFX:
         s = sfx(kind); i = int(t0 * SR); j = min(n, i + len(s)); fx[i:j] += s[:j - i]

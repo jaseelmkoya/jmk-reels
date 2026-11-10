@@ -12,8 +12,8 @@ W, H, FPS = 1080, 1920, 30
 HERE = os.path.dirname(os.path.abspath(__file__))
 FD = os.path.join(HERE, "fonts")
 FONT_FILES = {
-    ("ml", "bold"): f"{FD}/NotoSansMalayalam-Bold.ttf",
-    ("ml", "reg"): f"{FD}/NotoSansMalayalam-Regular.ttf",
+    ("ml", "bold"): f"{FD}/AnekMalayalam-Bold.ttf",
+    ("ml", "reg"): f"{FD}/AnekMalayalam-Regular.ttf",
     ("lat", "bold"): "/usr/share/fonts/opentype/inter/Inter-Bold.otf",
     ("lat", "reg"): "/usr/share/fonts/opentype/inter/Inter-Regular.otf",
     ("sym", "bold"): "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",

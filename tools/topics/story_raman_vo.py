@@ -114,8 +114,8 @@ def s4(fr, t, d):
     q = ease_out(prog(t, 0.9, 0.8))
     if q > 0:
         arrow(d, 860, 560, 860 - 230 * q, 560 + 250 * q, ORANGE, 9, 30)
-    if t > 3.9:  # blocked
-        a = ease_out(prog(t, 3.9, 0.3))
+    if t > 3.74:  # blocked
+        a = ease_out(prog(t, 3.74, 0.3))
         d.line((600, 760, 680, 840), fill=RED, width=int(12 * a) or 1); d.line((680, 760, 600, 840), fill=RED, width=int(12 * a) or 1)
     appear(fr, PR, 560, 1010, t, 0.5, pop=True)
     standard_overlay(fr, t, H4, T4a, SRC, C4, sub_at=0.1, sub2=T4b, sub2_at=4.66)
@@ -149,12 +149,12 @@ def s5(fr, t, d):
 
 # ---------- S6 · what it led to ----------
 H6 = headline("THE *RAMAN* EFFECT")
-CARDS = [(pill("1928 · RAMAN EFFECT", 40, bg=YELLOW), 0.7), (pill("1930 · NOBEL PRIZE", 40, bg=CYAN), 2.6),
-         (pill("FEB 28 · NATIONAL SCIENCE DAY", 38, fg=WHITE, bg=(80, 60, 160)), 4.9)]
+CARDS = [(pill("1928 · RAMAN EFFECT", 40, bg=YELLOW), 0.83), (pill("1930 · NOBEL PRIZE", 40, bg=CYAN), 4.83),
+         (pill("FEB 28 · NATIONAL SCIENCE DAY", 38, fg=WHITE, bg=(80, 60, 160)), 7.47)]
 T6a = subtitle("ഈ ചിന്ത *Raman effect* കണ്ടെത്തലിലേക്ക് നയിച്ചു.")
 T6b = subtitle("ഇന്ന് അറിയാം: water *red light* absorb ചെയ്യുന്നതും ഒരു കാരണമാണ്.", hl=ORANGE)
 def s6(fr, t, d):
-    fr.paste(push(DEEP, t + 6.5, 14.0, 1.05, 1.1), (0, 0))
+    fr.paste(push(DEEP, t + 6.5, 16.5, 1.05, 1.1), (0, 0))
     for i, (c, st) in enumerate(CARDS):
         appear(fr, c, W / 2, 560 + i * 150, t, st, pop=True)
     standard_overlay(fr, t, H6, T6a, SRC, None, sub_at=0.3, sub2=T6b, sub2_at=8.9)
@@ -163,20 +163,20 @@ def s6(fr, t, d):
 END1 = headline("FROM CURIOSITY TO *NOBEL*")
 FOL = text_img("*Follow* ചെയ്യൂ", 70, max_w=900, hl=YELLOW)
 def s7(fr, t, d):
-    fr.paste(push(sea_frame(t + 20, 0.35), t, 7.2, 1.1, 1.14), (0, 0))
+    fr.paste(push(sea_frame(t + 20, 0.35), t, 5.4, 1.1, 1.14), (0, 0))
     fr.paste(VIG, (0, 0), VIG)
     appear(fr, END1, W / 2, 560, t, 0.2, pop=True)
-    appear(fr, FOL, W / 2, 760, t, 3.75, pop=True)
+    appear(fr, FOL, W / 2, 760, t, 3.08, pop=True)
 
-SCENES = [(11.15, s1), (5.35, s2), (5.05, s3), (6.4, s4), (5.95, s5), (14.55, s6), (7.55, s7)]
+SCENES = [(11.25, s1), (5.35, s2), (5.1, s3), (6.3, s4), (6.05, s5), (16.55, s6), (5.4, s7)]
 _st = [0]
 for dsc, _ in SCENES: _st.append(_st[-1] + dsc)
 VOICE = "vo/story_raman_voice.wav"
 SFX = [(0.0, "whoosh")]
 for s in _st[1:-1]: SFX += [(s - 0.05, "swoosh")]
-SFX += [(_st[0] + 0.3, "pop"), (_st[0] + 8.6, "pop"), (_st[0] + 9.4, "pop"), (_st[2] + 1.9, "pop"), (_st[3] + 3.9, "thud"),
-        (_st[3] + 4.66, "ding"), (_st[5] + 0.7, "pop"), (_st[5] + 2.6, "pop"), (_st[5] + 4.9, "chime"), (_st[6] + 3.75, "ding")]
-MUSIC = [(0.0, "cinematic"), (11.15, "ocean"), (21.55, "tension"), (27.95, "curious"), (33.9, "uplift")]
+SFX += [(_st[0] + 0.3, "pop"), (_st[0] + 8.6, "pop"), (_st[0] + 9.4, "pop"), (_st[2] + 1.9, "pop"), (_st[3] + 3.74, "thud"),
+        (_st[3] + 4.54, "ding"), (_st[5] + 0.83, "pop"), (_st[5] + 4.83, "pop"), (_st[5] + 7.47, "chime"), (_st[6] + 3.08, "ding")]
+MUSIC = [(0.0, "cinematic"), (11.25, "ocean"), (21.7, "tension"), (28.0, "curious"), (34.05, "uplift")]
 
 # ---------- word-by-word captions synced to the voice (replaces full-sentence subtitles) ----------
 from captions import Captions
@@ -184,20 +184,22 @@ _so = standard_overlay
 def standard_overlay(fr, t, head, sub, src=None, cap=None, **k):
     _so(fr, t, head, None, src, cap, head_at=k.get("head_at", 0.15))
 _VO = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), VOICE)
-CAP = Captions([
-    ("1921. ഒരു കപ്പൽ ബോംബെയിൽ നിന്ന് *London*-ലേക്ക് യാത്ര തിരിച്ചു. അതിലൊരു യാത്രക്കാരൻ ഉണ്ടായിരുന്നു, *C.V. Raman*.", 0.0, 8.5, YELLOW),
-    ("കപ്പൽ *Mediterranean* കടലിലൂടെ കടന്നുപോയി.", 8.58, 11.0, CYAN),
-    ("കടലിന്റെ ആ കടും *നീല* നിറം രാമനെ ചിന്തിപ്പിച്ചു.", 11.29, 14.3, CYAN),
-    ("ഈ *നീല* എവിടെ നിന്നാണ് വരുന്നത്?", 14.60, 16.4, CYAN),
-    ("അന്നത്തെ വിശ്വാസം: കടൽ നീല ആകാശത്തിന്റെ *reflection* മാത്രമാണ് എന്നായിരുന്നു.", 16.73, 21.5, ORANGE),
-    ("രാമൻ തന്റെ കയ്യിലുണ്ടായിരുന്ന ഒരു *Nicol prism* വെച്ച് ആ *reflection* തടഞ്ഞു.", 21.71, 25.9, YELLOW),
-    ("എന്നിട്ടും കടൽ *നീല* തന്നെ!", 26.21, 27.8, CYAN),
-    ("രാമന്റെ ഉത്തരം: *water molecules* light-നെ *scatter* ചെയ്യുന്നു.", 28.03, 31.5, CYAN),
-    ("*Blue light* ആണ് കൂടുതൽ *scatter* ആകുന്നത്.", 31.71, 33.9, CYAN),
-    ("ഈ ചിന്ത 1928-ൽ *Raman effect* കണ്ടെത്തലിലേക്ക് നയിച്ചു. 1930-ൽ *Nobel Prize.* *February 28*, നമ്മൾ *National Science Day* ആയി ആഘോഷിക്കുന്നു.", 34.08, 42.6, YELLOW),
-    ("ഇന്ന് നമുക്കറിയാം, water *red light* absorb ചെയ്യുന്നതും കടൽ നീലയാകാൻ ഒരു കാരണമാണ്.", 42.79, 48.45, ORANGE),
-    ("ഒരു ചെറിയ ചോദ്യത്തിൽ നിന്ന് *Nobel Prize* വരെ.", 48.56, 52.1, YELLOW),
-], voice_wav=_VO, size=54)
+import json as _json
+_WORDS = _json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "story_raman_words.json")))
+CAP = Captions.from_words([
+    ("1921. ഒരു കപ്പൽ ബോംബെയിൽ നിന്ന് *London*-ലേക്ക് യാത്ര തിരിച്ചു. അതിലൊരു യാത്രക്കാരൻ ഉണ്ടായിരുന്നു, സി. വി. *രാമൻ*.", YELLOW),
+    ("കപ്പൽ *Mediterranean* കടലിലൂടെ കടന്നുപോയി.", CYAN),
+    ("കടലിന്റെ ആ കടും *നീല* നിറം രാമനെ ചിന്തിപ്പിച്ചു.", CYAN),
+    ("ഈ *നീല* എവിടെ നിന്നാണ് വരുന്നത്?", CYAN),
+    ("അന്നത്തെ വിശ്വാസം: കടൽ നീല ആകാശത്തിന്റെ *reflection* മാത്രമാണ് എന്നായിരുന്നു.", ORANGE),
+    ("രാമൻ തന്റെ കയ്യിലുണ്ടായിരുന്ന ഒരു *Nicol prism* വെച്ച് ആ *reflection* തടഞ്ഞു.", YELLOW),
+    ("എന്നിട്ടും കടൽ *നീല* തന്നെ!", CYAN),
+    ("രാമന്റെ ഉത്തരം: *water molecules* light-നെ *scatter* ചെയ്യുന്നു.", CYAN),
+    ("*Blue light* ആണ് കൂടുതൽ *scatter* ആകുന്നത്.", CYAN),
+    ("ഈ ചിന്ത 1928-ൽ *രാമൻ effect* കണ്ടെത്തലിലേക്ക് നയിച്ചു. 1930-ൽ *Nobel Prize.* *February 28*, നമ്മൾ *National Science Day* ആയി ആഘോഷിക്കുന്നു.", YELLOW),
+    ("ഇന്ന് നമുക്കറിയാം, water *red light* absorb ചെയ്യുന്നതും കടൽ നീലയാകാൻ ഒരു കാരണമാണ്.", ORANGE),
+    ("ഒരു ചെറിയ ചോദ്യത്തിൽ നിന്ന് *Nobel Prize* വരെ.", YELLOW),
+], _WORDS, size=54)
 _starts = [0]
 for _d, _ in SCENES: _starts.append(_starts[-1] + _d)
 def _with_caps(fn, s0, last=False):

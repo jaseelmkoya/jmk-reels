@@ -36,7 +36,8 @@ def _pages(words, maxw=8):
     pages, cur = [], []
     for w in words:
         cur.append(w)
-        abbrev = re.fullmatch(r"\*?([A-Z]\.)+\*?", w)
+        bare = w.strip("*")
+        abbrev = re.fullmatch(r"([A-Z]\.)+", bare) or (bare.endswith(".") and len(bare) <= 3)  # C.V. / സി. വി.
         if (re.search(r"[.?!]\*?$", w) and not abbrev) or len(cur) >= maxw:
             pages.append(cur); cur = []
     if cur: pages.append(cur)
@@ -46,6 +47,24 @@ def _pages(words, maxw=8):
     return pages
 
 class Captions:
+    @classmethod
+    def from_words(cls, lines, words, size=54, maxw=8, tail=1.5):
+        """Exact sync from a transcript (ElevenLabs creative_transcribe_audio 'words': start per word).
+        lines: (display_text, hl) — display tokens must match the spoken words one-to-one, in order
+        (markup like *..* and -suffixes are fine). Spoken words after the last line are ignored."""
+        self = cls.__new__(cls); self.size, self.items, self._cache = size, [], {}
+        k = 0; allw = [w["start"] for w in words]
+        for text, hl in lines:
+            toks = text.split(); n = len(toks)
+            times = allw[k:k + n]; k += n
+            nxt = allw[k] if k < len(allw) else times[-1] + tail
+            j = 0
+            for p in _pages(toks, maxw):
+                pt = times[j:j + len(p)]; j += len(p)
+                p_end = times[j] if j < n else nxt
+                self.items.append((p, hl, pt, pt[0], p_end))
+        return self
+
     def __init__(self, lines, voice_wav=None, size=54, wpm_pace=0.42, maxw=8):
         """lines: (text, start, end_or_None, hl). wpm_pace: seconds per word when there is no voice."""
         self.size, self.items = size, []   # items: (page_text_words, hl, [word_times], page_start, page_end)

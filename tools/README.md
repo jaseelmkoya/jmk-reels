@@ -14,4 +14,4 @@ The key changes per video (seed from the topic name), so no two videos sound the
 ## Word-by-word captions (captions.py)
 Narration text appears word by word, in time with the voice (word times spread over the real speech
 found by silencedetect). Without voice, words appear at reading pace. Malayalam is revealed per word,
-never per letter (conjuncts would break). See topics/story_raman_vo.py (CAP = Captions(...); CAP.draw(fr, time, y)).
+never per letter (conjuncts would break). For voiced videos ALWAYS get exact word times: ElevenLabs creative_transcribe_audio (eleven_scribe_v1, 0 credits) on the speech node → words[].start → Captions.from_words(lines, words). Display tokens must match spoken words 1:1. See topics/story_raman_vo.py + story_raman_words.json.

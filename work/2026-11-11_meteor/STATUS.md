@@ -1,5 +1,7 @@
 # 2026-11-11 · Shooting stars (Work, Energy and Power)
-Made on 2026-11-10 in advance.
-- meteor_music_only.mp4 — no voice, music + sound effects. DEFAULT: schedule this for 2026-11-11 18:00 IST (no AI labels).
-- meteor_final.mp4 — AI voice (ElevenLabs, JMK's cloned voice) already generated. Swap to this ONLY if JMK says ok to the voice version (then AI labels on).
-The 2026-11-11 morning run must NOT generate a new video or voice — use this folder.
+Status: SCHEDULED — DONE. Nothing to do on the 2026-11-11 morning run.
+- JMK said "ok" (2026-11-10 22:57 IST) to the AI-voice version.
+- meteor_final.mp4 (AI voice, word-synced text) scheduled for 2026-11-11 18:00 IST on Instagram + YouTube,
+  Uplika post id post_dfdf52975d979588 (AI labels on: aiGenerated, isAiGenerated, containsSyntheticMedia).
+- Do NOT schedule meteor_music_only.mp4 and do NOT make a new video/voice today.
+- Morning run: just send JMK one line that today's reel is already scheduled for 6 PM.

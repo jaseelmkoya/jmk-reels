@@ -3,3 +3,10 @@
 - make_cover.py — cover image.
 - mix_voice.py — `python3 mix_voice.py topics/<slug>.py out/<silent>.mp4 out/<final>.mp4`; topic defines VOICE (48 kHz wav path, relative to tools/) and SFX list.
 - topics/inertia_vo.py — example synced to a real voice-over (scene lengths & text times = speech times).
+
+## Background music (music.py)
+Music changes with the scene and the video. In a topic file set
+`MUSIC = [(start_s, "mood"), ...]` — moods: space, cinematic, ocean, curious, tension, uplift, electric.
+Pick moods by what the scene is doing (story opening → cinematic, space → space, explaining → curious,
+quiz / "why?" → tension, discovery / ending → uplift, electricity/magnetism → electric).
+The key changes per video (seed from the topic name), so no two videos sound the same.

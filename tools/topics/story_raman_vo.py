@@ -176,3 +176,4 @@ SFX = [(0.0, "whoosh")]
 for s in _st[1:-1]: SFX += [(s - 0.05, "swoosh")]
 SFX += [(_st[0] + 0.3, "pop"), (_st[0] + 8.6, "pop"), (_st[0] + 9.4, "pop"), (_st[2] + 1.9, "pop"), (_st[3] + 3.9, "thud"),
         (_st[3] + 4.66, "ding"), (_st[5] + 0.7, "pop"), (_st[5] + 2.6, "pop"), (_st[5] + 4.9, "chime"), (_st[6] + 3.75, "ding")]
+MUSIC = [(0.0, "cinematic"), (11.15, "ocean"), (21.55, "tension"), (27.95, "curious"), (33.9, "uplift")]

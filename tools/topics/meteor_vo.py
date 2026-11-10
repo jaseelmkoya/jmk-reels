@@ -198,3 +198,4 @@ SFX += [(T[4], "ding"), (T[5] + 0.2, "swoosh"), (T[7], "ding"), (T[7] + 2.5, "po
         (T[9] + 0.8, "pop"), (T[11], "pop"), (T[12] - 0.2, "pop"), (T[12] + 0.2, "pop"), (T[11] + 1.0, "ticks"),
         (T[12] + 1.2, "pop"), (T[12] + 2.6, "chime")]
 SFX = [(max(0.0, s), k) for s, k in SFX if s < END - 0.3]
+MUSIC = [(0.0, "space"), (_b[2], "curious"), (_b[4], "tension"), (T[12] + 1.0, "uplift")]

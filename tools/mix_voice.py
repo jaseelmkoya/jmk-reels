@@ -5,7 +5,8 @@ The topic file must define VOICE (wav path) and SFX = [(time_s, kind), ...].
 import sys, os, wave, subprocess, importlib.util, tempfile
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import reelkit
+import reelkit, zlib
+import music as musicgen
 
 SR = 48000
 rng = np.random.default_rng(3)
@@ -92,7 +93,8 @@ def main(topic_path, video, out):
         s = sfx(kind); i = int(t0 * SR); j = min(n, i + len(s)); fx[i:j] += s[:j - i]
     # music bed, ducked under the voice
     tmp = tempfile.mkdtemp(); mp = os.path.join(tmp, "m.wav")
-    reelkit.make_music(mp, total, sr=SR)
+    seed = getattr(tp, "MUSIC_SEED", zlib.crc32(os.path.basename(topic_path).split('_')[0].encode()) % 1000)
+    musicgen.write(mp, total, plan=getattr(tp, "MUSIC", None), seed=seed, sr=SR)
     music = np.zeros(n); m = read_wav(mp)[:n]; music[:len(m)] = m / (np.abs(m).max() + 1e-9)
     win = int(0.25 * SR)
     venv = np.convolve(np.abs(voice), np.ones(win) / win, mode="same")
@@ -105,7 +107,7 @@ def main(topic_path, video, out):
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes((mix * 32767).astype(np.int16).tobytes())
     tmpout = out[:-4] + ".tmp.mp4"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", video, "-i", wp, "-map", "0:v", "-map", "1:a", "-c:v", "copy",
-                    "-c:a", "aac", "-b:a", "192k", "-ac", "2", "-shortest", "-movflags", "+faststart", tmpout], check=True)
+                    "-af", "loudnorm=I=-15:TP=-1.0:LRA=11", "-ar", "48000", "-c:a", "aac", "-b:a", "192k", "-ac", "2", "-shortest", "-movflags", "+faststart", tmpout], check=True)
     os.replace(tmpout, out)
     print("wrote", out)
 

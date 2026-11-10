@@ -1,0 +1,46 @@
+INERTIA REEL — VOICE-OVER SCRIPT (62 സെക്കൻഡ്)
+ഓരോ വരിയും ആ സമയത്ത് സ്ക്രീനിൽ വരുന്ന ടെക്സ്റ്റിനൊപ്പം വായിക്കാം. Scientific words English-ൽ തന്നെ പറയുക.
+
+[0:00 – 0:06]  (Hook — ചോദ്യം സ്ക്രീനിൽ)
+"ബസ് പെട്ടെന്ന് brake ഇടുമ്പോൾ നമ്മൾ മുന്നോട്ട് വീഴുന്നത് എന്തുകൊണ്ടാണ്?"
+
+[0:06 – 0:11]  (ബസ് brake ഇടുന്നു)
+"നോക്കൂ… ബസ് നിന്നു. പക്ഷെ നമ്മൾ മുന്നോട്ട് ആഞ്ഞുപോയി!"
+
+[0:11 – 0:13]  ("കാരണം: Inertia of Motion")
+"ഇതിന്റെ കാരണം Inertia of Motion ആണ്."
+
+[0:13 – 0:16]  (orange arrow)
+"നമ്മുടെ ശരീരത്തിന്റെ മുകൾഭാഗം അതേ motion തുടരാൻ ശ്രമിക്കുന്നു."
+
+[0:16 – 0:19]  (green arrow)
+"പക്ഷെ friction കാരണം കാലുകൾ ബസിനൊപ്പം നിൽക്കുന്നു."
+
+[0:19 – 0:25]  (definition)
+"Inertia of motion എന്നാൽ motion-ലുള്ള ഒരു body-ക്ക് motion-ൽ തന്നെ തുടരാനുള്ള tendency ആണ്."
+
+[0:25 – 0:33]  (Newton's First Law card — English-ൽ വായിക്കുക)
+"Newton's first law, അഥവാ Law of Inertia: Every body continues to be in its state of rest or of uniform motion in a straight line unless compelled by some external force to change that state."
+
+[0:33 – 0:37]  (Malayalam explanation)
+"അതായത്, external force ഇല്ലെങ്കിൽ rest-ൽ ഉള്ളത് rest-ൽ തന്നെ, uniform motion-ൽ ഉള്ളത് അങ്ങനെ തന്നെ തുടരും."
+
+[0:37 – 0:41]  (F = 0 → a = 0 → v = constant)
+"Net external force zero ആണെങ്കിൽ acceleration zero, velocity constant."
+
+[0:41 – 0:45]  (Mass = measure of Inertia)
+"Mass ആണ് inertia-യുടെ measure. Mass കൂടുന്തോറും inertia കൂടും."
+
+[0:45 – 0:52]  (blocks + a = F/m)
+"ഒരേ force കൊടുത്താൽ mass കൂടിയ body-ക്ക് acceleration കുറവായിരിക്കും — a = F by m."
+
+[0:52 – 0:56]  (QUIZ — PYQ 2023)
+"ഇനി ഒരു Plus One exam ചോദ്യം! ബസ് പെട്ടെന്ന് start ചെയ്യുമ്പോൾ യാത്രക്കാർ പിന്നോട്ട് വീഴുന്നത് ഏത് inertia കാരണം?"
+
+[0:56 – 0:59]  (options)
+"A — Inertia of rest. B — Inertia of motion."
+
+[0:59 – 1:02]  (comment + follow)
+"ഉത്തരം comment ചെയ്യൂ! Follow ചെയ്യൂ."
+
+(Quiz ഉത്തരം: A — Inertia of rest. PYQ: Kerala Plus One, 2023)

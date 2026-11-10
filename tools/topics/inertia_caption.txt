@@ -1,0 +1,14 @@
+ബസ് പെട്ടെന്ന് brake ഇടുമ്പോൾ നമ്മൾ മുന്നോട്ട് വീഴുന്നത് എന്തുകൊണ്ടാണ്? 🚌💨
+
+കാരണം Inertia of Motion ആണ്! ബസ് നിൽക്കുമ്പോൾ friction കാരണം നമ്മുടെ കാലുകൾ ബസിനൊപ്പം നിൽക്കുന്നു. പക്ഷെ ശരീരത്തിന്റെ മുകൾഭാഗം അതേ motion തുടരുന്നു. അതുകൊണ്ട് നമ്മൾ മുന്നോട്ട് ആഞ്ഞുപോകുന്നു.
+
+📘 Newton's First Law (Law of Inertia): Every body continues to be in its state of rest or of uniform motion in a straight line unless compelled by some external force to change that state.
+⚖️ Mass is the measure of inertia. Mass കൂടുന്തോറും inertia കൂടും (a = F/m).
+
+❓ QUIZ (📝 PYQ: Plus One 2023): ബസ് പെട്ടെന്ന് start ചെയ്യുമ്പോൾ യാത്രക്കാർ പിന്നോട്ട് വീഴുന്നത് ഏത് inertia കാരണം?
+A) Inertia of rest  B) Inertia of motion
+ഉത്തരം comment ചെയ്യൂ! 👇
+
+Follow ചെയ്യൂ 🔔
+
+#physics #plusonephysics #plustwophysics #keralasyllabus #newtonslaws #inertia #lawsofmotion #physicsinmalayalam #malayalam #science #sciencefacts #physicsteacher #hse #ncert #neet #jee #kerala #reels

@@ -6,3 +6,8 @@ Status: SCHEDULED — DONE. Nothing to do on the 2026-11-11 morning run.
   Uplika post id post_dfdf52975d979588 (AI labels on: aiGenerated, isAiGenerated, containsSyntheticMedia).
 - Do NOT schedule meteor_music_only.mp4 and do NOT make a new video/voice today.
 - Morning run: just send JMK one line that today's reel is already scheduled for 6 PM.
+
+Update 2026-11-11 00:16 (JMK asked):
+- YouTube: uploaded now as UNLISTED (post_3d3939fd4b3eac43, https://www.youtube.com/watch?v=hUOCZ4BSoyk) so JMK can set the thumbnail;
+  one-shot scheduled task trig_01CKBvXryJ3GkQQMVpNZfTEw makes it PUBLIC at 2026-11-11 18:00 IST.
+- Instagram: post_dfdf52975d979588 now targets Instagram only, still scheduled 18:00 IST (JMK's cover).

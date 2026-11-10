@@ -1,12 +1,12 @@
 """Cinematic 'science story' reel style: big uppercase headline with one coloured word,
 small mono caption, SOURCE strip, Malayalam subtitle, location pins, slow camera push.
 Built on reelkit (same watermark/footer, size, fps)."""
-import math
+import math, os
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 from reelkit import *
 
-POP = "/usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf"
+POP = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts", "comic-neue-latin-700-normal.ttf")  # Chalkboard-style English
 MONO = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf"
 _f = {}
 def F(path, size):

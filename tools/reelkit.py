@@ -14,8 +14,8 @@ FD = os.path.join(HERE, "fonts")
 FONT_FILES = {
     ("ml", "bold"): f"{FD}/AnekMalayalam-Bold.ttf",
     ("ml", "reg"): f"{FD}/AnekMalayalam-Regular.ttf",
-    ("lat", "bold"): "/usr/share/fonts/opentype/inter/Inter-Bold.otf",
-    ("lat", "reg"): "/usr/share/fonts/opentype/inter/Inter-Regular.otf",
+    ("lat", "bold"): f"{FD}/comic-neue-latin-700-normal.ttf",
+    ("lat", "reg"): f"{FD}/comic-neue-latin-400-normal.ttf",
     ("sym", "bold"): "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
     ("sym", "reg"): "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
 }
@@ -244,28 +244,70 @@ def footer(fr, d, handle):
     paste(fr, watermark(), W / 2, WM_Y, 0.92)
 
 # ---------- music ----------
-def make_music(path, dur, sr=44100):
+def make_music(path, dur, sr=44100, bpm=96, seed=7):
+    """Warm, light background track: pad chords + plucked arpeggio + bass + soft kick/hat.
+    Am - F - C - G, 2 bars per chord loop. Normalised to peak 0.28 (mix_voice rescales)."""
+    rng = np.random.default_rng(seed)
     n = int(dur * sr); t = np.arange(n) / sr
-    chords = [[57, 60, 64], [53, 57, 60], [48, 52, 55], [55, 59, 62]]  # Am F C G
+    beat = 60 / bpm; bar = 4 * beat
+    chords = [[57, 60, 64], [53, 57, 60], [48, 52, 55], [55, 59, 62]]
+    hz = lambda m: 440 * 2 ** ((m - 69) / 12)
     out = np.zeros(n)
-    seg = 4.0
-    for i in range(int(math.ceil(dur / seg))):
-        a, b = int(i * seg * sr), min(n, int((i + 1) * seg * sr + 0.8 * sr))
-        tt = t[a:b] - i * seg
-        env = np.minimum(1, tt / 0.9) * np.exp(-np.maximum(0, tt - seg) * 3)
-        for m in chords[i % 4]:
-            f = 440 * 2 ** ((m - 69) / 12)
-            out[a:b] += env * (np.sin(2 * np.pi * f * tt) * 0.5 + np.sin(2 * np.pi * f * 2.001 * tt) * 0.12)
-        fb = 440 * 2 ** ((chords[i % 4][0] - 12 - 69) / 12)
-        out[a:b] += env * np.sin(2 * np.pi * fb * tt) * 0.5
-        # soft pulse on beats
-        for k in range(8):
-            s0 = a + int(k * 0.5 * sr)
-            if s0 >= n: break
-            L = min(int(0.25 * sr), n - s0)
-            tk = np.arange(L) / sr
-            out[s0:s0 + L] += np.sin(2 * np.pi * 2 * fb * tk) * np.exp(-tk * 14) * 0.35
-    out *= np.minimum(1, t / 1.5) * np.minimum(1, (dur - t) / 1.5)
+    def lowpass(x, a):  # one-pole
+        y = np.empty_like(x); acc = 0.0
+        for i in range(len(x)):
+            acc += a * (x[i] - acc); y[i] = acc
+        return y
+    # pad: detuned saws, filtered, slow swell per chord
+    nb = int(math.ceil(dur / bar)) + 1
+    pad = np.zeros(n)
+    for i in range(nb):
+        ch = chords[(i // 1) % 4]
+        a0, b0 = int(i * bar * sr), min(n, int((i + 1) * bar * sr + 0.3 * sr))
+        if a0 >= n: break
+        tt = t[a0:b0] - i * bar
+        env = np.minimum(1, tt / 0.6) * np.minimum(1, np.maximum(0, (bar + 0.3 - tt)) / 0.5)
+        for m in ch:
+            for det in (-0.08, 0.08):
+                f = hz(m) * 2 ** (det / 12)
+                pad[a0:b0] += env * (2 * ((f * tt) % 1) - 1) * 0.12
+    pad = np.convolve(pad, np.ones(18) / 18, mode="same")  # soften
+    out += pad * 0.8
+    # plucked arpeggio (Karplus-Strong), 8th notes
+    step = beat / 2
+    for k in range(int(dur / step)):
+        ch = chords[int(k * step / bar) % 4]
+        m = ch[[0, 1, 2, 1][k % 4]] + 12
+        f = hz(m); N = max(2, int(sr / f))
+        L = min(int(0.9 * sr), n - int(k * step * sr))
+        if L <= 0: break
+        buf = rng.uniform(-1, 1, N); y = np.empty(L)
+        for i in range(L):
+            y[i] = buf[i % N]
+            buf[i % N] = 0.996 * 0.5 * (buf[i % N] + buf[(i + 1) % N])
+        s0 = int(k * step * sr)
+        out[s0:s0 + L] += y * 0.22 * (0.8 if k % 2 else 1.0)
+    # bass on beats 1 and 3
+    for k in range(int(dur / (2 * beat)) + 1):
+        ch = chords[int(k * 2 * beat / bar) % 4]
+        s0 = int(k * 2 * beat * sr); L = min(int(1.6 * beat * sr), n - s0)
+        if L <= 0: break
+        tk = np.arange(L) / sr
+        f = hz(ch[0] - 24)
+        out[s0:s0 + L] += np.sin(2 * np.pi * f * tk) * np.minimum(1, tk / 0.01) * np.exp(-tk * 2.2) * 0.5
+    # soft kick + hat (start after 2 bars so the intro breathes)
+    for k in range(int(dur / beat)):
+        s0 = int(k * beat * sr)
+        if k * beat < 2 * bar: continue
+        if k % 2 == 0:
+            L = min(int(0.25 * sr), n - s0); tk = np.arange(L) / sr
+            f = 110 * np.exp(-tk * 30) + 45
+            out[s0:s0 + L] += np.sin(2 * np.pi * np.cumsum(f) / sr) * np.exp(-tk * 12) * 0.45
+        h0 = s0 + int(beat / 2 * sr); L = min(int(0.05 * sr), n - h0)
+        if L > 0:
+            hh = rng.standard_normal(L); hh = hh - np.convolve(hh, np.ones(4) / 4, mode="same")
+            out[h0:h0 + L] += hh * np.exp(-np.arange(L) / sr * 70) * 0.06
+    out *= np.minimum(1, t / 1.5) * np.minimum(1, (dur - t) / 1.8)
     out = out / (np.abs(out).max() + 1e-9) * 0.28
     pcm = (out * 32767).astype(np.int16)
     with wave.open(path, "wb") as w:

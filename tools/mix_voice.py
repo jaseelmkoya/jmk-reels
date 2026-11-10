@@ -96,7 +96,7 @@ def main(topic_path, video, out):
     music = np.zeros(n); m = read_wav(mp)[:n]; music[:len(m)] = m / (np.abs(m).max() + 1e-9)
     win = int(0.25 * SR)
     venv = np.convolve(np.abs(voice), np.ones(win) / win, mode="same")
-    duck = np.where(venv > 0.02, 0.045, 0.11)
+    duck = np.where(venv > 0.02, 0.10, 0.30)  # JMK wants the music clearly audible
     duck = np.convolve(duck, np.ones(int(0.3 * SR)) / int(0.3 * SR), mode="same")
     mix = voice * 0.95 + fx + music * duck
     mix /= max(1.0, np.abs(mix).max() / 0.97)

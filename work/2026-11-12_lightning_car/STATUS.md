@@ -11,3 +11,4 @@ Update 2026-11-12 16:40 IST (JMK: "മാറ്റിക്കോ" + YouTube unl
 - Instagram: post_f9ec3576ade828e7 now Instagram-only with lightning_car_ig.mp4 (Follow end-card), still 18:00 IST.
 - YouTube: lightning_car_yt.mp4 (Subscribe + bell end-card) uploaded UNLISTED now: post_6787a29879a0bc86,
   https://www.youtube.com/watch?v=8Uit2VKnY3Y ; one-shot scheduled task makes it PUBLIC at 18:00 IST.
+- Instagram cover = JMK's image (lightning_car_cover_jmk.jpg, set 16:52 IST).

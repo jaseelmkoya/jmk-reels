@@ -6,3 +6,8 @@ Status: SCHEDULED — DONE. AI-voice version approved by JMK ("ok", ~10:15 IST).
 - Old no-voice post post_e040dc6e232f6670 deleted. Do NOT schedule lightning_car_music.mp4.
 - Files: lightning_car_music.mp4 (no-voice, old watermark), topic files lightning_car.py / lightning_car_vo.py + lc_words.json.
 - Branding change (JMK, 12 Nov): YouTube channel name is now "JMK Space" (capital J, M, K, S). tools/reelkit.py watermark updated.
+
+Update 2026-11-12 16:40 IST (JMK: "മാറ്റിക്കോ" + YouTube unlisted now, public at 6):
+- Instagram: post_f9ec3576ade828e7 now Instagram-only with lightning_car_ig.mp4 (Follow end-card), still 18:00 IST.
+- YouTube: lightning_car_yt.mp4 (Subscribe + bell end-card) uploaded UNLISTED now: post_6787a29879a0bc86,
+  https://www.youtube.com/watch?v=8Uit2VKnY3Y ; one-shot scheduled task makes it PUBLIC at 18:00 IST.

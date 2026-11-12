@@ -215,7 +215,7 @@ def paint_bg(bg, T):
 # ---------- watermark (Instagram + YouTube, with profile pictures) ----------
 BRAND = [  # (platform label, handle, profile picture file, ring colour)
     ("Instagram", "@jmk.space", f"{HERE}/brand/ig.jpg", (225, 48, 108)),
-    ("YouTube", "@jaseelmkoyajmk", f"{HERE}/brand/yt.jpg", (255, 0, 0)),
+    ("YouTube", "JMK Space", f"{HERE}/brand/yt.jpg", (255, 0, 0)),
 ]
 _wm = None
 def _avatar(path, ring, initials, size=64):

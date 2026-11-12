@@ -15,3 +15,10 @@ The key changes per video (seed from the topic name), so no two videos sound the
 Narration text appears word by word, in time with the voice (word times spread over the real speech
 found by silencedetect). Without voice, words appear at reading pace. Malayalam is revealed per word,
 never per letter (conjuncts would break). For voiced videos ALWAYS get exact word times: ElevenLabs creative_transcribe_audio (eleven_scribe_v1, 0 credits) on the speech node → words[].start → Captions.from_words(lines, words). Display tokens must match spoken words 1:1. See topics/story_raman_vo.py + story_raman_words.json.
+
+## Platform end-cards (endcard.py) — JMK, 12 Nov
+Every reel gets two exports with a 4 s end animation appended:
+`python3 endcard.py <final.mp4> <prefix>` → `<prefix>_ig.mp4` (blue "Follow" tapped → "Following", hearts)
+and `<prefix>_yt.mp4` (red "SUBSCRIBE" tapped → "SUBSCRIBED", then bell tapped and ringing).
+Instagram ALWAYS gets the _ig file, YouTube ALWAYS gets the _yt file → publish them as two separate Uplika posts.
+Only the apps' button styles are imitated; the Instagram/YouTube logos are never drawn.

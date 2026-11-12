@@ -72,6 +72,20 @@ def sfx(kind):
             s = int(k * 0.5 * SR); m = int(0.02 * SR); tt = np.arange(m) / SR
             y[s:s + m] += np.sin(2 * np.pi * (2400 if k % 2 else 1900) * tt) * np.exp(-tt * 260)
         return y * 0.12
+    if kind == "thunder":  # sharp crack + long low rumble
+        n = int(3.6 * SR); t = np.arange(n) / SR
+        crack = bandnoise(n, 900, 7000) * np.exp(-t * 18) * np.minimum(1, t / 0.003)
+        rumble = bandnoise(n, 25, 220) * np.exp(-t * 1.1) * np.minimum(1, t / 0.08) * (1 + 0.35 * np.sin(2 * np.pi * 3.1 * t))
+        return crack * 0.30 + rumble * 0.55
+    if kind == "rain":  # soft steady rain bed (6 s)
+        n = int(6.0 * SR); t = np.arange(n) / SR
+        y = bandnoise(n, 1500, 9000) * 0.8 + bandnoise(n, 300, 1500) * 0.3
+        e = np.minimum(1, t / 0.8) * np.minimum(1, (t[-1] - t) / 1.0)
+        return y * e * 0.05
+    if kind == "zap":  # electric crackle
+        n = int(0.6 * SR); t = np.arange(n) / SR
+        y = bandnoise(n, 2000, 8000) * (rng.random(n) > 0.6) + 0.4 * np.sign(np.sin(2 * np.pi * 120 * t)) * bandnoise(n, 200, 2000)
+        return y * np.exp(-t * 5) * 0.12
     raise ValueError(kind)
 
 def read_wav(p):

@@ -1,0 +1,18 @@
+⚡ ഇടിമിന്നൽ സമയത്ത് car-നുള്ളിൽ നമ്മൾ safe ആണോ?
+
+തുലാവർഷം തുടങ്ങി, ഇടിമിന്നലും! Car-ൽ മിന്നൽ അടിച്ചാലും ഉള്ളിലുള്ളവർ സാധാരണ safe ആണ് — പക്ഷെ അത് rubber tyre കാരണമല്ല. Current പുറത്തെ metal body-യിലൂടെ ഒഴുകി ground-ലേക്ക് പോകുന്നു; ഉള്ളിൽ electric field ഇല്ല. ഇതാണ് Electrostatic Shielding.
+
+📘 Electrostatic shielding: The electric field inside the cavity of a conductor is zero.
+⚖️ Gauss's theorem: ∮E·dS = q/ε₀ → shell-ന്റെ ഉള്ളിൽ q = 0 → E = 0
+
+⚠️ Safety: window അടച്ച്, metal ഭാഗങ്ങൾ തൊടാതെ ഇരിക്കുക. Bike-ലോ തുറന്ന വാഹനത്തിലോ ഈ shielding ഇല്ല!
+
+❓ Quiz (Plus Two exam favourite): Charge ഉള്ള ഒരു spherical shell-ന്റെ ഉള്ളിൽ electric field എത്ര?
+A) q/4πε₀r²   B) Zero
+ഉത്തരം comment ചെയ്യൂ! 👇
+
+Source: NOAA / US National Weather Service lightning safety
+
+Follow ചെയ്യൂ 🔔
+
+#physics #plustwophysics #plusonephysics #keralasyllabus #physicsinmalayalam #malayalam #science #hse #ncert #neet #jee #kerala #lightning #thulavarsham #electrostatics #gausslaw #faradaycage #electrostaticshielding

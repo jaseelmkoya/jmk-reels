@@ -1,0 +1,53 @@
+LIGHTNING & CAR REEL — VOICE-OVER SCRIPT (83 സെക്കൻഡ്) · Plus Two Ch1 · Electrostatic shielding
+(No-voice version: words appear at reading pace. Voice-ൽ ഇതേ വാക്കുകൾ ഇതേ order-ൽ പറയുക — captions word-by-word sync ചെയ്യും.)
+
+[0:00.3 – 0:07.6]  (Hook — ചോദ്യം)
+"ഇടിമിന്നൽ സമയത്ത് car-നുള്ളിൽ ഇരുന്നാൽ നമ്മൾ safe ആണോ?"
+
+[0:07.6 – 0:13.3]  (മിന്നൽ car-ൽ അടിക്കുന്നു)
+"മിന്നൽ car-ൽ അടിച്ചു... പക്ഷെ ഉള്ളിലുള്ളയാൾ safe!"
+
+[0:13.3 – 0:16.8]  (Myth)
+"Rubber tyre ഉള്ളതുകൊണ്ടാണോ?"
+
+[0:16.8 – 0:20.4]  (Fact (NOAA))
+"അല്ല! രക്ഷിക്കുന്നത് car-ന്റെ metal body ആണ്."
+
+[0:20.4 – 0:25.7]  (Current flow animation)
+"Current പുറത്തെ metal-ലൂടെ ഒഴുകി ground-ലേക്ക് പോകുന്നു."
+
+[0:25.7 – 0:27.1]  (കാരണം)
+"കാരണം: Electrostatic shielding"
+
+[0:27.1 – 0:34.1]  (Charges on outer surface)
+"Conductor-ലെ charge പുറം surface-ൽ മാത്രം നിൽക്കുന്നു."
+
+[0:34.1 – 0:41.2]  (E = 0 inside)
+"അതുകൊണ്ട് ഉള്ളിലെ cavity-ൽ electric field = zero"
+
+[0:41.2 – 0:46.9]  (Definition card — English-ൽ വായിക്കുക)
+"The electric field inside the cavity of a conductor is zero."
+
+[0:46.9 – 0:53.7]  (Malayalam explanation)
+"പുറത്ത് എത്ര വലിയ field ഉണ്ടായാലും ഉള്ളിലേക്ക് അത് എത്തില്ല."
+[0:52.1] (Gauss's theorem equation — "Gauss's theorem: closed surface-ലൂടെയുള്ള electric flux = q by epsilon nought")
+
+[0:53.7 – 1:00.1]  (Gauss's theorem)
+"Shell-ന്റെ ഉള്ളിൽ charge ഇല്ല → E = 0"
+
+[1:00.1 – 1:04.1]  (Safety tip)
+"Window അടച്ച്, metal ഭാഗങ്ങൾ തൊടാതെ ഇരിക്കുക."
+
+[1:04.1 – 1:10.9]  (Bike / open vehicle)
+"Bike-ലോ തുറന്ന വാഹനത്തിലോ ഈ shielding ഇല്ല!"
+
+[1:10.9 – 1:17.6]  (Quiz)
+"Charge ഉള്ള ഒരു spherical shell-ന്റെ ഉള്ളിൽ electric field എത്ര?"
+
+[1:17.6 – 1:19.4]  (Comment)
+"ഉത്തരം comment ചെയ്യൂ!"
+
+[1:19.4 – 1:23.0]  (Follow)
+"Follow ചെയ്യൂ"
+
+Quiz ഉത്തരം: B) Zero — charged spherical shell-ന്റെ ഉള്ളിൽ E = 0 (Gauss's theorem; Plus Two exam favourite).

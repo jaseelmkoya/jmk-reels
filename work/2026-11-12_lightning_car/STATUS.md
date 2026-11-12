@@ -9,3 +9,6 @@ Update 2026-11-12 ~09:05 IST — JMK asked "ai voice":
 - WAITING for JMK's "ok". Until then the no-voice post post_e040dc6e232f6670 stays scheduled for 18:00.
 - On ok: delete post_e040dc6e232f6670, publish lightning_car_aivoice.mp4 at 18:00 with AI labels (aiGenerated, isAiGenerated, containsSyntheticMedia).
 - JMK also asked for Google Flow clips: not possible in this cloud run (no browser / Flow connector); prompts sent to him.
+- v2 voice (JMK said some words unclear, e.g. Gauss's theorem, current): re-generated with English terms spelled in Malayalam
+  script in the TTS text (ഗൗസ് തിയറം, കറന്റ്, ഇലക്ട്രോസ്റ്റാറ്റിക് ഷീൽഡിങ്...), 795 credits; on-screen text unchanged (English terms).
+  lightning_car_aivoice.mp4 replaced (69 s). Still WAITING for "ok".

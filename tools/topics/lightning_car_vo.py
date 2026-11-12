@@ -41,7 +41,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ORDER = ["HOOK", "CAP1", "MYTH", "FACT", "FLOW", "WHY", "SURF", "ZERO", "DEF", "DEF_ML", "GAUSS_ML", "TIP1", "TIP2", "Q", "OPTS", "CMT", "FOL"]
 GAP = dict(HOOK=0.6, CAP1=2.3, MYTH=1.3, FACT=0.9, FLOW=0.5, WHY=1.1, SURF=0.3, ZERO=1.4, DEF=1.3, DEF_ML=0.8, GAUSS_ML=2.0,
            TIP1=1.2, TIP2=0.7, Q=1.3, OPTS=0.2, CMT=1.4, FOL=0.4)
-TAIL, RAW_END = 1.8, 48.77
+TAIL, RAW_END = 1.8, 49.92
 RAW = json.load(open(os.path.join(HERE, "lc_words.json")))
 SEGS, WT = [], {}
 _k, _t = 0, 0.0

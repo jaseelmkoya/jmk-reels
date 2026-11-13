@@ -1,18 +1,19 @@
-🎠 75 kg അച്ഛനോ 25 kg കുട്ടിയോ — ആരുടെ ഊഞ്ഞാൽ വേഗം ആടും? നിങ്ങൾക്ക് ഉത്തരം അറിയാമോ?
+🌍 ഒരു pendulum കൊണ്ട് ഭൂമി കറങ്ങുന്നത് കാണാൻ പറ്റുമോ? പറ്റും! 🤯
 
+1851-ൽ Paris-ലെ Panthéon-ൽ 67 m നീളമുള്ള ഒരു pendulum (Foucault pendulum) ഭൂമി കറങ്ങുന്നത് നേരിട്ട് കാണിച്ചുതന്നു! Pendulum ആടുന്ന ദിശ പതുക്കെ തിരിയുന്നു — ശരിക്കും തിരിയുന്നത് താഴെയുള്ള ഭൂമിയാണ്. Kerala-യിൽ ഒരു റൗണ്ട് തിരിയാൻ ഏകദേശം 6 ദിവസം; North Pole-ൽ 1 ദിവസം, Equator-ൽ തിരിയുകയേ ഇല്ല.
+📚 Source: Encyclopaedia Britannica — Foucault pendulum
+
+🎠 ഇനി ഒരു ചോദ്യം: 75 kg അച്ഛനോ 25 kg കുട്ടിയോ — ആരുടെ ഊഞ്ഞാൽ വേഗം ആടും?
 ഉത്തരം: രണ്ടും ഒരേ താളത്തിൽ! ഊഞ്ഞാൽ ഒരു simple pendulum പോലെയാണ്. ചെറിയ angle-ൽ അതിന്റെ period length-നെയും g-യെയും മാത്രം ആശ്രയിക്കുന്നു — mass-നെ അല്ല. Length 4 മടങ്ങ് ആക്കിയാൽ period 2 മടങ്ങ്!
 
 📘 For small amplitudes, the period of a simple pendulum is independent of the mass of the bob.
 ⚖️ T = 2π√(L/g)  →  T ∝ √L
-
-🤯 നിങ്ങൾക്കറിയാമോ? 1851-ൽ Paris-ലെ Panthéon-ൽ 67 m നീളമുള്ള ഒരു pendulum (Foucault pendulum) ഭൂമി കറങ്ങുന്നത് നേരിട്ട് കാണിച്ചുതന്നു! Pendulum ആടുന്ന ദിശ പതുക്കെ തിരിയുന്നു — ശരിക്കും തിരിയുന്നത് താഴെയുള്ള ഭൂമിയാണ്. Kerala-യിൽ ഒരു റൗണ്ട് തിരിയാൻ ഏകദേശം 6 ദിവസം; North Pole-ൽ 1 ദിവസം, Equator-ൽ തിരിയുകയേ ഇല്ല.
-📚 Source: Encyclopaedia Britannica — Foucault pendulum
 
 ❓ Quiz: Simple pendulum-ന്റെ period bob-ന്റെ mass-നെ ആശ്രയിക്കുന്നു. True or False?
 A) True   B) False
 📝 PYQ: Plus One March 2022
 ഉത്തരം comment ചെയ്യൂ! 👇
 
-#physics #plusonephysics #plustwophysics #keralasyllabus #physicsinmalayalam #malayalam #science #hse #ncert #neet #jee #kerala #oscillations #simplependulum #shm #timeperiod #swing #oonjal #foucaultpendulum #sciencefacts
+#physics #plusonephysics #plustwophysics #keralasyllabus #physicsinmalayalam #malayalam #science #hse #ncert #neet #jee #kerala #oscillations #simplependulum #foucaultpendulum #earthrotation #sciencefacts #swing
 
 Follow ചെയ്യൂ 🔔

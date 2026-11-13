@@ -22,3 +22,14 @@ Every reel gets two exports with a 4 s end animation appended:
 and `<prefix>_yt.mp4` (red "SUBSCRIBE" tapped → "SUBSCRIBED", then bell tapped and ringing).
 Instagram ALWAYS gets the _ig file, YouTube ALWAYS gets the _yt file → publish them as two separate Uplika posts.
 Only the apps' button styles are imitated; the Instagram/YouTube logos are never drawn.
+
+## Reach rules (JMK, 13 Nov — from the first 3 days of stats)
+Facts: JMK's own face/experiment reels got ~3x the views of our text animations (Torque 3,876 vs 387–1,366).
+Meteor (trending hook + JMK's own thumbnail + voice) did best of ours: 1,366 IG views, 44 shares, 1,066 YT.
+1. LENGTH 30–40 s for animated reels (hard max 45 s, end-card not counted). One idea per reel, cut everything else.
+2. FIRST SECOND = HOOK: frame 0 already shows the big question/claim + a moving visual (no slow fade-in, no tag pill first;
+   the "PLUS ONE PHYSICS" tag comes in small after ~1.5 s). The hook question must make people curious ("…safe ആണോ?").
+3. CAPTION: first line = the hook question (with 1 emoji), then 2–3 short lines, the quiz, "Follow ചെയ്യൂ 🔔";
+   only 5–6 relevant hashtags (no long hashtag walls).
+4. FACE HOOK (optional): if JMK sends a 3–8 s phone clip of himself asking the hook, put it first with
+   `python3 prepend_hook.py <clip> <reel.mp4> <out.mp4>` (before endcard.py), and shorten the animated part accordingly.

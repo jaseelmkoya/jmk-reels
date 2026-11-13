@@ -1,8 +1,11 @@
-SWING / SIMPLE PENDULUM REEL — VOICE-OVER SCRIPT (70 സെക്കൻഡ്) · Plus One Ch13 Oscillations
-(No-voice version: words appear at reading pace. Voice-ൽ ഇതേ വാക്കുകൾ ഇതേ order-ൽ പറയുക — captions word-by-word sync ചെയ്യും.)
+SWING / SIMPLE PENDULUM REEL — VOICE-OVER SCRIPT (86 സെക്കൻഡ് + 4 s end-card) · Plus One Ch13 Oscillations
+(No-voice version: words appear at reading pace. Voice-ൽ ഇതേ വാക്കുകൾ ഇതേ order-ൽ പറയുക — captions word-by-word sync ചെയ്യും. Voice-ൽ 'Paris' → 'പാരീസ്', 'Kerala' → 'കേരള', 'Foucault' → 'ഫൂക്കോ'.)
 
-[0:00.3 – 0:08.0]  (Hook — ചോദ്യം, രണ്ട് ഊഞ്ഞാൽ ആടുന്നു)
-"ഒരേ നീളമുള്ള ഊഞ്ഞാലിൽ ഒരു കുട്ടിയും അച്ഛനും. ആരുടെ ഊഞ്ഞാൽ ആണ് വേഗം ആടുന്നത്?"
+[0:00.1 – 0:04.0]  (Hook — വേഗത്തിൽ, ആദ്യ 3 സെക്കൻഡിൽ)
+"75 kg അച്ഛനോ 25 kg കുട്ടിയോ — ആരുടെ ഊഞ്ഞാൽ വേഗം ആടും?"
+
+[0:04.0 – 0:08.0]  (Curiosity tease)
+"ഉത്തരം കണ്ടാൽ നിങ്ങൾ ഞെട്ടും!"
 
 [0:08.0 – 0:13.2]  (രണ്ടും ഒരുമിച്ച് ആടുന്നു)
 "രണ്ടും ഒരേ താളത്തിൽ! Period ഒന്നുതന്നെ."
@@ -25,16 +28,26 @@ SWING / SIMPLE PENDULUM REEL — VOICE-OVER SCRIPT (70 സെക്കൻഡ്)
 [0:44.3 – 0:51.0]  (Short vs long pendulum)
 "Length കൂടിയാൽ period കൂടും"
 
-[0:51.0 – 0:58.4]  (L → 4L ആക്കുമ്പോൾ T → 2T)
+[0:51.0 – 0:58.0]  (L → 4L ആക്കുമ്പോൾ T → 2T)
 "Length 4 മടങ്ങ് ആക്കിയാൽ period 2 മടങ്ങ്!"
 
-[0:58.4 – 1:05.1]  (QUIZ — PYQ Plus One 2022)
+[0:58.0 – 1:04.1]  (നിങ്ങൾക്കറിയാമോ? — Foucault pendulum)
+"1851-ൽ Paris-ൽ 67 m നീളമുള്ള ഒരു pendulum ഭൂമി കറങ്ങുന്നത് നേരിട്ട് കാണിച്ചുതന്നു!"
+
+[1:04.1 – 1:09.1]  (Swing plane തിരിയുന്നു (time-lapse, മുകളിൽ നിന്ന്))
+"Pendulum ആടുന്ന ദിശ പതുക്കെ തിരിയുന്നു. ശരിക്കും തിരിയുന്നത് താഴെയുള്ള ഭൂമിയാണ്!"
+
+[1:09.1 – 1:14.4]  (Kerala-യിൽ ~6 ദിവസം (Source: Britannica))
+"Kerala-യിൽ ഒരു റൗണ്ട് തിരിയാൻ ഏകദേശം 6 ദിവസം!"
+
+[1:14.4 – 1:21.1]  (QUIZ — PYQ Plus One 2022)
 "Simple pendulum-ന്റെ period bob-ന്റെ mass-നെ ആശ്രയിക്കുന്നു. True or False?"
 
-[1:05.1 – 1:06.9]  (A) True  B) False)
+[1:21.1 – 1:22.9]  (A) True  B) False)
 "ഉത്തരം comment ചെയ്യൂ!"
 
-[1:06.9 – 1:10.0]  (End)
+[1:22.9 – 1:26.0]  (End)
 "Follow ചെയ്യൂ"
 
 Quiz ഉത്തരം: B) False — simple pendulum-ന്റെ period mass-നെ ആശ്രയിക്കുന്നില്ല (T = 2π√(L/g)). PYQ: Plus One March 2022.
+Fact source: Encyclopaedia Britannica, 'Foucault pendulum' (Paris Panthéon 1851, 67 m wire, 28 kg bob; rate = 15°/h × sin(latitude); Kerala ≈ 10°N → ≈ 2.6°/h → ≈ 138 h ≈ 6 ദിവസം).

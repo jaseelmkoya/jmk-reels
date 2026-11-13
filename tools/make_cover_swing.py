@@ -1,0 +1,16 @@
+import sys, importlib.util
+from reelkit import *
+spec = importlib.util.spec_from_file_location("topic", sys.argv[1]); tp = importlib.util.module_from_spec(spec); spec.loader.exec_module(tp)
+bg = make_bg(); fr = paint_bg(bg, 3.0); d = ImageDraw.Draw(fr)
+tp.ground(d, 1300)
+tp.frame_beam(d, 150, 930, 820, 1300)
+tp.swing(fr, 350, 820, 340, 0.38, "kid", y0=640, h=780)
+tp.swing(fr, 730, 820, 340, 0.38, "adult", y0=640, h=780)
+paste(fr, pill("PLUS ONE PHYSICS", 40, bg=CYAN), W/2, 300)
+paste(fr, text_img("SWING", 170, color=YELLOW, max_w=1040), W/2, 350)
+paste(fr, text_img("കുട്ടിയോ അച്ഛനോ — ആര് *വേഗം* ആടും?", 50, max_w=1060, hl=ORANGE), W/2, 590)
+paste(fr, tp.KID, 350, 735); paste(fr, tp.ADULT, 730, 735)
+paste(fr, pill("Simple Pendulum  ·  T = 2π√(L/g)", 42, fg=(9,14,38), bg=YELLOW), W/2, 1400)
+paste(fr, pill("PYQ 2022", 34, fg=WHITE, bg=(80, 60, 160)), W/2, 1510)
+footer(fr, d, "")
+fr.convert("RGB").save(sys.argv[2], quality=92)

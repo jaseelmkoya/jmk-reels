@@ -1,0 +1,15 @@
+🎠 ഒരേ നീളമുള്ള ഊഞ്ഞാലിൽ ഒരു കുട്ടിയും അച്ഛനും — ആരുടെ ഊഞ്ഞാൽ ആണ് വേഗം ആടുന്നത്?
+
+ഉത്തരം: രണ്ടും ഒരേ താളത്തിൽ! ഊഞ്ഞാൽ ഒരു simple pendulum പോലെയാണ്. ചെറിയ angle-ൽ അതിന്റെ period length-നെയും g-യെയും മാത്രം ആശ്രയിക്കുന്നു — mass-നെ അല്ല. Length 4 മടങ്ങ് ആക്കിയാൽ period 2 മടങ്ങ്!
+
+📘 For small amplitudes, the period of a simple pendulum is independent of the mass of the bob.
+⚖️ T = 2π√(L/g)  →  T ∝ √L
+
+❓ Quiz: Simple pendulum-ന്റെ period bob-ന്റെ mass-നെ ആശ്രയിക്കുന്നു. True or False?
+A) True   B) False
+📝 PYQ: Plus One March 2022
+ഉത്തരം comment ചെയ്യൂ! 👇
+
+#physics #plusonephysics #plustwophysics #keralasyllabus #physicsinmalayalam #malayalam #science #hse #ncert #neet #jee #kerala #oscillations #simplependulum #shm #timeperiod #swing #oonjal
+
+Follow ചെയ്യൂ 🔔

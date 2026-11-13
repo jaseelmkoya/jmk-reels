@@ -34,3 +34,9 @@ Meteor (trending hook + JMK's own thumbnail + voice) did best of ours: 1,366 IG 
    only 5–6 relevant hashtags (no long hashtag walls).
 4. FACE HOOK (optional): if JMK sends a 3–8 s phone clip of himself asking the hook, put it first with
    `python3 prepend_hook.py <clip> <reel.mp4> <out.mp4>` (before endcard.py), and shorten the animated part accordingly.
+
+## Weekly "avatar explainer" format (JMK, 13 Nov — experiment, once a week)
+Maroon theme, JMK's cartoon avatar bottom-right that talks with the voice (tools/avatar.py + brand/avatar_{closed,talk,blink}.png,
+made once from his photo; no credits per video). Example: tools/topics/avatar_demo.py (bus-brake demo).
+Needs a voice (AI voice on request, or his recording). Hook text visible from frame 0, centre animation, "BREAKING"-style chip,
+word-by-word captions, end-cards as usual.

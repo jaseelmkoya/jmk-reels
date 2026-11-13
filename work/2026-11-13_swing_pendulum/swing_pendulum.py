@@ -20,7 +20,7 @@ END = sum(D)
 
 BLOCKS = {
     "HOOK": (0, 0.1, "*75 kg* അച്ഛനോ *25 kg* കുട്ടിയോ — ആരുടെ ഊഞ്ഞാൽ വേഗം ആടും?", dict(size=66, max_w=940, hl=YELLOW)),
-    "TEASE": (0, 4.0, "ഉത്തരം കണ്ടാൽ നിങ്ങൾ ഞെട്ടും!", dict(size=58, max_w=940, hl=PINK)),
+    "TEASE": (0, 4.0, "നിങ്ങൾക്ക് ഉത്തരം അറിയാമോ?", dict(size=58, max_w=940, hl=PINK)),
     "CAP1": (0, 8.0, "രണ്ടും ഒരേ താളത്തിൽ! *Period* ഒന്നുതന്നെ.", dict(size=56, max_w=940, hl=GREEN)),
     "WHY":  (1, 0.2, "കാരണം: *Simple pendulum*", dict(size=60, max_w=1000, hl=CYAN)),
     "DEFP": (1, 1.8, "*Period* (T) = ഒരു പൂർണ്ണ *oscillation*-ന് എടുക്കുന്ന സമയം", dict(size=48, max_w=960, hl=YELLOW)),

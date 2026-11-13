@@ -11,7 +11,8 @@ from reelkit import watermark, W, H, WM_Y
 def speech_bounds(path):
     err = subprocess.run(["ffmpeg", "-hide_banner", "-i", path, "-af", "silencedetect=noise=-35dB:d=0.25", "-f", "null", "-"],
                          capture_output=True, text=True).stderr
-    dur = float(re.search(r"Duration: (\d+):(\d+):([\d.]+)", err).groups()[2]) + 60 * int(re.search(r"Duration: (\d+):(\d+)", err).group(2))
+    dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path],
+                               capture_output=True, text=True).stdout)
     ss = [float(x) for x in re.findall(r"silence_start: ([\d.]+)", err)]
     se = [float(x) for x in re.findall(r"silence_end: ([\d.]+)", err)]
     start = se[0] if ss and ss[0] < 0.05 and se else 0.0

@@ -1,5 +1,5 @@
 PENDULUM REEL — VOICE-OVER SCRIPT (92 സെക്കൻഡ് + 4 s end-card) · Plus One Ch13 Oscillations
-(No-voice version: words appear at reading pace. Voice-ൽ ഇതേ വാക്കുകൾ ഇതേ order-ൽ പറയുക. Voice-ൽ 'Paris' → 'പാരീസ്', 'Kerala' → 'കേരള', 'Foucault' → 'ഫൂക്കോ'.)
+(No-voice version: words appear at reading pace. Voice-ൽ ഇതേ വാക്കുകൾ ഇതേ order-ൽ പറയുക. Voice-ൽ 'Paris' → 'പാരീസ്', 'Foucault' → 'ഫൂക്കോ'.)
 
 [0:00.1 – 0:03.2]  (Opening hook — Foucault pendulum top view)
 "ഒരു pendulum കൊണ്ട് ഭൂമി കറങ്ങുന്നത് കാണാൻ പറ്റുമോ?"
@@ -43,8 +43,8 @@ PENDULUM REEL — VOICE-OVER SCRIPT (92 സെക്കൻഡ് + 4 s end-card)
 [1:10.6 – 1:15.6]  (Swing plane തിരിയുന്നു (time-lapse))
 "Pendulum ആടുന്ന ദിശ പതുക്കെ തിരിയുന്നു. ശരിക്കും തിരിയുന്നത് താഴെയുള്ള ഭൂമിയാണ്!"
 
-[1:15.6 – 1:20.9]  (Kerala-യിൽ ~6 ദിവസം (Source: Britannica))
-"Kerala-യിൽ ഒരു റൗണ്ട് തിരിയാൻ ഏകദേശം 6 ദിവസം!"
+[1:15.6 – 1:20.9]  (കേരളത്തിൽ ~6 ദിവസം (Source: Britannica))
+"കേരളത്തിൽ ഒരു റൗണ്ട് തിരിയാൻ ഏകദേശം 6 ദിവസം!"
 
 [1:20.9 – 1:27.6]  (QUIZ — PYQ Plus One 2022)
 "Simple pendulum-ന്റെ period bob-ന്റെ mass-നെ ആശ്രയിക്കുന്നു. True or False?"

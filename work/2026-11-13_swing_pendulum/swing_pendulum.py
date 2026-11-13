@@ -33,7 +33,7 @@ BLOCKS = {
     "BOT":  (4, 7.0, "*Length* 4 മടങ്ങ് ആക്കിയാൽ *period* 2 മടങ്ങ്!", dict(size=52, max_w=1000, hl=YELLOW)),
     "F1":   (5, 0.5, "1851-ൽ *Paris*-ൽ 67 m നീളമുള്ള ഒരു *pendulum* ഭൂമി കറങ്ങുന്നത് നേരിട്ട് കാണിച്ചുതന്നു!", dict(size=52, max_w=960, hl=YELLOW)),
     "F2":   (5, 6.6, "*Pendulum* ആടുന്ന ദിശ പതുക്കെ തിരിയുന്നു. ശരിക്കും തിരിയുന്നത് താഴെയുള്ള ഭൂമിയാണ്!", dict(size=50, max_w=960, hl=CYAN)),
-    "F3":   (5, 11.6, "*Kerala*-യിൽ ഒരു റൗണ്ട് തിരിയാൻ ഏകദേശം 6 ദിവസം!", dict(size=54, max_w=960, hl=GREEN)),
+    "F3":   (5, 11.6, "കേരളത്തിൽ ഒരു റൗണ്ട് തിരിയാൻ ഏകദേശം 6 ദിവസം!", dict(size=54, max_w=960, hl=GREEN)),
     "Q":    (6, 0.9, "*Simple pendulum*-ന്റെ *period* *bob*-ന്റെ *mass*-നെ ആശ്രയിക്കുന്നു. *True* or *False*?", dict(size=56, max_w=920, hl=YELLOW)),
     "CMT":  (6, 7.6, "ഉത്തരം *comment* ചെയ്യൂ!", dict(size=56, max_w=900, hl=CYAN)),
     "FOL":  (6, 9.4, "*Follow* ചെയ്യൂ", dict(size=56, max_w=900, hl=YELLOW)),

@@ -1,9 +1,10 @@
-# 2026-11-13 · Swing (ഊഞ്ഞാൽ) — Simple pendulum period independent of mass (Plus One Ch13 Oscillations)
-Status: SCHEDULED — v3 no-voice version, 2026-11-13 18:00 IST.
-- v2 (JMK, ~09:00 IST): fast hook in first 3 s ("75 kg അച്ഛനോ 25 kg കുട്ടിയോ — ആരുടെ ഊഞ്ഞാൽ വേഗം ആടും?" + tease; v3 (JMK): tease changed to calmer "നിങ്ങൾക്ക് ഉത്തരം അറിയാമോ?" — "ഞെട്ടും" only for really big facts)
-  and a "നിങ്ങൾക്കറിയാമോ?" Foucault pendulum fact scene (Paris 1851, 67 m; Kerala ≈ 6 days per turn; Source: Britannica). 90 s + end-card.
-- Instagram (reel, _ig + cover): post_b7ec8c288375e2f4 (media med_9aae3af0da8ee9a6, cover med_96f605a125217b5e)
-- YouTube (public, _yt, cat 27, ml): post_c0ec403d9ce20883 (media med_57b0ba92d8e9d031)
-- Deleted: v1 post_36935d4db89f8608 / post_36ff5b64f7676531, v2 post_a86bbc0b9279f2e4 / post_aedef9d7aab5ab81.
+# 2026-11-13 · Pendulum — Foucault pendulum hook + swing (simple pendulum period independent of mass) · Plus One Ch13 Oscillations
+Status: SCHEDULED — v4 no-voice version, 2026-11-13 18:00 IST.
+- v4 (JMK, ~09:20 IST): opens with the Foucault pendulum as the hook ("ഒരു pendulum കൊണ്ട് ഭൂമി കറങ്ങുന്നത് കാണാൻ പറ്റുമോ?" → "പറ്റും! എങ്ങനെയെന്ന് അവസാനം കാണാം."),
+  then swing question (75 kg vs 25 kg, tease "നിങ്ങൾക്ക് ഉത്തരം അറിയാമോ?"), explanation, T = 2π√(L/g), T ∝ √L,
+  payoff scene "ഇനി ആ ഉത്തരം!" (Paris 1851, 67 m; Kerala ≈ 6 days per turn; Source: Britannica), PYQ quiz. 92.5 s + 4 s end-card.
+- Instagram (reel, _ig + new cover): post_f41a720bfd535b5c (media med_135cef9ec021f653, cover med_40a975270cbed962)
+- YouTube (public, _yt, cat 27, ml): post_1e452bd9e101b6e6 (media med_be455a6292ca665e)
+- Deleted earlier versions: v1 post_36935d4db89f8608 / post_36ff5b64f7676531, v2 post_a86bbc0b9279f2e4 / post_aedef9d7aab5ab81, v3 post_b7ec8c288375e2f4 / post_c0ec403d9ce20883.
 - Quiz: PYQ March 2022 — "Time period of a simple pendulum depends on mass of the bob" True/False → False.
-- If JMK asks for voice before 18:00: make voiced version, then delete BOTH v3 posts above and reschedule.
+- If JMK asks for voice before 18:00: make voiced version, then delete BOTH v4 posts above and reschedule.

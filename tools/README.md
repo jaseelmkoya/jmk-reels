@@ -26,7 +26,8 @@ Only the apps' button styles are imitated; the Instagram/YouTube logos are never
 ## Reach rules (JMK, 13 Nov — from the first 3 days of stats)
 Facts: JMK's own face/experiment reels got ~3x the views of our text animations (Torque 3,876 vs 387–1,366).
 Meteor (trending hook + JMK's own thumbnail + voice) did best of ours: 1,366 IG views, 44 shares, 1,066 YT.
-1. LENGTH 30–40 s for animated reels (hard max 45 s, end-card not counted). One idea per reel, cut everything else.
+1. LENGTH: default 30–40 s for animated reels (end-card not counted), one idea per reel, cut filler.
+   JMK (13 Nov): if the subject is genuinely interesting and needs more time, there is NO time limit — keep it tight, but don't cut good content just to hit 40 s.
 2. FIRST SECOND = HOOK: frame 0 already shows the big question/claim + a moving visual (no slow fade-in, no tag pill first;
    the "PLUS ONE PHYSICS" tag comes in small after ~1.5 s). The hook question must make people curious ("…safe ആണോ?").
 3. CAPTION: first line = the hook question (with 1 emoji), then 2–3 short lines, the quiz, "Follow ചെയ്യൂ 🔔";

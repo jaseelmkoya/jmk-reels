@@ -136,6 +136,10 @@ CAP = Captions([(txt, st, None, hl) for (txt, hl), st in zip(LINES, starts)], No
 def caps(fr, s_idx, t, y=1330):
     CAP.draw(fr, ST[s_idx] + t, y)
 
+# event times inside scenes (seconds from scene start) — train_brake_vo.py overrides these from the voice
+EV = dict(quote=None, bp_drop=1.0, press=2.0, calc=(2.6, 3.9, 5.2), slash=0.6, pedal=3.0, f2=4.0,
+          q=1.0, optA=2.6, optB=3.0, cmt=4.2, fol=5.6, block=2.6, defn=0.3, pyq=0.6)
+
 # ---------- scenes ----------
 def s1(fr, t, d):
     base = NIGHT.copy(); bd = ImageDraw.Draw(base)
@@ -157,8 +161,8 @@ def s1(fr, t, d):
     fr.paste(VIG, (0, 0), VIG)
     paste(fr, H1, W / 2, 230, 1.0)                                       # hook visible from frame 0
     paste(fr, C1, W / 2, 380, ease_out(prog(t, 0.6, 0.4)))
-    appear(fr, QUOTE, W / 2, 470, t, starts[1] - ST[0], pop=True)
-    appear(fr, QUOTE_BY, W / 2, 470 + QUOTE.height + 10, t, starts[1] - ST[0] + 0.4)
+    appear(fr, QUOTE, W / 2, 470, t, EV['quote'] if EV['quote'] is not None else starts[1] - ST[0], pop=True)
+    appear(fr, QUOTE_BY, W / 2, 470 + QUOTE.height + 10, t, (EV['quote'] if EV['quote'] is not None else starts[1] - ST[0]) + 0.4)
     appear(fr, SAFE, W / 2, 1200, t, 2.0)
     paste(fr, SRC, W / 2, 1265, ease_out(prog(t, 0.6, 0.4)))
     caps(fr, 0, t)
@@ -185,14 +189,14 @@ def s2(fr, t, d):
 
 def s3(fr, t, d):
     fr.paste(push(STEEL, t + 8, 10, 1.0, 1.04), (0, 0))
-    k = ease_in_out(prog(t, 1.0, 2.0))
+    k = ease_in_out(prog(t, EV['bp_drop'], 2.0))
     bp = 5.0 - 1.5 * k
     gauge(d, 250, 520, 110, bp)
-    press = ease_out(prog(t, 2.0, 1.2))
+    press = ease_out(prog(t, EV['press'], 1.2))
     spin = -t * (6 * (1 - 0.85 * press))
     wheel_brake(d, 330, 900, t, press, spin)
-    paste(fr, pin_label("BRAKE CYLINDER", dot=CYAN), 740, 1000, ease_out(prog(t, 2.2, 0.4)))
-    paste(fr, pin_label("BRAKE BLOCK", dot=ORANGE), 560, 700, ease_out(prog(t, 2.6, 0.4)))
+    paste(fr, pin_label("BRAKE CYLINDER", dot=CYAN), 740, 1000, ease_out(prog(t, EV['press'] + 0.2, 0.4)))
+    paste(fr, pin_label("BRAKE BLOCK", dot=ORANGE), 560, 700, ease_out(prog(t, EV['block'], 0.4)))
     fr.paste(VIG, (0, 0), VIG)
     paste(fr, H3, W / 2, 200, 1.0); paste(fr, C3, W / 2, 320, ease_out(prog(t, 0.3, 0.4)))
     caps(fr, 2, t)
@@ -201,16 +205,16 @@ def s4(fr, t, d):
     fr.paste(push(STEEL, t + 18, 10, 1.04, 1.08), (0, 0))
     fr.paste(VIG, (0, 0), VIG)
     paste(fr, H4, W / 2, 190, 1.0)
-    appear(fr, DEF_CARD, W / 2, 360, t, 0.3)
-    appear(fr, DEF, W / 2, 385, t, 0.4)
+    appear(fr, DEF_CARD, W / 2, 360, t, EV['defn'])
+    appear(fr, DEF, W / 2, 385, t, EV['defn'] + 0.1)
     for i, c in enumerate(CALC):
-        appear(fr, c, W / 2, 620 + i * 110, t, 2.6 + i * 1.3, pop=(i == 2))
+        appear(fr, c, W / 2, 620 + i * 110, t, EV['calc'][i], pop=(i == 2))
     caps(fr, 3, t)
 
 def s5(fr, t, d):
     _pipe_scene(fr, t * 0.6, d, 5.0 + 0.05 * math.sin(t * 9), show_gauge=False)
     gauge(d, W / 2, 520, 130, 5.0 + 0.05 * math.sin(t * 9), col=RED)
-    a = ease_out(prog(t, 0.6, 0.3))
+    a = ease_out(prog(t, EV['slash'], 0.3))
     if a > 0:
         d.line((W / 2 - 170, 380, W / 2 + 170, 680), fill=RED, width=int(12 * a) or 1)
     fr.paste(VIG, (0, 0), VIG)
@@ -220,7 +224,7 @@ def s5(fr, t, d):
 def s6(fr, t, d):
     fr.paste(push(STEEL, t + 30, 10, 1.0, 1.05), (0, 0))
     # pedal → small piston (master cylinder) → oil pipe → big piston (wheel cylinder)
-    p = ease_in_out(prog(t, 3.0, 1.0))
+    p = ease_in_out(prog(t, EV['pedal'], 1.0))
     y = 900
     d.rounded_rectangle((140, y - 40, 340, y + 40), radius=10, fill=(40, 46, 66), outline=(200, 205, 220), width=5)
     d.rectangle((150 + 80 * p, y - 30, 190 + 80 * p, y + 30), fill=(200, 205, 220))
@@ -230,7 +234,7 @@ def s6(fr, t, d):
     d.rectangle((770, y - 100, 810 + 60 * p, y + 100), fill=(200, 205, 220))
     paste(fr, text_img("small A₁", 34, max_w=300, color=CYAN), 240, y + 60, 1.0)
     paste(fr, text_img("large A₂", 34, max_w=300, color=CYAN), 860, y + 130, 1.0)
-    paste(fr, text_img("F₂ = F₁ A₂ / A₁", 46, max_w=600, color=YELLOW), W / 2, y + 220, ease_out(prog(t, 4.0, 0.5)))
+    paste(fr, text_img("F₂ = F₁ A₂ / A₁", 46, max_w=600, color=YELLOW), W / 2, y + 220, ease_out(prog(t, EV['f2'], 0.5)))
     fr.paste(VIG, (0, 0), VIG)
     paste(fr, H6, W / 2, 190, 1.0)
     appear(fr, LAW_PILL, W / 2, 310, t, 0.3, pop=True)
@@ -242,15 +246,15 @@ def s7(fr, t, d):
     fr.paste(push(STEEL, t + 40, 8, 1.05, 1.08), (0, 0))
     fr.paste(VIG, (0, 0), VIG)
     appear(fr, QUIZ, W / 2, 290, t, 0.0, pop=True)
-    appear(fr, PYQ, W / 2, 380, t, 0.6, pop=True)
-    appear(fr, Q, W / 2, 470, t, 1.0)
+    appear(fr, PYQ, W / 2, 380, t, EV['pyq'], pop=True)
+    appear(fr, Q, W / 2, 470, t, EV['q'])
     for i, (c, tx, cx) in enumerate(((OPT_A, TA, 280), (OPT_B, TB, 800))):
-        st = 2.6 + i * 0.4
+        st = (EV['optA'], EV['optB'])[i]
         appear(fr, c, cx, 860, t, st, pop=True)
         if t > st + 0.1:
             paste(fr, tx, cx, 905, ease_out(prog(t, st + 0.05, 0.3)))
-    appear(fr, CMT, W / 2, 1110, t, 4.2, pop=True)
-    appear(fr, FOL, W / 2, 1270, t, 5.6, pop=True)
+    appear(fr, CMT, W / 2, 1110, t, EV['cmt'], pop=True)
+    appear(fr, FOL, W / 2, 1270, t, EV['fol'], pop=True)
 
 SCENES = [(S[i], f) for i, f in enumerate((s1, s2, s3, s4, s5, s6, s7))]
 VOICE = None

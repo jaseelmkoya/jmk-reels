@@ -1,2 +1,3 @@
 tools/out/
 tools/vo_*.wav
+__pycache__/

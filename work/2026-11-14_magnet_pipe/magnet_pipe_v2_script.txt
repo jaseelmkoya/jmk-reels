@@ -1,0 +1,35 @@
+MAGNET IN METAL PIPE — JMK-ന് പറയാനുള്ള SCRIPT (animation ഭാഗം)
+Video: നിങ്ങളുടെ experiment clip (0:00–0:23) + animation (0:23–1:08) + end-card (4 s) = 72.5 s
+Animation-ൽ സ്ക്രീനിൽ വരുന്ന വാക്കുകൾ തന്നെയാണ് ഇവിടെ — അതേപോലെ വായിച്ചാൽ captions കൃത്യമായി sync ചെയ്യാം.
+(Clip-ന്റെ അവസാനം "...കാരണമെന്താണ് നമുക്ക് നോക്കിയാലോ" — അതിന് ശേഷം നേരിട്ട് ഇത് തുടങ്ങുക. സമയം full video-യിലേത്.)
+
+[0:23 – 0:29]  (കാരണം: Electromagnetic Induction — zoomed metal pipe)
+"കാരണം: Electromagnetic Induction. Magnet വീഴുമ്പോൾ metal pipe-ലെ ഓരോ ring-ലും magnetic flux മാറുന്നു."
+
+[0:29 – 0:35]  (Induced current loops + മുകളിലേക്കുള്ള force arrow)
+"അപ്പോൾ induced current, eddy currents, ഉണ്ടാകുന്നു — അത് magnet-നെ മുകളിലേക്ക് തള്ളുന്നു!"
+
+[0:35 – 0:39]  (Plastic pipe vs metal pipe)
+"Plastic ഒരു insulator ആണ് — current ഉണ്ടാകില്ല, അതുകൊണ്ട് magnet വേഗം വീഴുന്നു."
+
+[0:39 – 0:44]
+"Metal ഒരു conductor — eddy currents എതിർക്കുന്നു, അതുകൊണ്ട് time delay!"
+
+[0:44 – 0:50]  (LENZ'S LAW card — English-ൽ വായിക്കുക)
+"Lenz's law: The induced current opposes the change in flux that produces it."
+
+[0:50 – 0:56]
+"Flux-ലെ മാറ്റത്തെ എതിർക്കുന്ന ദിശയിലാണ് induced current. അതുകൊണ്ട് magnet പതുക്കെ വീഴുന്നു."
+
+[0:56 – 0:58]  (Faraday's law equation)
+"Faraday's law-ൽ, epsilon equals minus N d-phi by d-t — ഈ minus sign ആണ് Lenz's law."
+
+[0:58 – 1:04]  (QUIZ TIME · Exam favourite)
+"Quiz time! Lenz's law ഏത് conservation law-ന് അനുസൃതമാണ്? A — Conservation of charge. B — Conservation of energy."
+
+[1:04 – 1:08]
+"ഉത്തരം comment ചെയ്യൂ! Follow ചെയ്യൂ."
+
+ഉത്തരം: B) Conservation of energy.
+Recording tips: ഫോണിൽ, ശാന്തമായ മുറിയിൽ, സാധാരണ വേഗത്തിൽ. ഇടയ്ക്ക് നിർത്തിയാലും കുഴപ്പമില്ല — silence ഞാൻ trim ചെയ്യും.
+അയച്ചാൽ animation-ഉം captions-ഉം നിങ്ങളുടെ ശബ്ദത്തിനനുസരിച്ച് retime ചെയ്ത് _ig / _yt ആക്കി തരാം.

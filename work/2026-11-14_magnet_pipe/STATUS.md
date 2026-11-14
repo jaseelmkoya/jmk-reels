@@ -1,5 +1,5 @@
 # 2026-11-14 · Magnet in a copper pipe — Electromagnetic induction, eddy currents, Lenz's law · Plus Two Ch6
-Status: ON HOLD — DRAFT (JMK, ~11:20 IST: "ഹോൾഡ് ചെയ്തേക്കൂ" — he is shooting a front/face part; post only after he says so).
+Status: ON HOLD (v2 made, awaiting JMK) — DRAFT (JMK, ~11:20 IST: "ഹോൾഡ് ചെയ്തേക്കൂ" — he is shooting a front/face part; post only after he says so).
 Both posts below were moved from scheduled 18:00 to DRAFT in Upplika. Do NOT post or schedule until JMK says. Do not treat this day as SCHEDULED/DONE.
 When he sends the front clip: prepend_hook.py → endcard.py → delete both drafts → publish the new _ig/_yt pair at the time he gives.
 - YouTube (public, _yt, cat 27, ml): post_b908974b27ac7f98 (media med_64bc1e5d11b1b9fd), scheduled 2026-11-14 18:00 IST.
@@ -15,3 +15,10 @@ When he sends the front clip: prepend_hook.py → endcard.py → delete both dra
 - To schedule (next run / after reconnect): Uplika media_from_url on the raw.githubusercontent.com URLs of the _ig, _yt and cover
   in this folder (aiGenerated false); Post 1 Instagram conn_99cc2dec569b36c5 (reel, coverMediaId), Post 2 YouTube conn_d9c3df40d33e658a
   (title/tags from magnet_pipe_youtube.txt, public, cat 27, ml), scheduledAt 2026-11-14T18:00:00+05:30. Then set Status: SCHEDULED + post ids.
+
+## v2 (14 Nov ~13:00 IST) — JMK's own experiment clip first
+- JMK sent INSTAGRAM-1.mp4 (23.4 s, plastic pipe vs METAL pipe, ends "...time delay ഉണ്ടാകാൻ കാരണമെന്താണ് നമുക്ക് നോക്കിയാലോ").
+- v2 = his clip (prepend_hook.py) + new animated explanation topic magnet_pipe_v2.py (45 s; pipe drawn silver "metal", no copper; plastic=insulator vs metal=conductor scene)
+  + end-cards → magnet_pipe_v2_ig.mp4 / _yt.mp4, 72.5 s. Kept OUT of the public repo (his face video); files in the session only.
+- Script for his voice-over of the animation: magnet_pipe_v2_script.txt (tokens 1:1 with on-screen words). Waiting for his recording / go-ahead.
+- Old drafts post_fd625f78bf031e03 (IG) / post_b908974b27ac7f98 (YT) are v1 — delete them before publishing v2.

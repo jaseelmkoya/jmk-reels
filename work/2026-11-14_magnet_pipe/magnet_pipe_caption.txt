@@ -1,0 +1,12 @@
+Copper pipe-ൽ ഇട്ട magnet എന്തുകൊണ്ട് ഇത്ര പതുക്കെ വീഴുന്നു? 🧲
+Copper-നെ magnet ആകർഷിക്കില്ല — പക്ഷെ വീഴുന്ന magnet pipe-ൽ magnetic flux മാറ്റുന്നു.
+അപ്പോൾ ഉണ്ടാകുന്ന induced current (eddy currents) magnet-നെ മുകളിലേക്ക് തള്ളുന്നു.
+📘 Lenz's law: The induced current opposes the change in flux that produces it. (ε = −N dφ/dt)
+
+❓ Quiz: Lenz's law ഏത് conservation law-ന് അനുസൃതമാണ്?
+A) Conservation of charge  B) Conservation of energy
+ഉത്തരം comment ചെയ്യൂ! 👇
+
+Follow ചെയ്യൂ 🔔
+
+#physicsinmalayalam #plustwophysics #keralasyllabus #lenzslaw #electromagneticinduction #magnet

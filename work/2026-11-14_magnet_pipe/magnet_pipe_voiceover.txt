@@ -1,0 +1,32 @@
+MAGNET IN COPPER PIPE REEL — VOICE-OVER SCRIPT (45.5 സെക്കൻഡ് + 4 s end-card)
+Plus Two · Ch6 Electromagnetic Induction · Lenz's law / eddy currents
+(Voice ഇല്ലാത്ത version-ൽ text ഈ സമയങ്ങളിൽ word-by-word വരുന്നു. Record ചെയ്യുമ്പോൾ ഈ സമയം follow ചെയ്യുക.)
+
+[0:00 – 0:05]  (Hook — ചോദ്യം frame 0 മുതൽ; plastic pipe-ൽ magnet വേഗം, copper pipe-ൽ പതുക്കെ)
+"Copper pipe-ൽ ഇട്ട magnet എന്തുകൊണ്ട് ഇത്ര പതുക്കെ വീഴുന്നു?"
+
+[0:05 – 0:10]  (താഴെ caption)
+"Copper-നെ magnet ആകർഷിക്കില്ല! പിന്നെ ആരാണ് തടയുന്നത്?"
+
+[0:10 – 0:15]  (കാരണം: Electromagnetic Induction — zoomed copper pipe)
+"കാരണം: Electromagnetic Induction. Magnet വീഴുമ്പോൾ pipe-ലെ ഓരോ ring-ലും magnetic flux മാറുന്നു."
+
+[0:15 – 0:21]  (Induced current loops + upward force arrow)
+"Induced current, അതായത് eddy currents ഉണ്ടാകുന്നു — അത് magnet-നെ മുകളിലേക്ക് തള്ളുന്നു!"
+
+[0:21 – 0:27]  (LENZ'S LAW card — English-ൽ വായിക്കുക)
+"Lenz's law: The induced current opposes the change in flux that produces it."
+
+[0:27 – 0:32]  (Malayalam വിശദീകരണം)
+"Flux-ലെ മാറ്റത്തെ എതിർക്കുന്ന ദിശയിലാണ് induced current. അതുകൊണ്ട് magnet പതുക്കെ വീഴുന്നു."
+
+[0:32 – 0:35]  (Faraday's law equation)
+"Faraday's law: epsilon equals minus N d phi by d t — ഈ minus sign ആണ് Lenz's law."
+
+[0:35 – 0:41]  (QUIZ TIME · Exam favourite)
+"Quiz time! Lenz's law ഏത് conservation law-ന് അനുസൃതമാണ്? A — Conservation of charge, B — Conservation of energy."
+
+[0:41 – 0:45.5]
+"ഉത്തരം comment ചെയ്യൂ! Follow ചെയ്യൂ."
+
+ഉത്തരം: B) Conservation of energy (Lenz's law is in accordance with the law of conservation of energy — Plus Two material, Ch6; exam favourite).

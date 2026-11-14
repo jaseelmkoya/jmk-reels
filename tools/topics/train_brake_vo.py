@@ -72,6 +72,7 @@ CLIPS = [(0, 2.8, w(10, 0), "anim", ANIM, 0, 83, True, False),          # derail
          (2, w(45, 2), w(45, 2) + 2.1, "spark", ANIM, 5, 47, True, True),          # "Friction വഴി … heat"
          (4, 0.0, w(94, 4) + 0.5, "gauge", ANIM, 8, 57, False, True)]                     # "BP pressure കുറഞ്ഞില്ലെങ്കിൽ …"
 _LAB = {}
+SHOW_LABELS = False   # JMK (14 Nov): no on-screen ANIMATION / NDTV labels
 def _lab(txt):
     if txt not in _LAB: _LAB[txt] = tb.mono(txt, size=24, color=(255, 230, 150))
     return _LAB[txt]
@@ -102,7 +103,7 @@ def _with_clips(si, fn):
                 al = min(1.0, (t - a0) / 0.2 if fin else 1.0, (a1 - t) / 0.2 if fout else 1.0)
                 lay = _clip_frame(kind, (t - a0) / (a1 - a0), f0, f1)
                 lay.alpha_composite(tb.VIG)
-                tb.paste(lay, _lab(lab), tb.W / 2, 1140 if si == 0 else 1250, 1.0)
+                if SHOW_LABELS: tb.paste(lay, _lab(lab), tb.W / 2, 1140 if si == 0 else 1250, 1.0)
                 _overlay(si, lay, t)
                 if al >= 1.0: fr.paste(lay.convert(fr.mode), (0, 0))
                 else: fr.paste(_Im.blend(fr.convert("RGBA"), lay, al).convert(fr.mode), (0, 0))

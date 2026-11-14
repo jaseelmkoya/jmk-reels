@@ -13,3 +13,4 @@ IRIMEE "Braking System Used in Indian Railways" (pressures, cylinder size). Leng
 - If no "ok" by the morning run → post the no-voice version as planned.
 - 14 Nov 14:xx — JMK's 2 clips added in scene 1 (he chose "both"): animation derailment shot (source 50.0–52.8 s, labelled ANIMATION · ILLUSTRATIVE) at 2.8–5.84 s, NDTV cockpit footage (source 13.0–17.3 s, labelled COCKPIT FOOTAGE · NDTV) at 5.84–10.09 s. Clip frames are in /home/claude/clips (not committed). Credit the animation creator in the caption once JMK gives the handle.
 - 14 Nov 14:20 — more animation shots added on JMK's request: wheel sparks (source 42.4–44.0 s) at "Friction വഴി…" in scene 3, and the pressure gauge (source 40.3–42.4 s) at "BP pressure കുറഞ്ഞില്ലെങ്കിൽ…" in scene 5. All animation shots labelled ANIMATION · ILLUSTRATIVE. JMK: "ബാക്കിയൊന്നും കുഴപ്പമില്ല".
+- 14 Nov 14:25 — JMK: remove the on-screen ANIMATION label and the NDTV credit (SHOW_LABELS = False). Done.

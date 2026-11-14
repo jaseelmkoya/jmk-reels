@@ -13,6 +13,7 @@ _ms = importlib.util.spec_from_file_location("mp", "/home/claude/jmk-reels/tools
 mp = importlib.util.module_from_spec(_ms); _ms.loader.exec_module(mp)
 
 CAP = Captions.from_words(hc.LINES, hc.WORDS, size=60, maxw=5)
+CAP.items = [it for it in CAP.items if it[3] < 7.4 or it[3] >= 21.1]
 
 # events (seconds in the clip, from the real audio/video)
 CUTS = [0.0, 17.8]                      # split screen starts at 17.8
@@ -29,7 +30,29 @@ FAST = pill("വേഗം താഴെ എത്തി!", 40, fg=(9, 14, 38), bg
 TD = pill("TIME DELAY!", 64, fg=(9, 14, 38), bg=CYAN)
 L_PL = pill("PLASTIC", 40, fg=(9, 14, 38), bg=(235, 240, 250))
 L_MT = pill("METAL", 40, fg=(9, 14, 38), bg=(190, 198, 214))
-WHYB = text_img("WHY?", 150, max_w=700, color=YELLOW)
+WHYB = text_img("WHY?", 110, max_w=400, color=YELLOW)
+SW_START = 19.3            # magnet leaves the top of the metal pipe on the split screen
+T_PL = 0.302               # plastic: free fall through ~45 cm, t = sqrt(2h/g)
+APPROX = boxed(text_img("≈ estimate|(plastic: free fall)", 26, max_w=340, color=MUTED, lh=1.3), pad=12)
+from PIL import ImageFont
+MONO = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf", 44)
+MONO_S = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 22)
+
+def stopwatch_dev(fr, cx, y, secs, alpha, stopped):
+    """Handheld digital stopwatch with a microsecond readout (s.µs)."""
+    Wd, Hd = 330, 250
+    L = SS(Wd, Hd); dd = L.d; k = L.s
+    dd.rounded_rectangle(k(140, 0, 190, 26), radius=8, fill=(200, 205, 215, 255))          # start button
+    dd.rounded_rectangle(k(40, 16, 80, 34), radius=6, fill=(255, 92, 92, 255) if stopped else (150, 155, 170, 255))
+    dd.rounded_rectangle(k(6, 24, Wd - 6, Hd - 6), radius=46, fill=(40, 44, 58, 255), outline=(150, 156, 175, 255), width=6)
+    dd.rounded_rectangle(k(30, 70, Wd - 30, 170), radius=14, fill=(178, 196, 160, 255), outline=(90, 100, 80, 255), width=3)
+    img = L.done(); d2 = ImageDraw.Draw(img)
+    us = int(round(secs * 1e6)) + (0 if stopped or secs == 0 else (int(secs * 7919e3) % 977))   # live µs digits
+    txt = f"{us // 1000000:02d}.{us % 1000000:06d}"
+    d2.text((Wd / 2, 122), txt, font=MONO, fill=(25, 32, 22), anchor="mm")
+    d2.text((Wd / 2, 200), "STOP" if stopped else ("RUN" if secs > 0 else "READY"), font=MONO_S, fill=(255, 92, 92) if stopped else (91, 228, 155), anchor="mm")
+    d2.text((Wd - 52, 88), "s", font=MONO_S, fill=(25, 32, 22), anchor="mm") if False else None
+    paste(fr, img, cx, y, alpha, 0.85)
 
 def burst(d, cx, cy, p, col, n=12, r0=60, r1=170):
     if p <= 0 or p >= 1: return
@@ -61,7 +84,9 @@ def zoom_of(t):
     if t < 7.4: return 1.0 + 0.04 * t / 7.4
     if t < 11.6: return 1.10 + 0.03 * (t - 7.4) / 4.2
     if t < SPLIT: return 1.04 + 0.05 * (t - 11.6) / (SPLIT - 11.6)
-    return 1.0 + 0.05 * (t - SPLIT) / (DUR - SPLIT)
+    return 1.0
+
+def CY(T): return 1330 if T < SPLIT else 1400   # below the pipe bottoms on the split screen
 
 def draw_caption(fr, T):
     for words, hl, times, p0, p1 in CAP.items:
@@ -77,8 +102,8 @@ def draw_caption(fr, T):
             if bb:
                 box = card(bb[2] - bb[0] + 60, bb[3] - bb[1] + 40, fill=(9, 14, 38, 200), outline=(255, 209, 102, 160), r=30)
                 bx = W / 2 - full.width / 2 + (bb[0] + bb[2]) / 2
-                paste(fr, box, bx, 1330 + bb[1] - 20, out_a, s)
-            paste(fr, img, W / 2, 1330, out_a, s)
+                paste(fr, box, bx, CY(T) + bb[1] - 20, out_a, s)
+            paste(fr, img, W / 2, CY(T), out_a, s)
             return
 
 dec = subprocess.Popen(["ffmpeg","-v","error","-i",SRC,"-vf",f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps=30,setsar=1",
@@ -128,13 +153,17 @@ while True:
         pop(fr, TD, W / 2, 580, t, KANDO, SPLIT + 0.2, wob=True)
     # split screen labels
     if t >= SPLIT:
-        pop(fr, L_PL, 270, 300, t, SPLIT, DUR)
-        pop(fr, L_MT, 810, 300, t, SPLIT + 0.2, DUR)
-        if 19.4 <= t < WHY:
-            clock(fr, W / 2, 520, t, 60)
+        pop(fr, L_PL, 500, 300, t, SPLIT, DUR)
+        pop(fr, L_MT, 922, 300, t, SPLIT + 0.2, DUR)
+        if t >= SW_START - 0.6:
+            a = ease_out(prog(t, SW_START - 0.6, 0.4))
+            el = max(0.0, t - SW_START)
+            stopwatch_dev(fr, 500, 470, min(el, T_PL), a, el >= T_PL)
+            stopwatch_dev(fr, 922, 470, el, a, False)
+            paste(fr, APPROX, 500, 1240, a * 0.9)
     if t >= WHY:
         p = prog(t, WHY, 0.35)
-        paste(fr, WHYB, W / 2, 560, ease_out(p), (0.5 + 0.5 * ease_back(p) if p < 1 else 1) * (1 + 0.05 * math.sin((t - WHY) * 8)))
+        paste(fr, WHYB, 922, 800, ease_out(p), (0.5 + 0.5 * ease_back(p) if p < 1 else 1) * (1 + 0.05 * math.sin((t - WHY) * 8)))
     draw_caption(fr, t)
     footer(fr, d, "") if False else None
     enc.stdin.write(fr.tobytes()); n += 1

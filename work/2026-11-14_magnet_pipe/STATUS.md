@@ -32,3 +32,7 @@ When he sends the front clip: prepend_hook.py → endcard.py → delete both dra
   split-screen labels, WHY? pulse, progress bar, gentle zooms. No real stopwatch on his clip: the metal drop has a jump cut, so its time can't be measured.
 - Final: magnet_pipe_v3_ig.mp4 / _yt.mp4 (72.8 s) — kept out of the repo (his face/voice). Still ON HOLD: waiting for JMK's ok + time.
 - Publish v3 with NO AI labels (his own recording). Delete old v1 drafts post_fd625f78bf031e03 / post_b908974b27ac7f98 first.
+- v3b (JMK feedback): captions on his clip only at the intro (<7.4 s) and the closing question (so the drops stay visible);
+  split screen: no zoom, PLASTIC/METAL labels + handheld digital stopwatches with µs readout in the gaps between the pipes
+  (start 19.3 s when the magnet leaves the metal pipe's top; plastic stops at 0.302000 s = free-fall estimate √(2·0.45/9.8);
+  metal keeps running to the clip end; "≈ estimate" note) — JMK chose "estimate + running" since the real exit isn't visible.

@@ -40,3 +40,14 @@ Maroon theme, JMK's cartoon avatar bottom-right that talks with the voice (tools
 made once from his photo; no credits per video). Example: tools/topics/avatar_demo.py (bus-brake demo).
 Needs a voice (AI voice on request, or his recording). Hook text visible from frame 0, centre animation, "BREAKING"-style chip,
 word-by-word captions, end-cards as usual.
+
+## News-first topic research (JMK, 14 Nov — missed the Kolkata–Sairang Express derailment, Assam, 11 Nov)
+Before picking ANY topic, scan real news of the last 48–72 h (India + Kerala), not only "science news":
+run at least 6 separate WebSearches, e.g. "<today> India news", "Kerala news today", "accident India this week" (train, bus,
+plane, boat, fire), "weather Kerala today" (rain, lightning, heat, cyclone), "ISRO / space news this week", "viral video India
+this week", "sports India this week", "technology launch India this week". Make a shortlist of 5–8 stories and ask:
+which one connects naturally to Plus One / Plus Two physics (momentum, inertia, braking, friction, pressure, waves,
+electricity, optics, gravitation, heat …)? A big news story with a clear physics link beats any syllabus topic.
+Accidents / disasters: respectful tone, no gore, no blame, verified facts only (name the source), focus on the physics
+and on safety; if people died, avoid jokes/dramatic music and mention it gently or pick a different angle.
+Write the shortlist (with links) into STATUS.md so JMK can see what was considered.

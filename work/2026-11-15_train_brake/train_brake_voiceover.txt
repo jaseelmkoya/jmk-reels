@@ -1,0 +1,12 @@
+Train brake — voice-over script (one line per caption line; start times for the no-voice version)
+
+[000.3s] Nov 11, Assam: Kolkata–Sairang Express-ന്റെ engine-ഉം അഞ്ച് coach-ഉം പാളം തെറ്റി.
+[005.3s] Loco pilot പറഞ്ഞത്: "BP pressure കുറയുന്നില്ല!" എന്താണ് ഈ BP?
+[010.6s] Train ഓടുമ്പോൾ brake pipe-ൽ 5 kg/cm² pressure നിറച്ചുവെക്കും.
+[016.0s] Brake ഇടാൻ driver ഈ pressure കുറയ്ക്കുന്നു. അപ്പോൾ air brake cylinder-ലേക്ക് കയറി brake block wheel-ൽ അമരുന്നു.
+[023.1s] Friction വഴി kinetic energy heat ആയി മാറുന്നു. Train നിൽക്കുന്നു.
+[028.4s] Brake block-നെ തള്ളുന്ന force എവിടെ നിന്ന്? F = P × A
+[036.0s] ചെറിയ pressure, വലിയ area → വലിയ force.
+[040.6s] BP pressure കുറഞ്ഞില്ലെങ്കിൽ brake cylinder-ൽ air എത്തില്ല — brake വീഴില്ല. യഥാർത്ഥ കാരണം അന്വേഷണത്തിലാണ്.
+[047.6s] Car-ൽ brake oil വഴി pressure എല്ലാ wheel-ലേക്കും ഒരുപോലെ എത്തുന്നു — ഇതാണ് Pascal's law.
+[056.7s] ഇനി quiz: Hydraulic brakes ഏത് law-ന്റെ application ആണ്? A, Pascal's law. B, Newton's law. ഉത്തരം comment ചെയ്യൂ. Follow ചെയ്യൂ.

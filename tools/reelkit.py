@@ -35,7 +35,7 @@ def font(kind, weight, size):
         _fc[key] = ImageFont.truetype(FONT_FILES[(kind, weight)], size, layout_engine=ImageFont.Layout.RAQM)
     return _fc[key]
 
-SYMBOLS = set("∝×÷→←↑↓≈≠≤≥√πθλΔΣΩμ°±∞·²³½")
+SYMBOLS = set("∝×÷→←↑↓≈≠≤≥√πθλΔΣΩμ°±∞·²³½⁰¹⁴⁵⁶⁷⁸⁹⁻₀₁₂₃₄₅₆₇₈₉εφωρ∮")
 def script_of(c):
     if "ഀ" <= c <= "ൿ" or c in "‌‍":
         return "ml"

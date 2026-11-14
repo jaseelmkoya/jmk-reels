@@ -1,0 +1,17 @@
+🚆 Train-ന്റെ brake എങ്ങനെയാണ് work ചെയ്യുന്നത്?
+
+Nov 11-ന് Assam-ലെ Digaru-ൽ Kolkata–Sairang Express പാളം തെറ്റി (ആരും മരിച്ചില്ല). Loco pilot പറഞ്ഞത്: "BP pressure കുറയുന്നില്ല!"
+Train-ൽ air brake ആണ്: brake pipe-ൽ 5 kg/cm² pressure; അത് കുറയുമ്പോഴാണ് brake cylinder-ലേക്ക് air കയറി brake block wheel-ൽ അമരുന്നത്. F = P × A. (യഥാർത്ഥ കാരണം അന്വേഷണത്തിലാണ് — NFR)
+
+📘 Pressure is the normal force acting per unit area. (P = F/A)
+📘 Pascal's law: The pressure applied at any point on a continuous fluid in equilibrium is equally transmitted to all other points.
+
+❓ QUIZ (📝 PYQ: Plus One 2025, 2024, 2022): Hydraulic brakes ഏത് law-ന്റെ application ആണ്?
+A) Pascal's law  B) Newton's law
+ഉത്തരം comment ചെയ്യൂ! 👇
+
+Sources: NFR, Brut (cab video), IRIMEE – Braking System Used in Indian Railways
+
+Follow ചെയ്യൂ 🔔
+
+#plusonephysics #physicsinmalayalam #keralasyllabus #pascalslaw #indianrailways #trainbrake

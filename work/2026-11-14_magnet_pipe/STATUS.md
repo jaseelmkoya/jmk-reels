@@ -1,5 +1,7 @@
 # 2026-11-14 · Magnet in a copper pipe — Electromagnetic induction, eddy currents, Lenz's law · Plus Two Ch6
-Status: SCHEDULED — no-voice version, 2026-11-14 18:00 IST (Instagram + YouTube).
+Status: ON HOLD — DRAFT (JMK, ~11:20 IST: "ഹോൾഡ് ചെയ്തേക്കൂ" — he is shooting a front/face part; post only after he says so).
+Both posts below were moved from scheduled 18:00 to DRAFT in Upplika. Do NOT post or schedule until JMK says. Do not treat this day as SCHEDULED/DONE.
+When he sends the front clip: prepend_hook.py → endcard.py → delete both drafts → publish the new _ig/_yt pair at the time he gives.
 - YouTube (public, _yt, cat 27, ml): post_b908974b27ac7f98 (media med_64bc1e5d11b1b9fd), scheduled 2026-11-14 18:00 IST.
 - Instagram (reel, _ig + cover, JMK confirmed in chat): post_fd625f78bf031e03 (media med_31f4a3cce5a19651, cover med_800ae5e7a7b3a7d3).
 - If JMK asks for voice / sends a face hook before 18:00: rebuild, delete BOTH posts above, reschedule the new _ig/_yt pair.

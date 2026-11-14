@@ -22,3 +22,5 @@ When he sends the front clip: prepend_hook.py → endcard.py → delete both dra
   + end-cards → magnet_pipe_v2_ig.mp4 / _yt.mp4, 72.5 s. Kept OUT of the public repo (his face video); files in the session only.
 - Script for his voice-over of the animation: magnet_pipe_v2_script.txt (tokens 1:1 with on-screen words). Waiting for his recording / go-ahead.
 - Old drafts post_fd625f78bf031e03 (IG) / post_b908974b27ac7f98 (YT) are v1 — delete them before publishing v2.
+- v2b: JMK sent his own word-timed transcript of the clip → word-by-word captions burned onto his clip (hook_captions.py; his wording,
+  science words in English; his times mapped t = 0.9593·t − 0.275 onto the real audio, since his list ran ~1 s long by the end). Rebuilt _ig/_yt (72.5 s).

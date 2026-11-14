@@ -1,5 +1,9 @@
 # 2026-11-14 · Magnet in a copper pipe — Electromagnetic induction, eddy currents, Lenz's law · Plus Two Ch6
-Status: MADE — NOT SCHEDULED YET (no-voice version ready).
+Status: PARTLY SCHEDULED — YouTube SCHEDULED 18:00 IST; Instagram NOT yet (needs JMK's confirmation).
+- YouTube (public, _yt, cat 27, ml): post_b908974b27ac7f98 (media med_64bc1e5d11b1b9fd), scheduled 2026-11-14 18:00 IST.
+- Instagram: media ready (reel med_31f4a3cce5a19651, cover med_800ae5e7a7b3a7d3) but publish was blocked by a permission check.
+- Upplika was reconnected 14 Nov: NEW account ids — Instagram @jmk.space conn_ab2a55cfffecc11d, YouTube JMK Space conn_a84a14b4318a8e68
+  (old conn_99cc2dec569b36c5 / conn_d9c3df40d33e658a no longer connected).
 - Reason: the Upplika connector needed to be reconnected for the 07:30 IST scheduled run, so it could not upload/schedule.
 - Files: magnet_pipe_ig.mp4 (Instagram, 49.5 s incl. end-card), magnet_pipe_yt.mp4 (YouTube), magnet_pipe_cover.jpg,
   magnet_pipe_caption.txt, magnet_pipe_youtube.txt (title/tags), magnet_pipe_voiceover.txt, topic magnet_pipe.py, make_cover_magnet.py.

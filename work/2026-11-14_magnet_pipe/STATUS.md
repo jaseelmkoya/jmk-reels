@@ -24,3 +24,11 @@ When he sends the front clip: prepend_hook.py → endcard.py → delete both dra
 - Old drafts post_fd625f78bf031e03 (IG) / post_b908974b27ac7f98 (YT) are v1 — delete them before publishing v2.
 - v2b: JMK sent his own word-timed transcript of the clip → word-by-word captions burned onto his clip (hook_captions.py; his wording,
   science words in English; his times mapped t = 0.9593·t − 0.275 onto the real audio, since his list ran ~1 s long by the end). Rebuilt _ig/_yt (72.5 s).
+## v3 (14 Nov ~14:00 IST) — JMK's own voice on the animation + animated overlays on his clip
+- JMK sent his voice-over (INSTAGRAM.mp3, 46.5 s) → silences >0.3 s trimmed, denoised, loudnorm (tools/vo_magnet_v3.wav, gitignored, never committed)
+  → ElevenLabs scribe (242 credits) → word times magnet_pipe_v3_words.py (113 words) → topic magnet_pipe_v3.py (display tokens mapped to word indices).
+- Animation scene 2 now has millisecond STOPWATCHES on both pipes (labelled "(animation)": plastic 0.320 s free fall, metal ~6.2 s).
+- His clip: hook_fx.py — hook banner from frame 0, pop-in boxed word captions, PLASTIC/METAL/MAGNET chips, DROP! bursts, TIME DELAY clock burst,
+  split-screen labels, WHY? pulse, progress bar, gentle zooms. No real stopwatch on his clip: the metal drop has a jump cut, so its time can't be measured.
+- Final: magnet_pipe_v3_ig.mp4 / _yt.mp4 (72.8 s) — kept out of the repo (his face/voice). Still ON HOLD: waiting for JMK's ok + time.
+- Publish v3 with NO AI labels (his own recording). Delete old v1 drafts post_fd625f78bf031e03 / post_b908974b27ac7f98 first.

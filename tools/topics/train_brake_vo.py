@@ -60,40 +60,52 @@ SFX += [(ST[2] + EV['press'], "brake"), (ST[3] + EV['calc'][0], "pop"), (ST[3] +
 if __name__ == "__main__":
     print("S", S, "total", round(sum(S), 2)); print("EV", EV)
 
-# ---------- real clips JMK sent (14 Nov): animation of the derailment + NDTV cockpit footage ----------
-# Frames pre-extracted (not committed) by make step in work/2026-11-15_train_brake/clips.md
+# ---------- clips from JMK (14 Nov): the derailment animation + NDTV cockpit footage ----------
+# Frames are extracted (not committed) into CLIPDIR/<kind>/NNN.jpg, 1080x1920, 30 fps — see work/.../STATUS.md
 from PIL import Image as _Im, ImageEnhance as _En
 CLIPDIR = os.environ.get("TB_CLIPS", "/home/claude/clips")
-CLIPS = [(2.8, WS[10], "anim", "ANIMATION · ILLUSTRATIVE (NOT REAL FOOTAGE)"),
-         (WS[10], ST[1], "cock", "COCKPIT FOOTAGE · NDTV")]
-_LAB = {k: tb.mono(lab, size=24, color=(255, 230, 150)) for _, _, k, lab in CLIPS}
-def _clip_frame(kind, t):
+ANIM = "ANIMATION · ILLUSTRATIVE (NOT REAL FOOTAGE)"
+EV['slash'] = w(95, 4)                     # "Brake വീഴില്ല" — after the gauge clip
+# (scene, start, end [scene time], frame dir, label, first frame, last frame, fade in, fade out)
+CLIPS = [(0, 2.8, w(10, 0), "anim", ANIM, 0, 83, True, False),          # derailment · "…പാളം തെറ്റി"
+         (0, w(10, 0), S[0], "cock", "COCKPIT FOOTAGE · NDTV", 0, 128, False, True),   # "Loco pilot പറഞ്ഞത്…"
+         (2, w(45, 2), w(45, 2) + 2.1, "spark", ANIM, 5, 47, True, True),          # "Friction വഴി … heat"
+         (4, 0.0, w(94, 4) + 0.5, "gauge", ANIM, 8, 57, False, True)]                     # "BP pressure കുറഞ്ഞില്ലെങ്കിൽ …"
+_LAB = {}
+def _lab(txt):
+    if txt not in _LAB: _LAB[txt] = tb.mono(txt, size=24, color=(255, 230, 150))
+    return _LAB[txt]
+def _clip_frame(kind, u, f0, f1):
     fs = sorted(os.listdir(os.path.join(CLIPDIR, kind)))
-    i = min(len(fs) - 1, int(t * 30))
-    if kind == "anim":   # stretch 50.0–52.8 s of the source over the window (avoid its press-release dissolve)
-        i = min(83, int(t / (WS[10] - 2.8) * 84))
+    i = min(f1, f0 + int(u * (f1 - f0 + 1)))
     im = _Im.open(os.path.join(CLIPDIR, kind, fs[i])).convert("RGB")
     return _En.Brightness(im).enhance(0.72).convert("RGBA")
-def s1_clips(fr, t, d):
-    tb.s1(fr, t, d)
-    for a0, a1, kind, _ in CLIPS:
-        if a0 <= t < a1:
-            al = min(1.0, (t - a0) / 0.2) if kind == "anim" else min(1.0, (a1 - t) / 0.2)
-            lay = _clip_frame(kind, t - a0)
-            lay.alpha_composite(tb.VIG)
-            from PIL import ImageDraw as _D
-            ld = _D.Draw(lay)
-            tb.paste(lay, tb.H1, tb.W / 2, 230, 1.0)
-            tb.paste(lay, tb.C1, tb.W / 2, 380, 1.0)
-            q0 = EV['quote']
-            tb.appear(lay, tb.QUOTE, tb.W / 2, 470, t, q0, pop=True)
-            tb.appear(lay, tb.QUOTE_BY, tb.W / 2, 470 + tb.QUOTE.height + 10, t, q0 + 0.4)
-            tb.paste(lay, _LAB[kind], tb.W / 2, 1140, 1.0)
-            tb.appear(lay, tb.SAFE, tb.W / 2, 1200, t, 2.0)
-            tb.paste(lay, tb.SRC, tb.W / 2, 1265, 1.0)
-            tb.caps(lay, 0, t)
-            if al >= 1.0:
-                fr.paste(lay.convert(fr.mode), (0, 0))
-            else:
-                fr.paste(_Im.blend(fr.convert("RGBA"), lay, al).convert(fr.mode), (0, 0))
-SCENES[0] = (S[0], s1_clips)
+
+def _overlay(si, lay, t):
+    if si == 0:
+        tb.paste(lay, tb.H1, tb.W / 2, 230, 1.0); tb.paste(lay, tb.C1, tb.W / 2, 380, 1.0)
+        tb.appear(lay, tb.QUOTE, tb.W / 2, 470, t, EV['quote'], pop=True)
+        tb.appear(lay, tb.QUOTE_BY, tb.W / 2, 470 + tb.QUOTE.height + 10, t, EV['quote'] + 0.4)
+        tb.appear(lay, tb.SAFE, tb.W / 2, 1200, t, 2.0); tb.paste(lay, tb.SRC, tb.W / 2, 1265, 1.0)
+    elif si == 2:
+        tb.paste(lay, tb.H3, tb.W / 2, 200, 1.0); tb.paste(lay, tb.C3, tb.W / 2, 320, 1.0)
+    elif si == 4:
+        tb.paste(lay, tb.H5, tb.W / 2, 200, 1.0); tb.paste(lay, tb.C5, tb.W / 2, 330, 1.0)
+    tb.caps(lay, si, t)
+
+def _with_clips(si, fn):
+    mine = [c for c in CLIPS if c[0] == si]
+    def g(fr, t, d):
+        fn(fr, t, d)
+        for _, a0, a1, kind, lab, f0, f1, fin, fout in mine:
+            if a0 <= t < a1:
+                al = min(1.0, (t - a0) / 0.2 if fin else 1.0, (a1 - t) / 0.2 if fout else 1.0)
+                lay = _clip_frame(kind, (t - a0) / (a1 - a0), f0, f1)
+                lay.alpha_composite(tb.VIG)
+                tb.paste(lay, _lab(lab), tb.W / 2, 1140 if si == 0 else 1250, 1.0)
+                _overlay(si, lay, t)
+                if al >= 1.0: fr.paste(lay.convert(fr.mode), (0, 0))
+                else: fr.paste(_Im.blend(fr.convert("RGBA"), lay, al).convert(fr.mode), (0, 0))
+    return g
+SCENES = [(dd, _with_clips(i, fn)) for i, (dd, fn) in enumerate(SCENES)]
+SFX = [x for x in SFX if x[1] != "thud" or x[0] < ST[4]] + [(ST[4] + EV['slash'], "thud"), (ST[2] + w(45, 2), "brake")]

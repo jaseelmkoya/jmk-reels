@@ -19,3 +19,4 @@ IRIMEE "Braking System Used in Indian Railways" (pressures, cylinder size). Leng
 - Instagram: Uplika DRAFT post_daad319e6b5af8d6 (cover set, AI label) — JMK publishes it himself from the Uplika dashboard.
 - YouTube: UNLISTED https://www.youtube.com/watch?v=zsDJIxgfefY (post_ec4a0937786ae45c, AI label) — JMK makes it public himself.
 - Morning run 15 Nov: do NOT post this topic again (no-voice version not needed). Treat 15 Nov as DONE unless JMK asks for a new reel.
+- 14 Nov 14:47 — Instagram: JMK sent his own cover (train_brake_cover_jmk.jpg); draft updated with it and published now (post_daad319e6b5af8d6).

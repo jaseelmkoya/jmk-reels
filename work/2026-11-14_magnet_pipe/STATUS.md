@@ -1,7 +1,8 @@
 # 2026-11-14 · Magnet in a copper pipe — Electromagnetic induction, eddy currents, Lenz's law · Plus Two Ch6
-Status: PARTLY SCHEDULED — YouTube SCHEDULED 18:00 IST; Instagram NOT yet (needs JMK's confirmation).
+Status: SCHEDULED — no-voice version, 2026-11-14 18:00 IST (Instagram + YouTube).
 - YouTube (public, _yt, cat 27, ml): post_b908974b27ac7f98 (media med_64bc1e5d11b1b9fd), scheduled 2026-11-14 18:00 IST.
-- Instagram: media ready (reel med_31f4a3cce5a19651, cover med_800ae5e7a7b3a7d3) but publish was blocked by a permission check.
+- Instagram (reel, _ig + cover, JMK confirmed in chat): post_fd625f78bf031e03 (media med_31f4a3cce5a19651, cover med_800ae5e7a7b3a7d3).
+- If JMK asks for voice / sends a face hook before 18:00: rebuild, delete BOTH posts above, reschedule the new _ig/_yt pair.
 - Upplika was reconnected 14 Nov: NEW account ids — Instagram @jmk.space conn_ab2a55cfffecc11d, YouTube JMK Space conn_a84a14b4318a8e68
   (old conn_99cc2dec569b36c5 / conn_d9c3df40d33e658a no longer connected).
 - Reason: the Upplika connector needed to be reconnected for the 07:30 IST scheduled run, so it could not upload/schedule.

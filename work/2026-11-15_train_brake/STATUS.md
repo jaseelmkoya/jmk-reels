@@ -11,3 +11,4 @@ IRIMEE "Braking System Used in Indian Railways" (pressures, cylinder size). Leng
 - train_brake_aivoice_ig.mp4 / _yt.mp4 (68 s with end-card), captions synced to transcript words (topics/train_brake_vo.py, train_brake_words.json).
 - WAITING for JMK's "ok". If ok → schedule THESE for 18:00 15 Nov with AI labels (isAiGenerated / containsSyntheticMedia), not the no-voice version.
 - If no "ok" by the morning run → post the no-voice version as planned.
+- 14 Nov 14:xx — JMK's 2 clips added in scene 1 (he chose "both"): animation derailment shot (source 50.0–52.8 s, labelled ANIMATION · ILLUSTRATIVE) at 2.8–5.84 s, NDTV cockpit footage (source 13.0–17.3 s, labelled COCKPIT FOOTAGE · NDTV) at 5.84–10.09 s. Clip frames are in /home/claude/clips (not committed). Credit the animation creator in the caption once JMK gives the handle.

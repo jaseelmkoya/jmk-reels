@@ -29,3 +29,4 @@ Tools change: reelkit SYMBOLS now include σ (Comic Neue has no σ glyph).
 ## v3 — 15 Nov ~10:25 IST (JMK feedback)
 - Removed the MUNNAR / KUNDALA pins, the small English strip (temps) and the SOURCE strip in the hook, and all small mono English captions in later scenes. Source stays in the caption.
 - Music: new catchier moods in tools/music.py — hype (lead hook + 808 + trap drums) and drive (lead + four-on-the-floor); plan hype → drive → hype → drive → hype; MUSIC_GAIN 0.45 (louder). Still synthesised, so no copyright issue.
+- 15 Nov 10:48 — JMK fixed the daily post time at 18:30 IST; both posts (IG post_8a38ef851610df92, YT post_2a9f2a8568e46551) moved from 18:00 to 18:30.

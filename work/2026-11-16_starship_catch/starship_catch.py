@@ -143,19 +143,21 @@ PA = (17, 736)     # plasma_a
 SL = (25, 124)     # starlink
 
 # ---------- scenes ----------
+HKB = 1.4
+QT = dict(q=1.0, a=2.6, b=3.0, cmt=4.2, fol=5.6)
 HK = 2.8                                            # 2.8 s cold-open hook before the title card
 HOOKA = boxed(text_img("ഇത് *സിനിമയല്ല!*", 112, max_w=1000, hl=YELLOW), 26, (9, 14, 38, 200))
 HOOKA2 = pill("REAL FOOTAGE · SPACEX", 36, bg=CYAN)
 HOOKB = boxed(text_img("*26,794 km/h*-ൽ space-ൽ നിന്ന് വീഴുന്ന rocket…", 70, max_w=940, hl=YELLOW), 26, (9, 14, 38, 200))
 def hook(fr, t):
-    if t < 1.4:
-        footage(fr, "catch_desc", t, 1.4, 1.2, 370, CD[1], 1.1, 1.0)
+    if t < HKB:
+        footage(fr, "catch_desc", t, HKB, 1.2, 370, CD[1], 1.1, 1.0)
         paste(fr, HOOKA, W / 2, 230, 1.0, 1.08 - 0.08 * ease_out(prog(t, 0, 0.25)))
         appear(fr, HOOKA2, W / 2, 450, t, 0.35, pop=True)
     else:
-        footage(fr, "plasma_b", t - 1.4, 1.4, 2.2, 400, None, 1.1, 1.0)
-        flash(fr, t, 1.4, 0.15)
-        paste(fr, HOOKB, W / 2, 680, 1.0, 1.15 - 0.15 * ease_out(prog(t, 1.4, 0.25)))
+        footage(fr, "plasma_b", t - HKB, HK - HKB, 2.2, 400, None, 1.1, 1.0)
+        flash(fr, t, HKB, 0.15)
+        paste(fr, HOOKB, W / 2, 680, 1.0, 1.15 - 0.15 * ease_out(prog(t, HKB, 0.25)))
 
 def s0(fr, t, d):                                   # HOOK, then the catch
     if t < HK:
@@ -328,20 +330,20 @@ def s12(fr, t, d):                                  # quiz
     ov = Image.new("RGBA", (W, H), (0, 0, 0, 150)); fr.paste(ov, (0, 0), ov)
     appear(fr, QUIZ, W / 2, 290, t, 0.0, pop=True)
     appear(fr, TOPIC, W / 2, 380, t, 0.5, pop=True)
-    appear(fr, Q, W / 2, 470, t, 1.0)
+    appear(fr, Q, W / 2, 470, t, QT["q"])
     for i, (c, tx, cx) in enumerate(((OPT_A, TA, 280), (OPT_B, TB, 800))):
-        st = (2.6, 3.0)[i]
+        st = (QT["a"], QT["b"])[i]
         appear(fr, c, cx, 860, t, st, pop=True)
         if t > st + 0.1: paste(fr, tx, cx, 905, ease_out(prog(t, st + 0.05, 0.3)))
-    appear(fr, CMT, W / 2, 1110, t, 4.2, pop=True)
-    appear(fr, FOL, W / 2, 1270, t, 5.6, pop=True)
+    appear(fr, CMT, W / 2, 1110, t, QT["cmt"], pop=True)
+    appear(fr, FOL, W / 2, 1270, t, QT["fol"], pop=True)
 
 FNS = (s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12)
 SCENES = [(S[i], f) for i, f in enumerate(FNS)]
 VOICE = None
 MUSIC = [(0.0, "hype"), (ST[1], "cinematic"), (ST[4], "space"), (ST[7], "tension"), (ST[9], "hype"), (ST[11], "uplift")]
 MUSIC_GAIN = 0.45
-SFX = [(0.0, "thud"), (0.05, "whoosh"), (1.4, "whoosh"), (HK, "ding"), (HK + 3.6, "pop")]
+SFX = [(0.0, "thud"), (0.05, "whoosh"), (HKB, "whoosh"), (HK, "ding"), (HK + 3.6, "pop")]
 for s_ in ST[1:-1]: SFX.append((s_ - 0.05, "swoosh"))
 SFX += [(ST[1] + line_at(1, 1) + 0.6, "pop"), (ST[3] + 0.8, "pop"), (ST[3] + 1.2, "pop"), (ST[5] + line_at(5, 2), "ding"),
         (ST[7] + line_at(7, 2), "pop"), (ST[9] + line_at(9, 2), "pop"), (ST[10] + 0.2, "chime"), (ST[10] + line_at(10, 1), "ding"),

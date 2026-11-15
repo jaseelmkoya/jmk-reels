@@ -20,3 +20,9 @@ Raw clips not committed (large). No on-screen credit (JMK prefers none); caption
 - https://thespaceroad.com/articles/starship-flight-15-recap/
 - https://www.teslaoracle.com/2026/11/13/watch-the-live-streams-of-starship-flight-15-with-live-updates/
 - https://hotair.com/john-s-2/2026/11/14/heres-why-the-flight-15-booster-catch-was-abandoned-n3821015
+
+## AI voice version (JMK asked 15 Nov 23:24)
+- ElevenLabs eleven_v4, voice D6wSSgA3oM61Ljd71fAY, 1 generation, 2346 credits; transcription 0 credits. Script: starship_voice_lines.py (285 words, 144.7 s).
+- FULL re-render timed to the word starts (tools/topics/starship_catch_vo.py + starship_words.json): every scene, caption, card and quiz beat follows the voice. Checked frames at 8 spoken words — caption on screen matches the spoken word.
+- Files: starship_catch_aivoice_ig.mp4 / _yt.mp4 (~2:30). Voice wav tools/vo_starship.wav is gitignored; mp3 kept outside the repo.
+- NOT POSTED yet: waiting for JMK's "ok". On ok: replace the media of both scheduled posts (IG post_b7ac3c056c7a50f9, YT post_46e08d83e2d9d80b) with the aivoice pair, add AI labels (IG isAiGenerated, YT containsSyntheticMedia) and "🔊 Voice-over: AI voice (my own cloned voice)" in the caption.

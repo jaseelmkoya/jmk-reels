@@ -1,6 +1,6 @@
 # 2026-11-15 (Sunday story #2) · Munnar chill — clear-sky radiation cooling
 JMK asked ("Undakku") for a new reel today after the train-brake reel had already gone out on 14 Nov.
-Status: SCHEDULED 18:00 IST (no voice, v2 with JMK clips). Instagram post_07c091dbc24b4abd (cover med_9a538214f34d6064), YouTube post_8cb02abf188f54d8 (public). Old v1 posts post_d2d47da78e165969 / post_285bf2f8b0aa4f84 deleted.
+Status: SCHEDULED 18:00 IST (no voice, v3). Instagram post_8a38ef851610df92 (cover med_9a538214f34d6064), YouTube post_2a9f2a8568e46551 (public). Older v1/v2 posts deleted.
 
 ## News shortlist (searched 15 Nov, last 48–72 h)
 1. ✅ Kerala hills chill: Kundala Dam (Idukki) 7.9°C, Munnar 9.7°C on 14 Nov; clear skies + weak winds — https://www.newsbytesapp.com/news/india/early-winter-chills-keralam-hills-idukki-79c-munnar-97c/tldr → Plus One Ch10 heat transfer (radiation, Stefan–Boltzmann, convection). PICKED.
@@ -25,3 +25,7 @@ Tools change: reelkit SYMBOLS now include σ (Comic Neue has no σ glyph).
 - Clip A dam/mist (src 8.5–14.7 s, night-graded) = scene 5 background (cold air sinks).
 - Clips' own text overlays avoided. Frames in /home/claude/clips_mc (not committed). Cover now uses the Munnar clip frame.
 - Caption credit: "📹 Munnar visuals: anoopchandran & original creators" — ask JMK for the Kundala clip creator's handle.
+
+## v3 — 15 Nov ~10:25 IST (JMK feedback)
+- Removed the MUNNAR / KUNDALA pins, the small English strip (temps) and the SOURCE strip in the hook, and all small mono English captions in later scenes. Source stays in the caption.
+- Music: new catchier moods in tools/music.py — hype (lead hook + 808 + trap drums) and drive (lead + four-on-the-floor); plan hype → drive → hype → drive → hype; MUSIC_GAIN 0.45 (louder). Still synthesised, so no copyright issue.

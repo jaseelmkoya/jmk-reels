@@ -1,6 +1,6 @@
 # 2026-11-15 (Sunday story #2) · Munnar chill — clear-sky radiation cooling
 JMK asked ("Undakku") for a new reel today after the train-brake reel had already gone out on 14 Nov.
-Status: SCHEDULED 18:00 IST (no voice, v3). Instagram post_8a38ef851610df92 (cover med_9a538214f34d6064), YouTube post_2a9f2a8568e46551 (public). Older v1/v2 posts deleted.
+Status: DONE — synced AI-voice version published 15 Nov 21:42 IST (IG DfxLfzLigiy, YT -4UoP7ywLIw).
 
 ## News shortlist (searched 15 Nov, last 48–72 h)
 1. ✅ Kerala hills chill: Kundala Dam (Idukki) 7.9°C, Munnar 9.7°C on 14 Nov; clear skies + weak winds — https://www.newsbytesapp.com/news/india/early-winter-chills-keralam-hills-idukki-79c-munnar-97c/tldr → Plus One Ch10 heat transfer (radiation, Stefan–Boltzmann, convection). PICKED.
@@ -34,4 +34,4 @@ Tools change: reelkit SYMBOLS now include σ (Comic Neue has no σ glyph).
 - 15 Nov 15:53: JMK asked for his AI voice (ElevenLabs eleven_v4, 802 credits; transcription 0). No re-render (clips not in this session): voice mixed over the v3 video (music ducked), files munnar_chill_aivoice_ig/_yt.mp4. Posted now with AI labels (IG post_8a38ef851610df92, YT post_2a9f2a8568e46551). Voiced re-render timing ready in tools/topics/munnar_chill_vo.py if the clips come back.
 - 15 Nov 15:58: JMK: voice not in sync → YT video IQRHxeTsHVQ deleted. IG reel Dfwjt0lm3JH could not be deleted through Uplika (Instagram-login account) — JMK to delete/archive in the app. Fix = full re-render with tools/topics/munnar_chill_vo.py once the 2 clips are attached again.
 - 15 Nov 21:40 — Voice SYNC FIXED: full re-render with the clips (this session still had them) using tools/topics/munnar_chill_vo.py (exact word starts, scenes/cards/SFX/music retimed; hook scene now clips → starry night for "തെളിഞ്ഞ ആകാശം"). Files munnar_chill_aivoice_ig.mp4 / _yt.mp4 (56 s + 4 s end-card). Fetched mp3 removed from repo.
-  WAITING for JMK's ok → then publish the pair now with AI labels (old unsynced IG reel Dfwjt0lm3JH must be deleted by JMK in the Instagram app).
+  JMK ok ("ഇട്ടോ") → DONE, published 21:42 IST with AI labels: Instagram https://www.instagram.com/reel/DfxLfzLigiy/ (post_771e6c232fcdc763), YouTube https://www.youtube.com/watch?v=-4UoP7ywLIw (post_5ec43145a516bd38). Old unsynced IG reel Dfwjt0lm3JH: JMK deletes it in the Instagram app.

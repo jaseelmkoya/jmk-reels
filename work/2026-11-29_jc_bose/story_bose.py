@@ -184,8 +184,9 @@ def s10(fr, t, d):
 SCENES = [(S[i], f) for i, f in enumerate((s1, s2, s3, s4, s5, s6, s7, s8, s9, s10))]
 VOICE = None
 MUSIC = [(0.0, "cinematic"), (ST[2], "tension"), (ST[5], "electric"), (ST[6], "cinematic"), (ST[8], "uplift")]
-SFX = [(0.0, "whoosh"), (0.2, "zap"), (1.6, "zap"), (ST[1] + 1.0, "zap"), (ST[2] - 0.05, "swoosh"), (ST[2] + 1.0, "whoosh"),
-       (ST[3] + 0.3, "ding"), (ST[3] + 0.6, "ding"), (ST[3] + 0.9, "ding"), (ST[3] + 1.4, "pop"),
+# Flow clips carry their own sound (sparks, bell, whooshes, room tone) — mixed in by the post step, so no synthetic zaps/bells here
+FLOW_AUDIO = True
+SFX = [(0.0, "whoosh"), (ST[2] - 0.05, "swoosh"), (ST[3] + 1.4, "pop"),
        (ST[4] - 0.05, "swoosh"), (ST[5] - 0.05, "whoosh"), (ST[5] + 3.8, "ding"), (ST[5] + 4.6, "pop"),
        (ST[6] - 0.05, "swoosh"), (ST[6] + 0.4, "thud"), (ST[7] - 0.05, "swoosh"), (ST[8] + 0.2, "chime"),
        (ST[9], "pop"), (ST[9] + 1.0, "ticks"), (ST[9] + 2.6, "pop"), (ST[9] + 3.0, "pop"), (ST[9] + 5.6, "chime")]

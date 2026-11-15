@@ -52,3 +52,10 @@ Accidents / disasters: respectful tone, no gore, no blame, verified facts only (
 and on safety; if people died, avoid jokes/dramatic music and mention it gently or pick a different angle.
 Write the shortlist (with links) into STATUS.md so JMK can see what was considered.
 - JMK 15 Nov: "light music" too soft → new moods hype / drive (lead hook + real drums) and MUSIC_GAIN in the topic (0.45 = louder bed). No small English mono strips/pins on screen unless asked.
+
+## Tracker sheet (JMK, 15 Nov)
+Every reel made in any chat goes into JMK's Claude Sheet "JMK Reels Tracker": https://claude.ai/artifact/Qqi5yndGdihmdjz5tTHWc1
+(Claude Docs project c10f35cf-2661-4d6c-867d-e7cc5363cb82, workbook node 16b1792c-c9bf, sheet "Reels", header row 5, columns A–N:
+# | തീയതി | Video | Claude-ൽ? | Status | IG views | YT views | Instagram post | YouTube post | Class · Chapter | Voice | Instagram link | YouTube link | കുറിപ്പ്).
+When you make, schedule, post, hold or change a reel: add or update its row (date order; no duplicates; never delete rows or change JMK's "Claude-ൽ?" choices).
+Use the Claude Docs connector (guide topic.sheets first; read before every write). The 7:37 daily task also refreshes views for the last 7 days.

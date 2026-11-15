@@ -12,6 +12,9 @@ from captions import Captions
 
 _W = json.load(open(os.path.join(HERE, "starship_words.json")))
 WT = [w["text"] for w in _W["words"]]; WS = [w["start"] for w in _W["words"]]; END = _W["end"]
+YT = os.environ.get("PLAT") == "yt"      # YouTube cut: last line "Subscribe ചെയ്യൂ" spliced in at 142.77 s (vo_starship_yt.wav)
+YT_CUT, YT_SUB = 142.77, 142.77 + 1.60
+if YT: END = 142.77 + 2.64
 
 def _norm(s): return re.sub(r"[^\wഀ-ൿ]", "", s.lower())
 # align each spoken line to its first transcript word (greedy, tolerant to small tokenisation differences)
@@ -59,9 +62,12 @@ mc.HKB = t0("HB") - 0.1
 mc.HK = t0("HC") - 0.1
 q0 = ST[12]
 mc.QT = dict(q=t0("QQ") - q0, a=t0("QA") - q0, b=t0("QB") - q0, cmt=t0("QC") - q0, fol=t0("QF") - q0)
+if YT:
+    mc.QT.update(cmt=YT_CUT - q0, fol=YT_SUB - q0)
+    mc.FOL = mc.text_img("*Subscribe* ചെയ്യൂ", 56, max_w=900, hl=mc.YELLOW)
 SCENES = [(S[i], f) for i, f in enumerate(mc.FNS)]
 HANDLE = getattr(mc, "HANDLE", "")
-VOICE = "vo_starship.wav"
+VOICE = "vo_starship_yt.wav" if YT else "vo_starship.wav"
 MUSIC = [(0.0, "hype"), (ST[1], "cinematic"), (ST[4], "space"), (ST[7], "tension"), (ST[9], "hype"), (ST[11], "uplift")]
 MUSIC_GAIN = 0.32
 la = mc.line_at

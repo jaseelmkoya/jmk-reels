@@ -52,7 +52,7 @@ def space_bg(fr, t):
 # ---------- story (captions word by word) ----------
 PACE = 0.40
 SC = [  # (min scene seconds, lead-in, [(line, highlight)])
-    (8.5, 2.6, [("ഇത് എങ്ങനെ സാധിച്ചു? ആദ്യം മുതൽ പറയാം…", YELLOW)]),
+    (11.3, 5.4, [("ഇത് എങ്ങനെ സാധിച്ചു? ആദ്യം മുതൽ പറയാം…", YELLOW)]),
     (8.0, 0.4, [("നവംബർ 13. Texas-ൽ നിന്ന് ലോകത്തിലെ ഏറ്റവും വലിയ rocket, *Starship*, പൊങ്ങി.", YELLOW),
                 ("താഴെയുള്ള *booster*-ൽ മാത്രം *33* engine-കൾ!", ORANGE)]),
     (10.0, 0.4, [("ഇത്രയും ഭാരമുള്ള ഒരു സാധനം എങ്ങനെ മുകളിലേക്ക് പോകുന്നു?", CYAN),
@@ -143,16 +143,34 @@ PA = (17, 736)     # plasma_a
 SL = (25, 124)     # starlink
 
 # ---------- scenes ----------
-def s0(fr, t, d):                                   # HOOK: the catch first
+HK = 2.8                                            # 2.8 s cold-open hook before the title card
+HOOKA = boxed(text_img("ഇത് *സിനിമയല്ല!*", 112, max_w=1000, hl=YELLOW), 26, (9, 14, 38, 200))
+HOOKA2 = pill("REAL FOOTAGE · SPACEX", 36, bg=CYAN)
+HOOKB = boxed(text_img("*26,794 km/h*-ൽ space-ൽ നിന്ന് വീഴുന്ന rocket…", 70, max_w=940, hl=YELLOW), 26, (9, 14, 38, 200))
+def hook(fr, t):
+    if t < 1.4:
+        footage(fr, "catch_desc", t, 1.4, 1.2, 370, CD[1], 1.1, 1.0)
+        paste(fr, HOOKA, W / 2, 230, 1.0, 1.08 - 0.08 * ease_out(prog(t, 0, 0.25)))
+        appear(fr, HOOKA2, W / 2, 450, t, 0.35, pop=True)
+    else:
+        footage(fr, "plasma_b", t - 1.4, 1.4, 2.2, 400, None, 1.1, 1.0)
+        flash(fr, t, 1.4, 0.15)
+        paste(fr, HOOKB, W / 2, 680, 1.0, 1.15 - 0.15 * ease_out(prog(t, 1.4, 0.25)))
+
+def s0(fr, t, d):                                   # HOOK, then the catch
+    if t < HK:
+        hook(fr, t); return
+    t -= HK
     if t < 3.6:
-        footage(fr, "catch_desc", t, 3.6, 1.0, 300, CD[1], 1.0, 1.06)
+        footage(fr, "catch_hold", t, 3.6, 0.6, 1, None, 1.0, 1.06)
     else:
         footage(fr, "catch_close", t - 3.6, S[0] - 3.6, 0.9, 1, None, 1.0, 1.05)
         flash(fr, t, 3.6, 0.2)
+    flash(fr, t, 0.0, 0.2)
     paste(fr, H1, W / 2, 170, 1.0)
     paste(fr, HOOK, W / 2, 320, 1.0)
     appear(fr, TAG, W / 2, 1180, t, 1.0, pop=True)
-    caps(fr, 0, t)
+    caps(fr, 0, t + HK)
 
 def s1(fr, t, d):                                   # liftoff
     if t < 5.5: footage(fr, "lift_close", t, 5.5, 1.0, LC[0], LC[1], 1.0, 1.04)
@@ -323,7 +341,7 @@ SCENES = [(S[i], f) for i, f in enumerate(FNS)]
 VOICE = None
 MUSIC = [(0.0, "hype"), (ST[1], "cinematic"), (ST[4], "space"), (ST[7], "tension"), (ST[9], "hype"), (ST[11], "uplift")]
 MUSIC_GAIN = 0.45
-SFX = [(0.0, "whoosh"), (3.6, "pop")]
+SFX = [(0.0, "thud"), (0.05, "whoosh"), (1.4, "whoosh"), (HK, "ding"), (HK + 3.6, "pop")]
 for s_ in ST[1:-1]: SFX.append((s_ - 0.05, "swoosh"))
 SFX += [(ST[1] + line_at(1, 1) + 0.6, "pop"), (ST[3] + 0.8, "pop"), (ST[3] + 1.2, "pop"), (ST[5] + line_at(5, 2), "ding"),
         (ST[7] + line_at(7, 2), "pop"), (ST[9] + line_at(9, 2), "pop"), (ST[10] + 0.2, "chime"), (ST[10] + line_at(10, 1), "ding"),

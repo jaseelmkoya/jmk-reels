@@ -1,6 +1,6 @@
 # 2026-11-15 (Sunday story #2) · Munnar chill — clear-sky radiation cooling
 JMK asked ("Undakku") for a new reel today after the train-brake reel had already gone out on 14 Nov.
-Status: SCHEDULED 18:00 IST (no voice). Instagram post_d2d47da78e165969 (cover med_bbfe198093f97266), YouTube post_285bf2f8b0aa4f84 (public).
+Status: SCHEDULED 18:00 IST (no voice, v2 with JMK clips). Instagram post_07c091dbc24b4abd (cover med_9a538214f34d6064), YouTube post_8cb02abf188f54d8 (public). Old v1 posts post_d2d47da78e165969 / post_285bf2f8b0aa4f84 deleted.
 
 ## News shortlist (searched 15 Nov, last 48–72 h)
 1. ✅ Kerala hills chill: Kundala Dam (Idukki) 7.9°C, Munnar 9.7°C on 14 Nov; clear skies + weak winds — https://www.newsbytesapp.com/news/india/early-winter-chills-keralam-hills-idukki-79c-munnar-97c/tldr → Plus One Ch10 heat transfer (radiation, Stefan–Boltzmann, convection). PICKED.
@@ -17,3 +17,11 @@ clouds = blanket vs clear sky → no wind: cold dense air sinks to valleys (fog)
 Quiz: Sun's heat reaches Earth by? A) Convection B) Radiation → B (exam favourite, Heat Transfer 14 PYQs; not a verbatim PYQ).
 Files: munnar_chill_ig.mp4 / _yt.mp4, cover, caption (_yt caption ends "Subscribe ചെയ്യൂ 🔔"), youtube txt, voice-over script, topic file tools/topics/munnar_chill.py.
 Tools change: reelkit SYMBOLS now include σ (Comic Neue has no σ glyph).
+
+## v2 — 15 Nov ~10:15 IST: JMK's 2 clips added ("click-bait")
+- Clip B (Munnar hills + tea, watermark "anoopchandran"; src 6.0–9.6 s) = hook background 0–3.4 s with pin MUNNAR.
+- Clip A (Kundala Dam lake, screen recording; src 2.5–7.5 s) = 3.4–8.3 s with pin KUNDALA DAM, IDUKKI.
+- Clip B clouds (src 10.0–13.6 s, 1/3 speed, night-graded) inside the CLOUDY panel of scene 4.
+- Clip A dam/mist (src 8.5–14.7 s, night-graded) = scene 5 background (cold air sinks).
+- Clips' own text overlays avoided. Frames in /home/claude/clips_mc (not committed). Cover now uses the Munnar clip frame.
+- Caption credit: "📹 Munnar visuals: anoopchandran & original creators" — ask JMK for the Kundala clip creator's handle.

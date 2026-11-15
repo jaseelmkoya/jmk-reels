@@ -70,7 +70,9 @@ S = [max(5.6, _dur(LINES[0][0], 2.2)),   # s1 lab sparks
      max(7.6, _dur(LINES[7][0], 1.4)),   # s8 London lecture
      max(7.0, _dur(LINES[8][0], 2.2)),   # s9 milestone
      8.5]                                # s10 quiz
-ST = [0.0]
+# cold open (JMK 15 Nov: stronger first-second hook): the bell rings by itself in an empty room
+S0 = 4.4
+ST = [S0]
 for d_ in S: ST.append(ST[-1] + d_)
 starts = [ST[0] + 0.5, ST[1] + 0.3, ST[2] + 0.3, ST[3] + 0.2, ST[4] + 0.3, ST[5] + 0.6, ST[6] + 0.3, ST[7] + 0.3, ST[8] + 0.4]
 CAP = Captions([(txt, st, None, hl) for (txt, hl), st in zip(LINES, starts)], None, size=54, wpm_pace=PACE)
@@ -181,14 +183,23 @@ def s10(fr, t, d):
     appear(fr, CMT, W / 2, 1110, t, 4.2, pop=True)
     appear(fr, FOL, W / 2, 1270, t, 5.6, pop=True)
 
-SCENES = [(S[i], f) for i, f in enumerate((s1, s2, s3, s4, s5, s6, s7, s8, s9, s10))]
+HOOK1 = text_img("ആരും തൊട്ടില്ല…", 84, color=WHITE)
+HOOK2 = text_img("എന്നിട്ടും *മണി* മുഴങ്ങി!", 84, hl=YELLOW)
+HOOK3 = text_img("നിങ്ങളുടെ phone-ലെ *5G*-യുടെ കഥ\n*130* വർഷം മുമ്പ് ഇവിടെ തുടങ്ങി!", 58, hl=CYAN, max_w=960)
+def s0(fr, t, d):
+    clip(fr, 4, t, S0, 1.10, 1.18, start=1.6, dim=0.75)
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 90)); fr.paste(sh, (0, 0), sh)
+    paste(fr, HOOK1, W / 2, 330, 1.0)                  # visible on frame 0
+    appear(fr, HOOK2, W / 2, 460, t, 0.7, pop=True)
+    appear(fr, HOOK3, W / 2, 1250, t, 1.9)
+SCENES = [(S0, s0)] + [(S[i], f) for i, f in enumerate((s1, s2, s3, s4, s5, s6, s7, s8, s9, s10))]
 VOICE = None
-MUSIC = [(0.0, "cinematic"), (ST[2], "tension"), (ST[5], "electric"), (ST[6], "cinematic"), (ST[8], "uplift")]
+MUSIC = [(0.0, "tension"), (ST[0], "cinematic"), (ST[2], "tension"), (ST[5], "electric"), (ST[6], "cinematic"), (ST[8], "uplift")]
 # Flow clips carry their own sound (sparks, bell, whooshes, room tone) — mixed in by the post step, so no synthetic zaps/bells here
 FLOW_AUDIO = True
-SFX = [(0.0, "whoosh"), (ST[2] - 0.05, "swoosh"), (ST[3] + 1.4, "pop"),
+SFX = [(ST[0] - 0.05, "whoosh"), (ST[2] - 0.05, "swoosh"), (ST[3] + 1.4, "pop"),
        (ST[4] - 0.05, "swoosh"), (ST[5] - 0.05, "whoosh"), (ST[5] + 3.8, "ding"), (ST[5] + 4.6, "pop"),
        (ST[6] - 0.05, "swoosh"), (ST[6] + 0.4, "thud"), (ST[7] - 0.05, "swoosh"), (ST[8] + 0.2, "chime"),
        (ST[9], "pop"), (ST[9] + 1.0, "ticks"), (ST[9] + 2.6, "pop"), (ST[9] + 3.0, "pop"), (ST[9] + 5.6, "chime")]
 if __name__ == "__main__":
-    print("total", round(ST[-1], 1), [round(x, 1) for x in S])
+    print("total", round(ST[-1], 1), "S0", S0, [round(x, 1) for x in S])

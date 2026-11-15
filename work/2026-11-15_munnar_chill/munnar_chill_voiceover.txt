@@ -1,0 +1,25 @@
+MUNNAR CHILL (Sunday story) — VOICE-OVER SCRIPT (54 s + 4 s end-card)
+News: NewsBytes 15 Nov 2026 — Kundala Dam (Idukki) 7.9°C, Munnar 9.7°C on 14 Nov; clear skies, weak winds.
+
+[0:00 – 0:08]  (Hook — KERALA 7.9°C! + ചോദ്യം, thermometer താഴുന്നു)
+"മേഘമില്ലാത്ത രാത്രി കൂടുതൽ തണുക്കുന്നത് എന്തുകൊണ്ട്? Nov 14: Idukki Kundala-യിൽ 7.9°C, Munnar-ൽ 9.7°C. കാരണം: തെളിഞ്ഞ ആകാശം, കാറ്റില്ല. എന്താണ് ഇതിലെ physics?"
+
+[0:08 – 0:14]  (DAY: SUN HEATS US — സൂര്യന്റെ rays)
+"പകൽ സൂര്യന്റെ heat ഭൂമിയിൽ എത്തുന്നത് radiation വഴി — ഒരു medium ഇല്ലാതെ."
+
+[0:14 – 0:20]  (NIGHT: EARTH RADIATES — heat arrows മുകളിലേക്ക്)
+"രാത്രി ഭൂമി ഈ heat radiation ആയി തിരികെ ആകാശത്തേക്ക് വിടുന്നു."
+
+[0:20 – 0:31]  (CLOUDS = BLANKET — cloudy vs clear sky)
+"മേഘം ഉണ്ടെങ്കിൽ അത് ഈ heat absorb ചെയ്ത് ഭൂമിയിലേക്ക് തിരിച്ചു radiate ചെയ്യും. തെളിഞ്ഞ ആകാശത്തിൽ heat നേരെ space-ലേക്ക് — ഭൂമി വേഗം തണുക്കുന്നു."
+
+[0:31 – 0:37]  (NO WIND = COLD VALLEY — cold air sinks, fog)
+"കാറ്റില്ലെങ്കിൽ തണുത്ത, density കൂടിയ air താഴ്വരയിൽ കെട്ടിക്കിടക്കും. രാവിലെ മഞ്ഞും."
+
+[0:37 – 0:45]  (Stefan–Boltzmann law card (English-ൽ വായിക്കുക) + 3 modes)
+"Stefan–Boltzmann law: Every body radiates heat; energy radiated per second, H = e sigma A T to the power four. ഏത് body-യും heat radiate ചെയ്യും. T കൂടുമ്പോൾ H വളരെ വേഗം കൂടും (T⁴). Conduction-നും convection-നും medium വേണം; radiation-ന് വേണ്ട."
+
+[0:45 – 0:53]  (QUIZ)
+"Quiz time! സൂര്യന്റെ heat ഭൂമിയിൽ എത്തുന്നത് ഏത് രീതിയിൽ? A, convection. B, radiation. ഉത്തരം comment ചെയ്യൂ! Follow ചെയ്യൂ."
+
+Quiz answer: B) Radiation (heat transfer — exam favourite, 14 PYQs in this topic).

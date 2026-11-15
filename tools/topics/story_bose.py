@@ -59,6 +59,8 @@ LINES = [
     ("2012-ൽ *IEEE* ബോസിന്റെ പരീക്ഷണത്തെ ലോകത്തിലെ ആദ്യ *millimetre-wave* *communication* ആയി അംഗീകരിച്ചു.", YELLOW),
 ]
 PACE = 0.42
+# event times inside scenes (seconds from scene start); the _vo file overrides them from word times
+TM = dict(name=2.4, gun=1.4, eq1=1.0, eq2=2.4, eq3=3.8, mw=4.6, pills=6.2, q=1.0, optA=2.6, optB=3.0, cmt=4.2, fol=5.6, hook2=0.7, hook3=1.9)
 def _dur(text, extra): return len(text.split()) * PACE + extra
 S = [max(5.6, _dur(LINES[0][0], 2.2)),   # s1 lab sparks
      max(6.6, _dur(LINES[1][0], 2.6)),   # s2 hands + name
@@ -93,8 +95,8 @@ def s1(fr, t, d):
 
 def s2(fr, t, d):
     clip(fr, 6, t, S[1], 1.04, 1.12, speed=0.95)
-    appear(fr, NAME, W / 2, 230, t, 2.4)
-    appear(fr, YEARS, W / 2, 360, t, 2.8)
+    appear(fr, NAME, W / 2, 230, t, TM['name'])
+    appear(fr, YEARS, W / 2, 360, t, TM['name'] + 0.4)
     caps(fr, 1, t)
 
 def s3(fr, t, d):
@@ -105,8 +107,8 @@ def s3(fr, t, d):
 def s4(fr, t, d):
     clip(fr, 4, t, S[3], 1.0, 1.12, start=1.0)
     top(fr, H4, t, 0.6)
-    if 1.2 < t < 1.6:                                  # tiny gunpowder flash
-        a = 1 - abs(t - 1.4) / 0.2
+    if TM['gun'] - 0.2 < t < TM['gun'] + 0.2:                                  # tiny gunpowder flash
+        a = 1 - abs(t - TM['gun']) / 0.2
         fl = Image.new("RGBA", (W, H), (255, 230, 170, int(90 * a))); fr.paste(fl, (0, 0), fl)
     caps(fr, 3, t)
 
@@ -138,12 +140,12 @@ def s6(fr, t, d):
         for xx in (x1, x1 + lam): dd.line((xx, y0 + 150, xx, y0 + 190), fill=WHITE, width=4)
         dd.text((x1 + lam / 2, y0 + 215), "λ", font=ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 52), fill=WHITE, anchor="mm")
     top(fr, H6, t, 0.0)
-    appear(fr, EQ1, W / 2, 840, t, 1.0)
-    appear(fr, EQ2, W / 2, 940, t, 2.4)
-    appear(fr, EQ3, W / 2, 1040, t, 3.8, pop=True)
-    appear(fr, MW, W / 2, 1160, t, 4.6, pop=True)
+    appear(fr, EQ1, W / 2, 840, t, TM['eq1'])
+    appear(fr, EQ2, W / 2, 940, t, TM['eq2'])
+    appear(fr, EQ3, W / 2, 1040, t, TM['eq3'], pop=True)
+    appear(fr, MW, W / 2, 1160, t, TM['mw'], pop=True)
     for i, (pl, x) in enumerate(((P5G, 250), (PRAD, 540), (PRDR, 830))):
-        appear(fr, pl, x, 1240, t, 6.2 + i * 0.3, pop=True)
+        appear(fr, pl, x, 1240, t, TM['pills'] + i * 0.3, pop=True)
     caps(fr, 5, t, y=1340)
 
 def s7(fr, t, d):
@@ -175,13 +177,13 @@ def s10(fr, t, d):
     fr.paste(VIG, (0, 0), VIG)
     appear(fr, QUIZ, W / 2, 290, t, 0.0, pop=True)
     appear(fr, PYQ, W / 2, 380, t, 0.5, pop=True)
-    appear(fr, Q, W / 2, 480, t, 1.0)
+    appear(fr, Q, W / 2, 480, t, TM['q'])
     for i, (c, tx, cx) in enumerate(((OPT_A, TA, 280), (OPT_B, TB, 800))):
-        st = (2.6, 3.0)[i]
+        st = (TM['optA'], TM['optB'])[i]
         appear(fr, c, cx, 860, t, st, pop=True)
         if t > st + 0.1: paste(fr, tx, cx, 905, ease_out(prog(t, st + 0.05, 0.3)))
-    appear(fr, CMT, W / 2, 1110, t, 4.2, pop=True)
-    appear(fr, FOL, W / 2, 1270, t, 5.6, pop=True)
+    appear(fr, CMT, W / 2, 1110, t, TM['cmt'], pop=True)
+    appear(fr, FOL, W / 2, 1270, t, TM['fol'], pop=True)
 
 HOOK1 = text_img("ആരും തൊട്ടില്ല…", 84, color=WHITE)
 HOOK2 = text_img("എന്നിട്ടും *മണി* മുഴങ്ങി!", 84, hl=YELLOW)
@@ -190,8 +192,8 @@ def s0(fr, t, d):
     clip(fr, 4, t, S0, 1.10, 1.18, start=1.6, dim=0.75)
     sh = Image.new("RGBA", (W, H), (0, 0, 0, 90)); fr.paste(sh, (0, 0), sh)
     paste(fr, HOOK1, W / 2, 330, 1.0)                  # visible on frame 0
-    appear(fr, HOOK2, W / 2, 460, t, 0.7, pop=True)
-    appear(fr, HOOK3, W / 2, 1250, t, 1.9)
+    appear(fr, HOOK2, W / 2, 460, t, TM['hook2'], pop=True)
+    appear(fr, HOOK3, W / 2, 1250, t, TM['hook3'])
 SCENES = [(S0, s0)] + [(S[i], f) for i, f in enumerate((s1, s2, s3, s4, s5, s6, s7, s8, s9, s10))]
 VOICE = None
 MUSIC = [(0.0, "tension"), (ST[0], "cinematic"), (ST[2], "tension"), (ST[5], "electric"), (ST[6], "cinematic"), (ST[8], "uplift")]

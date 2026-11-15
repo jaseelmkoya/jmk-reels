@@ -51,3 +51,4 @@ electricity, optics, gravitation, heat …)? A big news story with a clear physi
 Accidents / disasters: respectful tone, no gore, no blame, verified facts only (name the source), focus on the physics
 and on safety; if people died, avoid jokes/dramatic music and mention it gently or pick a different angle.
 Write the shortlist (with links) into STATUS.md so JMK can see what was considered.
+- JMK 15 Nov: "light music" too soft → new moods hype / drive (lead hook + real drums) and MUSIC_GAIN in the topic (0.45 = louder bed). No small English mono strips/pins on screen unless asked.

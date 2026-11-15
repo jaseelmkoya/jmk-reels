@@ -173,12 +173,8 @@ def s1(fr, t, d):
     fr.paste(TOPSHADE, (0, 0), TOPSHADE)
     val = 20 - (20 - 7.9) * ease_in_out(prog(t, EV['cool'], 4.5))
     thermo(d, 900, 720, val)
-    if t < SW1: paste(fr, P_MUN, 300, 1080, ease_out(prog(t, 0.5, 0.4)) * (1 - prog(t, SW1 - 0.3, 0.3)))
-    else: appear(fr, P_KUN, 380, 1080, t, SW1 + 0.2, pop=True)
     paste(fr, H1, W / 2, 200, 1.0)                                 # hook visible from frame 0
     paste(fr, HOOK, W / 2, 360, 1.0)
-    paste(fr, C1, W / 2, 1200, ease_out(prog(t, 0.6, 0.4)))
-    paste(fr, SRC, W / 2, 1255, ease_out(prog(t, 0.8, 0.4)))
     caps(fr, 0, t)
 
 def s2(fr, t, d):
@@ -196,7 +192,7 @@ def s2(fr, t, d):
             x2, y2 = 420 + i * 160, 950 + i * 25
             wavy(d, x1, y1, x1 + (x2 - x1) * p, y1 + (y2 - y1) * p, (255, 200, 60), ph=-t * 8)
     fr.paste(VIG, (0, 0), VIG)
-    paste(fr, H2, W / 2, 200, 1.0); paste(fr, C2, W / 2, 340, ease_out(prog(t, 0.3, 0.4)))
+    paste(fr, H2, W / 2, 200, 1.0)
     caps(fr, 1, t)
 
 def s3(fr, t, d):
@@ -207,7 +203,7 @@ def s3(fr, t, d):
             x = 120 + i * 170; y1 = 1000 + 40 * math.sin(i)
             wavy(d, x, y1, x, y1 - 520 * p, HEAT, ph=-t * 8 + i)
     fr.paste(VIG, (0, 0), VIG)
-    paste(fr, H3, W / 2, 200, 1.0); paste(fr, C3, W / 2, 330, ease_out(prog(t, 0.3, 0.4)))
+    paste(fr, H3, W / 2, 200, 1.0)
     caps(fr, 2, t)
 
 def s4(fr, t, d):
@@ -253,7 +249,7 @@ def s5(fr, t, d):
     appear(fr, L_COLD, W / 2, 1110, t, 2.4, pop=True)
     fog(fr, t * 1.5, 0.35 * ease_out(prog(t, 1.5, 2.0)) + 0.1)
     fr.paste(VIG, (0, 0), VIG)
-    paste(fr, H5, W / 2, 200, 1.0); paste(fr, C5, W / 2, 330, ease_out(prog(t, 0.3, 0.4)))
+    paste(fr, H5, W / 2, 200, 1.0)
     caps(fr, 4, t)
 
 def s6(fr, t, d):
@@ -285,7 +281,8 @@ def s7(fr, t, d):
 
 SCENES = [(S[i], f) for i, f in enumerate((s1, s2, s3, s4, s5, s6, s7))]
 VOICE = None
-MUSIC = [(0.0, "space"), (ST[1], "uplift"), (ST[2], "curious"), (ST[4], "ocean"), (ST[5], "curious"), (ST[6], "tension")]
+MUSIC = [(0.0, "hype"), (ST[1], "drive"), (ST[4], "hype"), (ST[5], "drive"), (ST[6], "hype")]
+MUSIC_GAIN = 0.45
 SFX = [(0.0, "whoosh"), (ST[0] + 4.5, "ding")]
 for s_ in ST[1:-1]: SFX.append((s_ - 0.05, "swoosh"))
 SFX += [(ST[1] + 0.6, "chime"), (ST[2] + 0.4, "whoosh"), (ST[3] + 0.4, "pop"), (ST[3] + EV['split'] - 0.3, "pop"),

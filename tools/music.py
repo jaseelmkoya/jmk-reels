@@ -11,6 +11,8 @@ Moods
   tension    ticking, sustained dark chords, staccato             (quiz, mystery, "why?" moments, experiments)
   uplift     bright piano chords + full beat                      (discoveries, results, endings, Follow)
   electric   pulsing synth arps + tight beat                      (electricity, circuits, magnetism, tech)
+  hype       catchy lead hook + 808 + trap drums (half-time)     (hooks, news stories, quiz — JMK wants catchier music)
+  drive      catchy lead + four-on-the-floor dance beat          (explaining with energy)
 """
 import math, wave
 import numpy as np
@@ -29,7 +31,11 @@ MOODS = {
     "tension":  dict(bpm=120, sc=MIN, prog=[0, 0, 5, 4], pad=0.6, bright=0.2, stacc=0.45, bass=0.5, kick=0.35, tick=0.5),
     "uplift":   dict(bpm=112, sc=MAJ, prog=[0, 4, 5, 3], pad=0.5, bright=0.7, chords=0.55, pluck=0.35, bass=0.6, kick=0.6, hat=0.35, clap=0.4),
     "electric": dict(bpm=118, sc=MIN, prog=[0, 5, 6, 4], pad=0.4, bright=0.6, synth=0.5, bass=0.6, kick=0.55, hat=0.35),
+    # catchier, punchier beds (JMK 15 Nov: "light music" is too soft) — melodic lead hook + real drums
+    "hype":     dict(bpm=96,  sc=MIN, prog=[0, 5, 2, 6], pad=0.45, bright=0.5, lead=0.8, b808=0.9, trap=0.9),
+    "drive":    dict(bpm=122, sc=MIN, prog=[0, 5, 2, 6], pad=0.4, bright=0.7, lead=0.65, pluck=0.4, bass=0.7, four=0.9, hat=0.5, clap=0.6),
 }
+LEAD_HOOK = [(0, 4), (0.75, 2), (1.5, 4), (2, 5), (2.5, 4), (3, 2), (3.5, 0)]   # (beat, scale step) — repeating motif
 
 hz = lambda m: 440.0 * 2 ** ((m - 69) / 12)
 
@@ -118,6 +124,37 @@ def mood_track(mood, dur, root, rng):
                 f = hz(m); L2 = int(3.0 * SR); t2 = np.arange(L2) / SR
                 y = (np.sin(2 * np.pi * f * t2) + 0.4 * np.sin(2 * np.pi * f * 2.76 * t2)) * _env(L2, 0.002, 1.3)
                 _add(out, s0 + int(q * beat / 2 * SR), y * 0.07 * P["bell"])
+        if P.get("lead"):    # catchy repeating lead: filtered square + octave, motif varies on odd bars
+            for bt, stp in LEAD_HOOK:
+                if b % 2 and bt >= 3: stp = [7, 6][int(bt * 2) % 2]
+                m = root + 12 + P["sc"][stp % 7] + 12 * (stp // 7)
+                L2 = int(beat * 0.7 * SR); t2 = np.arange(L2) / SR; f = hz(m)
+                y = np.sign(np.sin(2 * np.pi * f * t2)) * 0.6 + np.sin(2 * np.pi * 2 * f * t2) * 0.4
+                y = np.convolve(y, np.ones(9) / 9, mode="same") * _env(L2, 0.004, 4.5)
+                _add(out, s0 + int(bt * beat * SR), y * 0.11 * P["lead"])
+        if P.get("b808"):    # long gliding 808 on 1 and the "and" of 3
+            for q, Lb in ((0, 2.4), (2.5, 1.4)):
+                L2 = int(Lb * beat * SR); t2 = np.arange(L2) / SR
+                f = hz(ch[0] - 24) * (1 + 0.5 * np.exp(-t2 * 30))
+                y = np.tanh(2.2 * np.sin(2 * np.pi * np.cumsum(f) / SR)) * np.exp(-t2 * 1.6)
+                _add(out, s0 + int(q * beat * SR), y * 0.42 * P["b808"])
+        if P.get("trap"):    # half-time trap kit: kick 1 + 2.75, snare on 3, rolling 16th hats
+            for q in (0, 2.75):
+                L2 = int(0.35 * SR); t2 = np.arange(L2) / SR; f = 140 * np.exp(-t2 * 30) + 48
+                _add(out, s0 + int(q * beat * SR), np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t2 * 9) * 0.55 * P["trap"])
+            L2 = int(0.25 * SR); y = rng.standard_normal(L2); t2 = np.arange(L2) / SR
+            sn = (y - np.convolve(y, np.ones(4) / 4, mode="same")) * np.exp(-t2 * 16) * 0.35 + np.sin(2 * np.pi * 190 * t2) * np.exp(-t2 * 25) * 0.3
+            _add(out, s0 + int(2 * beat * SR), sn * P["trap"])
+            for h in range(16):
+                if h in (13, 14, 15) and b % 2: steps = (0, 1 / 3, 2 / 3)   # hat roll
+                else: steps = (0,)
+                for st in steps:
+                    L2 = int(0.04 * SR); y = rng.standard_normal(L2); y = y - np.convolve(y, np.ones(2) / 2, mode="same")
+                    _add(out, s0 + int((h + st) * beat / 4 * SR), y * np.exp(-np.arange(L2) / SR * 90) * (0.10 if h % 2 else 0.14) * P["trap"])
+        if P.get("four"):    # four-on-the-floor kick
+            for q in range(4):
+                L2 = int(0.3 * SR); t2 = np.arange(L2) / SR; f = 130 * np.exp(-t2 * 30) + 50
+                _add(out, s0 + int(q * beat * SR), np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t2 * 10) * 0.6 * P["four"])
         # drums
         for q in range(4):
             sq = s0 + int(q * beat * SR)

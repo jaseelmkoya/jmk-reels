@@ -1,6 +1,6 @@
 ഭൂമിയെ 14 തവണ ചുറ്റിവന്ന rocket-നെ ഒരു tower കൈകൊണ്ട് പിടിച്ചു! 🚀
 14 Nov-ന് SpaceX-ന്റെ Starship (Ship 42) 22 മണിക്കൂർ space-ൽ കറങ്ങി തിരിച്ചെത്തി; launch tower-ന്റെ "chopsticks" അതിനെ വായുവിൽ വെച്ച് പിടിച്ചു. Orbit-ൽ നിന്ന് വന്ന ship-നെ ഇങ്ങനെ പിടിക്കുന്നത് ആദ്യമായി.
-Rocket പൊങ്ങുന്നത് Newton's third law, orbit-ൽ "വീഴാതെ വീഴുന്നത്" (v = √(GM/r) ≈ 7.7 km/s), തിരിച്ചുവരവിലെ plasma, thrust > weight: എല്ലാം reel-ൽ.
+Rocket പൊങ്ങുന്നത് Newton's third law, orbit-ൽ "വീഴാതെ വീഴുന്നത്" (v = √(GM/r) ≈ 7.7 km/s), തിരിച്ചുവരവിലെ plasma, thrust weight-നേക്കാൾ കൂടുന്നത്: എല്ലാം video-യിൽ.
 
 📘 Newton's third law: To every action, there is an equal and opposite reaction.
 

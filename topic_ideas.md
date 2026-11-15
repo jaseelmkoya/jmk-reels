@@ -1,9 +1,8 @@
 # Topic ideas (backlog)
 The daily run may pick from here when no news story fits (news-first rule still wins). Mark an idea used by moving it to topics_done.md.
 
-## NEXT (use first — JMK, 15 Nov 21:27)
-- **16 Nov 2026 reel: SpaceX Starship Ship 42 caught by the launch tower ("Mechazilla") after ~14 orbits** (news 14 Nov 2026, ~21:20 UTC, Starbase Texas; flight ~22.5 h, ~275 km orbit, 26 Starlink V3 deployed; Booster 22 aborted its catch (GNC issue) and splashed down/exploded in the Gulf). Sources: https://www.drohnen.de/97929/starship-flight-15-live-ship-catch-en/ , https://hotair.com/john-s-2/2026/11/14/heres-why-the-flight-15-booster-catch-was-abandoned-n3821015 , https://dev.to/coldcasetech/spacex-starship-flight-15-the-ship-was-caught-the-booster-was-not-2obk (re-check at least one more major outlet before stating numbers).
-  Angle (Plus One): hook "ഭൂമിയെ 14 തവണ ചുറ്റിവന്ന rocket-നെ tower കൈകൊണ്ട് പിടിച്ചു!" → orbital velocity v = √(GM/r) ≈ 7.7 km/s at ~275 km, period ≈ 90 min (→ ~14 orbits in a day) [Gravitation] → catch: engines push gas down, gas pushes rocket up (Newton's 3rd law); thrust > weight → deceleration (F = ma) → quiz PYQ: rocket propulsion is based on conservation of linear momentum. Visuals: our own animation; real catch footage only if JMK sends a screen recording (credit SpaceX).
+## NEXT (use first)
+(empty — the SpaceX Starship catch reel was made in JMK's chat on 15 Nov night: work/2026-11-16_starship_catch/, scheduled 16 Nov 18:30)
 
 - **Why airplanes fly — Bernoulli + Newton's 3rd law** (Plus One Ch10 Mechanical Properties of Fluids). From YouTube Studio "Get New Video Ideas" (15 Nov 2026): "very likely to be of interest — fluids/Bernoulli frequent in comments". Bernoulli = 11 PYQs (State 2024/2023; state & prove 2022/2021). Angle: the "equal transit time" story is a myth; lift = pressure difference (Bernoulli) + air pushed down (Newton's 3rd law). Good follow-up to the train-brake (Pascal) reel.
 - **How Maglev trains float — Lenz's law / magnetic levitation** (Plus Two Ch6 EMI). From YouTube Studio ideas (15 Nov 2026): "somewhat likely". Overlaps with the magnet-in-copper-pipe reel (14 Nov, on hold), so space them apart.

@@ -39,7 +39,7 @@ words.append({"start": WS[93]})              # last caption page ends when the q
 CAP = Captions.from_words(lines, words, size=52, maxw=9)
 
 EV = dict(mc.EV)
-EV.update(split=rel(55, 3), q=rel(95, 6), optA=rel(101, 6), optB=rel(103, 6), cmt=rel(105, 6), fol=rel(108, 6),
+EV.update(form=rel(77, 5), split=rel(55, 3), q=rel(95, 6), optA=rel(101, 6), optB=rel(103, 6), cmt=rel(105, 6), fol=rel(108, 6),
           pyq=rel(94, 6), modes=(rel(87, 5), rel(87, 5) + 0.5, rel(87, 5) + 1.0))
 mc.S, mc.ST, mc.CAP, mc.EV = S, ST, CAP, EV
 SCENES = [(S[i], f) for i, f in enumerate((mc.s1, mc.s2, mc.s3, mc.s4, mc.s5, mc.s6, mc.s7))]

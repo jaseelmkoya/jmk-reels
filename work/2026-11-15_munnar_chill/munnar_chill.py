@@ -165,11 +165,17 @@ SW1 = 3.4   # switch Munnar hills -> Kundala dam
 def s1(fr, t, d):
     if t < SW1:
         fr.paste(clip_frame("b_hook", t), (0, 0))
-    else:
+    elif t < SW1 + 4.9 or S[0] < 9.5:
         cur = clip_frame("a_lake", t - SW1)
         a = prog(t, SW1, 0.35)
         if a < 1: cur = Image.blend(clip_frame("b_hook", t), cur, a)
         fr.paste(cur, (0, 0))
+    else:   # long (voiced) hook: clear starry night over the hills for "തെളിഞ്ഞ ആകാശം, കാറ്റില്ല"
+        cur = push(night_base(t), t - SW1 - 4.9, S[0] - SW1 - 4.9, 1.0, 1.06, 0.5, 0.6).convert("RGB")
+        a = prog(t, SW1 + 4.9, 0.4)
+        if a < 1: cur = Image.blend(clip_frame("a_lake", t - SW1), cur, a)
+        fr.paste(cur, (0, 0))
+        fog(fr, t, 0.6)
     fr.paste(TOPSHADE, (0, 0), TOPSHADE)
     val = 20 - (20 - 7.9) * ease_in_out(prog(t, EV['cool'], 4.5))
     thermo(d, 900, 720, val)
@@ -259,7 +265,7 @@ def s6(fr, t, d):
     appear(fr, LAW_PILL, W / 2, 360, t, 0.2, pop=True)
     appear(fr, LAW_CARD, W / 2, 450, t, 0.4)
     appear(fr, LAW, W / 2, 475, t, 0.5)
-    appear(fr, FORM, W / 2, 470 + LAW.height + 70, t, 1.2, pop=True)
+    appear(fr, FORM, W / 2, 470 + LAW.height + 70, t, EV.get('form', 1.2), pop=True)
     for i, m in enumerate(MODES):
         appear(fr, m, W / 2, 920 + i * 110, t, EV['modes'][i], pop=(i == 2))
     caps(fr, 5, t, y=1330)

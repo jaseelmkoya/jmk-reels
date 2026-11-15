@@ -31,3 +31,4 @@ Tools change: reelkit SYMBOLS now include σ (Comic Neue has no σ glyph).
 - Music: new catchier moods in tools/music.py — hype (lead hook + 808 + trap drums) and drive (lead + four-on-the-floor); plan hype → drive → hype → drive → hype; MUSIC_GAIN 0.45 (louder). Still synthesised, so no copyright issue.
 - 15 Nov 10:48 — JMK fixed the daily post time at 18:30 IST; both posts (IG post_8a38ef851610df92, YT post_2a9f2a8568e46551) moved from 18:00 to 18:30.
 - 15 Nov 15:37: JMK moved both posts (IG post_8a38ef851610df92, YT post_2a9f2a8568e46551) to 15 Nov 16:00 IST.
+- 15 Nov 15:53: JMK asked for his AI voice (ElevenLabs eleven_v4, 802 credits; transcription 0). No re-render (clips not in this session): voice mixed over the v3 video (music ducked), files munnar_chill_aivoice_ig/_yt.mp4. Posted now with AI labels (IG post_8a38ef851610df92, YT post_2a9f2a8568e46551). Voiced re-render timing ready in tools/topics/munnar_chill_vo.py if the clips come back.

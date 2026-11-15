@@ -78,6 +78,25 @@ def cloud(d, cx, cy, s=1.0, col=(150, 160, 185)):
     for dx, dy, r in ((-90, 10, 60), (-30, -20, 80), (50, -5, 70), (110, 15, 50)):
         d.ellipse((cx + dx * s - r * s, cy + dy * s - r * s, cx + dx * s + r * s, cy + dy * s + r * s), fill=col)
 
+
+# ---------- real footage (JMK's clips; frames extracted to CLIPS dir, not committed) ----------
+CLIPS = os.environ.get("MC_CLIPS", "/home/claude/clips_mc")
+_clip_n = {}
+def clip_frame(name, t, speed=1.0):
+    d = os.path.join(CLIPS, name)
+    if name not in _clip_n: _clip_n[name] = len(os.listdir(d))
+    k = min(_clip_n[name], max(1, int(t * speed * 30) + 1))
+    return Image.open(os.path.join(d, f"{k:04d}.jpg")).convert("RGB")
+TOPSHADE = grad(W, H, [(0, (0, 0, 0)), (1, (0, 0, 0))])
+_ta = np.clip(np.concatenate([np.linspace(200, 0, 620), np.zeros(H - 620 - 760), np.linspace(0, 210, 760)]), 0, 255).astype(np.uint8)
+TOPSHADE.putalpha(Image.fromarray(np.repeat(_ta[:, None], W, axis=1)))
+def night_grade(img, k=0.5):
+    a = np.asarray(img).astype(np.float32)
+    a = a * np.array([0.45, 0.6, 0.95]) * k * 1.6
+    return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
+P_MUN = pin_label("MUNNAR", dot=YELLOW)
+P_KUN = pin_label("KUNDALA DAM, IDUKKI", dot=CYAN)
+
 # ---------- text ----------
 H1 = headline("KERALA *7.9°C!*", hl=CYAN, size=110)
 HOOK = text_img("മേഘമില്ലാത്ത രാത്രി കൂടുതൽ *തണുക്കുന്നത്* എന്തുകൊണ്ട്?", 64, max_w=960, hl=CYAN)
@@ -142,13 +161,20 @@ EV = dict(cool=0.0, rays=0.6, emit=0.4, split=starts[5] - ST[3], sink=0.8, modes
           q=1.0, optA=2.6, optB=3.0, cmt=4.2, fol=5.6, pyq=0.6)
 
 # ---------- scenes ----------
+SW1 = 3.4   # switch Munnar hills -> Kundala dam
 def s1(fr, t, d):
-    base = night_base(t)
-    fr.paste(push(base, t, S[0], 1.0, 1.07, 0.5, 0.6), (0, 0))
-    fog(fr, t, 0.8)
+    if t < SW1:
+        fr.paste(clip_frame("b_hook", t), (0, 0))
+    else:
+        cur = clip_frame("a_lake", t - SW1)
+        a = prog(t, SW1, 0.35)
+        if a < 1: cur = Image.blend(clip_frame("b_hook", t), cur, a)
+        fr.paste(cur, (0, 0))
+    fr.paste(TOPSHADE, (0, 0), TOPSHADE)
     val = 20 - (20 - 7.9) * ease_in_out(prog(t, EV['cool'], 4.5))
     thermo(d, 900, 720, val)
-    fr.paste(VIG, (0, 0), VIG)
+    if t < SW1: paste(fr, P_MUN, 300, 1080, ease_out(prog(t, 0.5, 0.4)) * (1 - prog(t, SW1 - 0.3, 0.3)))
+    else: appear(fr, P_KUN, 380, 1080, t, SW1 + 0.2, pop=True)
     paste(fr, H1, W / 2, 200, 1.0)                                 # hook visible from frame 0
     paste(fr, HOOK, W / 2, 360, 1.0)
     paste(fr, C1, W / 2, 1200, ease_out(prog(t, 0.6, 0.4)))
@@ -187,9 +213,9 @@ def s3(fr, t, d):
 def s4(fr, t, d):
     fr.paste(push(night_base(t + 14, stars=True), t, S[3], 1.0, 1.03), (0, 0))
     # split: left cloudy, right clear
-    ov = Image.new("RGBA", (W // 2, 1000), (20, 24, 40, 160)); fr.paste(ov, (0, 380), ov)
-    d.line((W / 2, 400, W / 2, 1150), fill=(220, 225, 240), width=4)
-    cloud(d, 270, 560, 1.0)
+    cf = night_grade(clip_frame("b_cloud", t), 0.75).crop((270, 330, 270 + W // 2, 330 + 800))
+    fr.paste(cf, (0, 380))
+    d.line((W / 2, 380, W / 2, 1180), fill=(220, 225, 240), width=4)
     for i in range(3):
         x = 110 + i * 110
         p = ease_out(prog(t, 0.6 + i * 0.2, 0.9))
@@ -212,8 +238,8 @@ def s4(fr, t, d):
 
 L_COLD = pin_label("COLD AIR SINKS", dot=(150, 210, 255))
 def s5(fr, t, d):
-    base = night_base(t + 24)
-    fr.paste(push(base, t, S[4], 1.03, 1.08, 0.5, 0.8), (0, 0))
+    fr.paste(night_grade(clip_frame("a_dam", t), 0.6), (0, 0))
+    fr.paste(TOPSHADE, (0, 0), TOPSHADE)
     for i in range(6):
         p = ease_in_out(prog(t, EV['sink'] + (i % 3) * 0.35, 2.4))
         left = i < 3
@@ -225,7 +251,7 @@ def s5(fr, t, d):
         if p > 0.02:
             arrow(d, x - dx / L * 110, y - dy / L * 110, x, y, (150, 210, 255), 10, 32)
     appear(fr, L_COLD, W / 2, 1110, t, 2.4, pop=True)
-    fog(fr, t * 1.5, 1.0 * ease_out(prog(t, 1.5, 2.0)) + 0.2)
+    fog(fr, t * 1.5, 0.35 * ease_out(prog(t, 1.5, 2.0)) + 0.1)
     fr.paste(VIG, (0, 0), VIG)
     paste(fr, H5, W / 2, 200, 1.0); paste(fr, C5, W / 2, 330, ease_out(prog(t, 0.3, 0.4)))
     caps(fr, 4, t)

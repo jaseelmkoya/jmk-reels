@@ -4,8 +4,7 @@ from storykit import *
 import importlib.util
 spec = importlib.util.spec_from_file_location("tp", os.path.join(os.path.dirname(os.path.abspath(__file__)), "topics", "munnar_chill.py"))
 tp = importlib.util.module_from_spec(spec); spec.loader.exec_module(tp)
-fr = Image.new("RGB", (W, H)); fr.paste(push(tp.night_base(2.0), 3.0, 10, 1.0, 1.0), (0, 0)); d = ImageDraw.Draw(fr)
-tp.fog(fr, 3.0, 1.0)
+fr = Image.new("RGB", (W, H)); fr.paste(tp.clip_frame("b_hook", 1.5), (0, 0)); fr.paste(tp.TOPSHADE, (0, 0), tp.TOPSHADE); d = ImageDraw.Draw(fr)
 for i in range(5):
     x = 140 + i * 150
     tp.wavy(d, x, 1150, x, 760, tp.HEAT, ph=i)

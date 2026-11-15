@@ -1,0 +1,14 @@
+🔔 ആരും തൊട്ടില്ല… എന്നിട്ടും മണി മുഴങ്ങി! — 1895, Kolkata
+
+Marconi-ക്ക് 2 വർഷം മുമ്പ് ജഗദീഷ് ചന്ദ്ര ബോസ് Presidency College-ൽ 60 GHz (λ = 5 mm) microwaves 23 m അകലേക്ക്, രണ്ട് ചുവരുകൾ കടത്തി അയച്ച് ഒരു മണി അടിപ്പിച്ചു, gunpowder പൊട്ടിച്ചു. Patent എടുത്തില്ല. 2012-ൽ IEEE ഇതിനെ ആദ്യ millimetre-wave communication ആയി അംഗീകരിച്ചു.
+📘 c = fλ → f = 3×10⁸ / 5×10⁻³ = 6×10¹⁰ Hz
+
+❓ QUIZ (Plus Two exam favourite): RADAR-ൽ ഉപയോഗിക്കുന്ന EM wave? A) Microwaves  B) Gamma rays
+ഉത്തരം comment ചെയ്യൂ! 👇
+
+Sources: IEEE Milestone (ETHW), ThePrint
+🔊 Voice-over: AI voice (my own cloned voice) · 🎬 Visuals: AI recreation
+
+Follow ചെയ്യൂ 🔔
+
+#jcbose #physicsinmalayalam #plustwophysics #emwaves #indianscientist #keralasyllabus

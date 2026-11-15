@@ -1,6 +1,6 @@
 # 2026-11-15 (Sunday story #2) · Munnar chill — clear-sky radiation cooling
 JMK asked ("Undakku") for a new reel today after the train-brake reel had already gone out on 14 Nov.
-Status: MADE (no voice) — scheduling for 18:00 IST.
+Status: SCHEDULED 18:00 IST (no voice). Instagram post_d2d47da78e165969 (cover med_bbfe198093f97266), YouTube post_285bf2f8b0aa4f84 (public).
 
 ## News shortlist (searched 15 Nov, last 48–72 h)
 1. ✅ Kerala hills chill: Kundala Dam (Idukki) 7.9°C, Munnar 9.7°C on 14 Nov; clear skies + weak winds — https://www.newsbytesapp.com/news/india/early-winter-chills-keralam-hills-idukki-79c-munnar-97c/tldr → Plus One Ch10 heat transfer (radiation, Stefan–Boltzmann, convection). PICKED.

@@ -59,3 +59,13 @@ Every reel made in any chat goes into JMK's Claude Sheet "JMK Reels Tracker": ht
 # | തീയതി | Video | Claude-ൽ? | Status | IG views | YT views | Instagram post | YouTube post | Class · Chapter | Voice | Instagram link | YouTube link | കുറിപ്പ്).
 When you make, schedule, post, hold or change a reel: add or update its row (date order; no duplicates; never delete rows or change JMK's "Claude-ൽ?" choices).
 Use the Claude Docs connector (guide topic.sheets first; read before every write). The 7:37 daily task also refreshes views for the last 7 days.
+
+
+## Thumbnail / cover style (JMK, 16 Nov 2026 — "ഈ രീതി വേണം തമ്പ്നെയിലുണ്ടാക്കാൻ")
+Reference: work/2026-11-16_starship_catch/starship_catch_thumb_jmk.jpg (JMK's own). Tool: `python3 make_thumb.py BG.jpg OUT.jpg --top "<Malayalam claim>" --en "<ENGLISH PUNCH!>" --mid "<line1>|<line2>|<line3>" [--focus 0.35] [--side right]`
+- One dramatic, SHARP, high-resolution photo of the subject filling the 9:16 frame (subject on the left/centre). Prefer a clean still (official photo, Google Flow / AI still) over a blurry webcast frame; the tool grades it (contrast, teal-orange, vignette, red edge glow, sparks).
+- Top: huge Malayalam claim in yellow (#FFE814), heavy Anek Malayalam ExtraBold, thick dark outline + red outer glow, ONE line if possible ("ചരിത്രം കുറിച്ച്").
+- Under it on the right: one big white condensed English punch word (Bebas Neue): "SPACE X!".
+- Middle right, beside the subject: 2–3 short yellow Malayalam lines saying what happened ("റോക്കറ്റിനെ | കൈകൊണ്ട് | പിടിച്ച് ടവർ!").
+- Bottom right: JMK's shocked reaction cut-out, big (brand/faces/jmk_shock.png; add more expressions to brand/faces/ when JMK sends photos).
+- Few words, no small text, no logos. Instagram reel cover = this image (coverMediaId). YouTube Shorts take no custom thumbnail through the API.

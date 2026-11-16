@@ -45,7 +45,29 @@ def zoom_at(t):
     if t >= T_OUT: z += 0.35 * prog(t, T_OUT, DUR - T_OUT) ** 2                   # rush into the bell
     return z
 
+# JMK's AI portrait of Bose (16 Nov) — full-screen cutaway on 'ഇന്ത്യൻ ശാസ്ത്രജ്ഞനാണ്' with a slow push-in and a pulsing spark
+_P0 = Image.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "bose_ai_portrait.jpg")).convert("RGB")
+# whole picture visible (JMK: nothing cut): fitted below the title, blurred copy fills the frame behind it
+PY0 = 215; PH = H - PY0 - 10; PW = round(_P0.width * PH / _P0.height); PX0 = (W - PW) // 2
+_PI = _P0.resize((PW, PH), Image.LANCZOS)
+_s = max(W / _P0.width, H / _P0.height); _BG = _P0.resize((math.ceil(_P0.width * _s), math.ceil(_P0.height * _s)), Image.LANCZOS)
+_BG = _BG.crop(((_BG.width - W) // 2, (_BG.height - H) // 2, (_BG.width - W) // 2 + W, (_BG.height - H) // 2 + H))
+_BG = ImageEnhance.Brightness(_BG.filter(ImageFilter.GaussianBlur(28))).enhance(0.45)
+SPARK = (PX0 + 375 / 808 * PW, PY0 + 1130 / 1447 * PH)
+_g = np.exp(-(((xx - SPARK[0]) ** 2 + (yy - SPARK[1]) ** 2) / (2 * 60.0 ** 2)))[..., None].astype(np.float32)
+
+def bose_frame(t):
+    u = t - T_IND
+    fr = zoom(_BG, 1.0 + 0.05 * clamp(u / 1.0))                     # only the blurred background moves
+    s = 0.94 + 0.06 * ease_out(clamp(u / 0.3))                       # quick settle-in, ends at full size
+    im = _PI if s > 0.999 else _PI.resize((round(PW * s), round(PH * s)), Image.BICUBIC)
+    fr.paste(im, (PX0 + (PW - im.width) // 2, PY0 + (PH - im.height) // 2))
+    a = np.asarray(fr).astype(np.float32)
+    a += _g * (255, 200, 120) * (0.35 + 0.35 * abs(math.sin(t * 23)) * (rng.random() > 0.3))
+    return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
+
 def fx_pre(fr, t):
+    if t >= T_IND: return bose_frame(t)
     sh = 0.0
     if t >= T_ALLA: sh = 18 * math.exp(-(t - T_ALLA) * 9)
     dx = sh * math.sin(t * 90); dy = sh * math.cos(t * 77)
@@ -66,7 +88,7 @@ TAG = bebas("THE HIDDEN TRUTH", 92, fill=(255, 226, 170))
 Q = text_img("Radio-യുടെ *പിതാവ്* ആര്?", 64, hl=YELLOW, max_w=980)
 MARC = bebas("MARCONI", 190)
 MARC_R = bebas("MARCONI", 190, fill=(255, 92, 92))
-IND = bebas("INDIAN SCIENTIST", 150)
+IND = bebas("INDIAN SCIENTIST", 124)
 SAFF, GRN = (255, 153, 51), (19, 136, 8)
 
 TOPG = Image.fromarray(np.dstack([np.zeros((520, W, 3), np.uint8),
@@ -102,11 +124,15 @@ def overlay(fr, t):
             fl = 0.22 * math.exp(-(t - T_ALLA) * 10)
             fr.alpha_composite(Image.new("RGBA", (W, H), (255, 30, 30, int(255 * fl))))
     if t >= T_IND:                                       # tricolour sweep + INDIAN SCIENTIST
-        p = ease_out(prog(t, T_IND, 0.25)); y0 = 150; bh = 26
+        p = ease_out(prog(t, T_IND, 0.25)); y0 = 30; bh = 18
         for i, c in enumerate((SAFF, (255, 255, 255), GRN)):
             pi = ease_out(prog(t, T_IND + i * 0.05, 0.25))
             d.rectangle((0, y0 + IND.height + 4 + i * bh, int(W * pi), y0 + IND.height + 4 + (i + 1) * bh - 4), fill=c + (235,))
         paste(fr, IND, W / 2, y0, p, scale=0.7 + 0.3 * ease_back(prog(t, T_IND, 0.3)))
+    if T_IND <= t < T_IND + 0.25:
+        fr.alpha_composite(Image.new("RGBA", (W, H), (255, 255, 255, int(235 * (1 - (t - T_IND) / 0.25) ** 2))))
+    if t >= T_IND:
+        lab = text_img("AI recreation", 26, color=(230, 230, 230)); paste(fr, lab, W - 130, 1560, 0.7)
     if t < 0.12: fr.alpha_composite(Image.new("RGBA", (W, H), (0, 0, 0, int(255 * (1 - t / 0.12)))))
     if T_REVEAL <= t < T_REVEAL + 0.3:
         fr.alpha_composite(Image.new("RGBA", (W, H), (255, 255, 255, int(220 * (1 - (t - T_REVEAL) / 0.3) ** 2))))

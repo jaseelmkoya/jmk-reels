@@ -5,7 +5,7 @@ import sys, os, wave, math
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageEnhance, ImageFilter
 T = "/home/claude/jmk-reels/tools"; sys.path.insert(0, T); sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from reelkit import W, H, text_img, paste, ease_out, ease_back, prog, clamp, YELLOW, RED, WHITE
+from reelkit import W, H, text_img, paste, ease_out, ease_in_out, ease_back, prog, clamp, YELLOW, RED, WHITE
 from face_clip import render
 import music as musicgen
 from mix_voice import sfx, bandnoise, SR
@@ -15,6 +15,8 @@ A, B = 0.30, 6.84; DUR = B - A
 ws = [w["start"] - A for w in intro_w]
 T_SATYAM, T_REVEAL, T_RADIO, T_MARC, T_ALLA, T_IND, T_SCI = ws[5], ws[6] - 0.05, ws[7], ws[9], ws[10], ws[12], ws[13]
 T_OUT = DUR - 0.28
+T_ATH = ws[11]                                   # അതൊരു — slow zoom onto JMK's face starts here
+FACE = (600, 900)                                # his face centre in the 1080x1920 frame
 BEBAS = os.path.join(T, "fonts/BebasNeue-Regular.ttf")
 rng = np.random.default_rng(5)
 
@@ -28,6 +30,8 @@ def bebas(txt, size, fill=WHITE, stroke=0):
 
 # vignette + grain (precomputed)
 yy, xx = np.mgrid[0:H, 0:W]
+_gy = np.clip(yy / H, 0, 1)[..., None]
+LEAKCOL = (np.array([255, 150, 50]) * (1 - _gy) + np.array([255, 220, 160]) * _gy).astype(np.float32)   # soft warm light
 VIG = np.clip(1 - 0.75 * (((xx - W / 2) / (W * 0.62)) ** 2 + ((yy - H / 2) / (H * 0.6)) ** 2), 0.25, 1)[..., None].astype(np.float32)
 GRAINS = [rng.normal(0, 14, (H // 2, W // 2, 1)).astype(np.float32) for _ in range(6)]
 
@@ -41,7 +45,8 @@ def zoom_at(t):
     z = 1.0 + 0.07 * ease_out(prog(t, 0, T_REVEAL)) if t < T_REVEAL else 1.0 + 0.04 * prog(t, T_REVEAL, T_IND - T_REVEAL)
     z = (1.12 - 0.12 * ease_out(prog(t, 0, 0.45))) if t < 0.45 else z           # punch-out at the start
     z += 0.035 * math.exp(-max(0, t - T_SATYAM) * 9) if t >= T_SATYAM else 0    # small hit on സത്യമുണ്ട്
-    if t >= T_IND: z = 1.04 + 0.10 * ease_out(prog(t, T_IND, 0.18))              # punch-in on ഇന്ത്യൻ
+    if t >= T_ATH:                                                               # JMK: face zooms in on 'അതൊരു ഇന്ത്യൻ ശാസ്ത്രജ്ഞ…'
+        z = 1.04 + 0.46 * ease_in_out(prog(t, T_ATH, T_OUT - T_ATH)) + 0.05 * ease_out(prog(t, T_IND, 0.15))
     if t >= T_OUT: z += 0.35 * prog(t, T_OUT, DUR - T_OUT) ** 2                   # rush into the bell
     return z
 
@@ -56,8 +61,8 @@ _BG = ImageEnhance.Brightness(_BG.filter(ImageFilter.GaussianBlur(28))).enhance(
 SPARK = (PX0 + 375 / 808 * PW, PY0 + 1130 / 1447 * PH)
 _g = np.exp(-(((xx - SPARK[0]) ** 2 + (yy - SPARK[1]) ** 2) / (2 * 60.0 ** 2)))[..., None].astype(np.float32)
 
-def bose_frame(t):
-    u = t - T_IND
+def bose_frame(t, t0=None):
+    u = t - (T_IND if t0 is None else t0)
     fr = zoom(_BG, 1.0 + 0.05 * clamp(u / 1.0))                     # only the blurred background moves
     s = 0.94 + 0.06 * ease_out(clamp(u / 0.3))                       # quick settle-in, ends at full size
     im = _PI if s > 0.999 else _PI.resize((round(PW * s), round(PH * s)), Image.BICUBIC)
@@ -67,11 +72,26 @@ def bose_frame(t):
     return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
 
 def fx_pre(fr, t):
-    if t >= T_IND: return bose_frame(t)
+    if USE_PORTRAIT and t >= T_IND: return bose_frame(t)
     sh = 0.0
     if t >= T_ALLA: sh = 18 * math.exp(-(t - T_ALLA) * 9)
     dx = sh * math.sin(t * 90); dy = sh * math.cos(t * 77)
-    fr = zoom(fr, zoom_at(t), dx, dy)
+    z = zoom_at(t)
+    if t >= T_ATH:                                   # move the zoom centre from the frame centre to his face
+        k = ease_in_out(prog(t, T_ATH, 0.6)); dx -= (FACE[0] - W / 2) * k * z; dy -= (FACE[1] - H * 0.42) * k * z
+    fr = zoom(fr, z, dx, dy)
+    if T_ATH <= t < T_OUT + 0.3:
+        a = np.asarray(fr).astype(np.float32)
+        k = ease_in_out(prog(t, T_ATH, 0.5))
+        a *= 1 - (1 - VIG) * 0.8 * k                                              # focus vignette
+        u = prog(t, T_ATH, T_OUT - T_ATH)                                         # tricolour light leak sweeping across
+        lx = -300 + 1700 * u
+        leak = np.exp(-((xx - lx) ** 2) / (2 * 260.0 ** 2))[..., None]
+        a += leak * LEAKCOL * 0.2 * k
+        if T_SCI <= t < T_SCI + 0.16:                                             # RGB-split glitch
+            o = int(22 * (1 - (t - T_SCI) / 0.16))
+            a[..., 0] = np.roll(a[..., 0], o, 1); a[..., 2] = np.roll(a[..., 2], -o, 1)
+        fr = Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
     if t < T_REVEAL + 0.25:                                                       # old-film look, then colour snaps back
         k = 1 - clamp((t - T_REVEAL) / 0.25) if t >= T_REVEAL else 1
         a = np.asarray(fr).astype(np.float32)
@@ -88,7 +108,8 @@ TAG = bebas("THE HIDDEN TRUTH", 92, fill=(255, 226, 170))
 Q = text_img("Radio-യുടെ *പിതാവ്* ആര്?", 64, hl=YELLOW, max_w=980)
 MARC = bebas("MARCONI", 190)
 MARC_R = bebas("MARCONI", 190, fill=(255, 92, 92))
-IND = bebas("INDIAN SCIENTIST", 124)
+USE_PORTRAIT = False   # JMK 16 Nov: Bose's face only when his name is said (reel ~18.2 s), not in the intro
+IND = bebas("INDIAN SCIENTIST", 124 if USE_PORTRAIT else 150)
 SAFF, GRN = (255, 153, 51), (19, 136, 8)
 
 TOPG = Image.fromarray(np.dstack([np.zeros((520, W, 3), np.uint8),
@@ -123,15 +144,26 @@ def overlay(fr, t):
                 d.line((ccx - r, ccy + r, ccx + r, ccy - r), fill=(255, 40, 40, int(255 * q)), width=26)
             fl = 0.22 * math.exp(-(t - T_ALLA) * 10)
             fr.alpha_composite(Image.new("RGBA", (W, H), (255, 30, 30, int(255 * fl))))
+    if t >= T_ATH:                                       # glowing sparks rising around him
+        for i in range(22):
+            ph = (i * 0.137) % 1; life = (t - T_ATH) * (0.55 + 0.4 * ((i * 0.61) % 1)) + ph
+            if life % 1 < 0.02: continue
+            x = (i * 131) % 300 + (0 if i % 2 else 780) + 25 * math.sin(t * 3 + i); y = H - (life % 1) * H * 1.1   # sides only, never over his face
+            r = 3 + (i % 3) * 2; al = int(220 * math.sin(math.pi * (life % 1)) * ease_out(prog(t, T_ATH, 0.4)))
+            c = ((255, 180, 60), (255, 255, 255), (90, 230, 120))[i % 3]
+            d.ellipse((x - r * 2.2, y - r * 2.2, x + r * 2.2, y + r * 2.2), fill=c + (al // 5,))
+            d.ellipse((x - r, y - r, x + r, y + r), fill=c + (al,))
+    if T_SCI <= t < T_SCI + 0.18:
+        fr.alpha_composite(Image.new("RGBA", (W, H), (255, 255, 255, int(150 * (1 - (t - T_SCI) / 0.18)))))
     if t >= T_IND:                                       # tricolour sweep + INDIAN SCIENTIST
-        p = ease_out(prog(t, T_IND, 0.25)); y0 = 30; bh = 18
+        p = ease_out(prog(t, T_IND, 0.25)); y0 = 30 if USE_PORTRAIT else 150; bh = 18 if USE_PORTRAIT else 26
         for i, c in enumerate((SAFF, (255, 255, 255), GRN)):
             pi = ease_out(prog(t, T_IND + i * 0.05, 0.25))
             d.rectangle((0, y0 + IND.height + 4 + i * bh, int(W * pi), y0 + IND.height + 4 + (i + 1) * bh - 4), fill=c + (235,))
         paste(fr, IND, W / 2, y0, p, scale=0.7 + 0.3 * ease_back(prog(t, T_IND, 0.3)))
-    if T_IND <= t < T_IND + 0.25:
+    if USE_PORTRAIT and T_IND <= t < T_IND + 0.25:
         fr.alpha_composite(Image.new("RGBA", (W, H), (255, 255, 255, int(235 * (1 - (t - T_IND) / 0.25) ** 2))))
-    if t >= T_IND:
+    if USE_PORTRAIT and t >= T_IND:
         lab = text_img("AI recreation", 26, color=(230, 230, 230)); paste(fr, lab, W - 130, 1560, 0.7)
     if t < 0.12: fr.alpha_composite(Image.new("RGBA", (W, H), (0, 0, 0, int(255 * (1 - t / 0.12)))))
     if T_REVEAL <= t < T_REVEAL + 0.3:
@@ -162,6 +194,9 @@ def make_bed(path):
     add(T_RADIO - 0.1, sfx("pop")); add(T_MARC, sfx("pop"), 1.2)
     add(T_ALLA, boom, 1.0); add(T_ALLA, crack, 1.0)
     add(T_IND - 0.25, sfx("whoosh")); add(T_IND, sfx("chime"), 0.9)
+    hl = int((T_OUT - T_ATH) * SR); ht = np.arange(hl) / hl
+    add(T_ATH, bandnoise(hl, 300, 7000) * ht ** 2 * 0.14 + np.sin(2 * np.pi * (60 + 80 * ht) * np.arange(hl) / SR) * ht * 0.10)   # long riser under the zoom
+    add(T_ATH, sfx("thud"), 0.7); add(T_SCI, boom, 0.9); add(T_SCI, crack, 0.7)
     add(T_OUT - 0.8, riser); add(T_OUT - 0.1, sfx("whoosh"), 1.3)
     y = np.clip(y, -1, 1)
     with wave.open(path, "wb") as w:

@@ -19,7 +19,9 @@ def is_hdr(src):
                         "-of", "csv=p=0", src], capture_output=True, text=True).stdout
     return any(k in t for k in ("arib-std-b67", "smpte2084"))
 
-def render(src, out, a, b, lines, words, cap_y=1300, size=58):
+def render(src, out, a, b, lines, words, cap_y=1300, size=58, fx_pre=None, fx_post=None, bed=None, bed_gain=1.0):
+    """fx_pre(fr, t)->fr runs before captions (zoom/grade/shake); fx_post(fr, t)->fr after (overlays).
+    bed: mono 48 kHz wav (music + SFX) mixed under the cleaned voice."""
     dur = b - a
     cap = Captions.from_words(lines, [{"start": w["start"] - a} for w in words], size=size, maxw=6, tail=0.6)
     vf = (TONEMAP + "," if is_hdr(src) else "") + f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},format=rgb24"
@@ -33,14 +35,21 @@ def render(src, out, a, b, lines, words, cap_y=1300, size=58):
     while True:
         buf = dec.stdout.read(W * H * 3)
         if len(buf) < W * H * 3: break
-        fr = Image.frombytes("RGB", (W, H), buf)
-        cap.draw(fr, n / FPS, cap_y)
+        fr = Image.frombytes("RGB", (W, H), buf); t = n / FPS
+        if fx_pre: fr = fx_pre(fr, t)
+        cap.draw(fr, t, cap_y)
+        if fx_post: fr = fx_post(fr, t)
         paste(fr, wm, W / 2, WM_Y, 0.92)
         enc.stdin.write(fr.tobytes()); n += 1
     enc.stdin.close(); enc.wait(); dec.wait()
     fade = f"afade=t=in:d=0.05,afade=t=out:st={dur - 0.12:.3f}:d=0.12"
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmpv, "-ss", str(a), "-t", str(dur), "-i", src,
-                    "-map", "0:v", "-map", "1:a", "-af", f"highpass=f=80,afftdn=nf=-30,acompressor,{fade},loudnorm=I=-15:TP=-1.5",
-                    "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-shortest", out], check=True)
+    clean = f"highpass=f=80,afftdn=nf=-30,acompressor,{fade},loudnorm=I=-15:TP=-1.5"
+    if bed:
+        args = ["-i", bed, "-filter_complex", f"[1:a]asetpts=PTS-STARTPTS,{clean},aresample=48000,aformat=channel_layouts=stereo[v];[2:a]asetpts=PTS-STARTPTS,volume={bed_gain},aresample=48000,aformat=channel_layouts=stereo[b];"
+                "[v][b]amix=inputs=2:normalize=0:duration=longest,alimiter=limit=0.95[a]", "-map", "0:v", "-map", "[a]"]
+    else:
+        args = ["-map", "0:v", "-map", "1:a", "-af", clean]
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmpv, "-ss", str(a), "-t", str(dur), "-i", src, *args,
+                    "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-t", f"{dur:.3f}", out], check=True)
     os.remove(tmpv)
     print("wrote", out, f"{n} frames")

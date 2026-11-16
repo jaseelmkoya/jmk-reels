@@ -42,6 +42,7 @@ def flash(fr, t, at=0.0, d=0.25):
     if a > 0.01:
         ov = Image.new("RGBA", (W, H), (255, 255, 255, int(200 * a))); fr.paste(ov, (0, 0), ov)
 
+EARTH = Image.open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "brand", "earth.png")).convert("RGBA").resize((500, 500), Image.LANCZOS)
 SPACE = grad(W, H, [(0, (2, 4, 14)), (0.6, (6, 10, 30)), (1, (3, 5, 16))])
 STARS = [(random.uniform(0, W), random.uniform(0, H), random.uniform(1, 3), random.uniform(0, 6.3)) for _ in range(120)]
 def space_bg(fr, t):
@@ -233,10 +234,9 @@ def s4(fr, t, d):                                   # in space (onboard view)
 def s5(fr, t, d):                                   # Newton's cannon / orbit animation
     space_bg(fr, t); d = ImageDraw.Draw(fr)
     cx, cy, R = W / 2, 900, 250
-    # earth
-    d.ellipse((cx - R, cy - R, cx + R, cy + R), fill=(30, 90, 170), outline=(120, 200, 255), width=5)
-    for ax, ay, ar in ((-80, -60, 90), (60, 70, 70), (-20, 120, 50), (110, -110, 55)):
-        d.ellipse((cx + ax - ar, cy + ay - ar * 0.7, cx + ax + ar, cy + ay + ar * 0.7), fill=(60, 150, 80))
+    # earth (JMK's Earth image, 16 Nov)
+    fr.paste(EARTH, (int(cx - R), int(cy - R)), EARTH)
+    d.ellipse((cx - R - 4, cy - R - 4, cx + R + 4, cy + R + 4), outline=(120, 200, 255, 160), width=4)
     top = (cx, cy - R - 10)
     l1, l2, l3 = (line_at(5, k) for k in range(3))
     # Newton's cannon: slow throws fall back to the ground, the fast one never lands
@@ -265,7 +265,7 @@ def s5(fr, t, d):                                   # Newton's cannon / orbit an
         arrow(d, sx, sy, sx + tx * 120, sy + ty * 120, YELLOW, 8, 26)
         arrow(d, sx, sy, sx + (cx - sx) * 0.3, sy + (cy - sy) * 0.3, CYAN, 8, 26)
         n = min(14, 1 + int(max(0, t - l3) / 0.25)) if t > l3 else 1
-        rnd = text_img(f"ROUND *{n}*", 52, max_w=500, hl=YELLOW)
+        rnd = boxed(text_img(f"ROUND *{n}*", 52, max_w=500, hl=YELLOW), 14, (9, 14, 38, 210))
         paste(fr, rnd, W / 2, cy - 30, 1.0)
     paste(fr, H6, W / 2, 170, 1.0)
     appear(fr, FORM_CARD, W / 2, 330, t, l2 - 0.2)
@@ -279,9 +279,11 @@ def s6(fr, t, d):                                   # Starlink
     caps(fr, 6, t)
 
 def s7(fr, t, d):                                   # reentry plasma
-    k = 0.9
-    if t < 8.0: footage(fr, "plasma_a", t, 8.0, k, PA[0], PA[1], 1.0, 1.05)
-    else: footage(fr, "plasma_b", t - 8.0, S[7] - 8.0, k, 1, None, 1.0, 1.05)
+    k = 0.9; kh = line_at(7, 2) - 0.2              # "KE → heat": JMK's brighter plasma clip (16 Nov)
+    if t < kh: footage(fr, "plasma_a", t, kh, k, PA[0], PA[1], 1.0, 1.05)
+    else:
+        footage(fr, "plasma_c", t - kh, S[7] - kh, 1.0, 1, None, 1.0, 1.06)
+        flash(fr, t, kh, 0.15)
     paste(fr, H8, W / 2, 170, 1.0)
     appear(fr, KE, W / 2, 330, t, line_at(7, 2), pop=True)
     caps(fr, 7, t)
@@ -320,8 +322,15 @@ def s11(fr, t, d):                                  # why it matters
     l2 = line_at(11, 1) - 0.3
     if t < l2: footage(fr, "catch_hold", t, l2, 0.55, 1, None, 1.02, 1.10, cy=0.4)
     else:
-        footage(fr, "lift_close", t - l2, S[11] - l2, 0.6, LC[0], LC[1], 1.0, 1.05)
-        flash(fr, t, l2, 0.2)
+        l3 = line_at(11, 2) - 0.2                    # booster not caught: landing burn over the sea, then the explosion
+        if t < l3:
+            footage(fr, "lift_close", t - l2, l3 - l2, 0.6, LC[0], LC[1], 1.0, 1.05)
+            flash(fr, t, l2, 0.2)
+        elif t < l3 + 1.8:
+            footage(fr, "boost_burn", t - l3, 1.8, 1.6, 100, None, 1.0, 1.05)
+            flash(fr, t, l3, 0.15)
+        else:
+            footage(fr, "boost_boom", t - l3 - 1.8, S[11] - l3 - 1.8, 0.9, 1, None, 1.0, 1.04)
     paste(fr, H12, W / 2, 170, 1.0)
     caps(fr, 11, t)
 

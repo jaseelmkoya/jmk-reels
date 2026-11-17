@@ -1,5 +1,5 @@
 # 2026-11-17 · Why aeroplanes fly — Bernoulli + Newton's third law (Plus One · Mechanical Properties of Fluids)
-Status: READY, NOT SCHEDULED — Uplika connector needs reconnect (saved sign-in expired), so the 07:38 run could not upload or schedule.
+Status: SCHEDULED 17 Nov 18:30 IST — IG post_435686cf74017e0c, YT post_f0d78fa8044825c5 (Uplika reconnected; JMK asked in chat on 17 Nov to schedule).
 Topic came from topic_ideas.md NEXT (YouTube Studio idea, 15 Nov), so no news research this run.
 
 ## Reel (94 s + 4 s end-card, no voice) — v3 (JMK: also explain WHY pressure drops above the curve: air can't leave the wing (vacuum), curved path needs centripetal force, only pressure can push → atmospheric above, lower near wing). v2, 17 Nov: JMK asked to explain WHY the air is faster on top (up to 3 min is fine)

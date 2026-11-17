@@ -1,0 +1,11 @@
+500 ടണ്ണിലേറെ ഭാരമുള്ള വിമാനം വായുവിൽ നിൽക്കുന്നത് എങ്ങനെ? ✈️
+
+"മുകളിലെയും താഴത്തെയും air ഒരേ സമയം പിന്നിൽ എത്തണം" — ഈ school story ഒരു myth ആണ്! മുകളിലെ air ആദ്യം എത്തും.
+മുകളിൽ velocity കൂടുതൽ → pressure കുറവ് (Bernoulli's principle: P + ½ρv² + ρgh = constant).
+ഒപ്പം wing air-നെ താഴേക്ക് തള്ളുന്നു, air wing-നെ മുകളിലേക്ക് — Newton's third law.
+
+❓ Bernoulli's principle ഏത് conservation-ൽ നിന്നാണ്? A) Energy B) Momentum
+ഉത്തരം comment ചെയ്യൂ! 👇
+Follow ചെയ്യൂ 🔔
+
+#physicsinmalayalam #plusonephysics #bernoulli #aeroplane #keralasyllabus #fluidmechanics

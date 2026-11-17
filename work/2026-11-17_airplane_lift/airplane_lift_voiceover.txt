@@ -1,0 +1,12 @@
+AIRPLANE LIFT REEL — VOICE-OVER SCRIPT (44 സെക്കൻഡ് + end-card)
+[0:00 – 0:06]  (Hook — പറന്നുയരുന്ന വിമാനം, LIFT arrow)
+"അഞ്ഞൂറ് ടണ്ണിലേറെ ഭാരമുള്ള Airbus A380 വായുവിൽ നിൽക്കുന്നത് എങ്ങനെ?"
+[0:06 – 0:16]  (Equal transit time = MYTH; മുകളിലെ dot ആദ്യം എത്തുന്നു)
+"School-ൽ പഠിച്ച കഥ: മുകളിലെയും താഴത്തെയും air ഒരേ സമയം പിന്നിൽ എത്തണം. ഇത് myth ആണ്! മുകളിലെ air ആദ്യം എത്തും — അത്ര വേഗത്തിലാണ് ഒഴുക്ക്."
+[0:16 – 0:27]  (Bernoulli's principle card — English-ൽ വായിക്കുക; LOW P / HIGH P; LIFT arrow)
+"Bernoulli's principle: P plus half rho v squared plus rho g h is constant. മുകളിൽ velocity കൂടുതൽ, pressure കുറവ്. താഴെ pressure കൂടുതൽ. ഈ pressure difference wing-നെ മുകളിലേക്ക് തള്ളുന്നു — ഇതാണ് lift."
+[0:27 – 0:36]  (Newton's third law — downwash arrows)
+"ഒപ്പം wing air-നെ താഴേക്ക് തള്ളുന്നു — action. Air wing-നെ മുകളിലേക്ക് തള്ളുന്നു — reaction!"
+[0:36 – 0:44]  (Quiz)
+"Bernoulli's principle ഏത് conservation-ൽ നിന്നാണ്? A, Energy. B, Momentum. ഉത്തരം comment ചെയ്യൂ! Follow ചെയ്യൂ."
+Answer: A) Energy (concept quiz, no PYQ label).

@@ -1,33 +1,41 @@
-# Aeroplane lift — Google Flow cinematic clips (17 Nov 2026)
-All clips: vertical 9:16, 8 s, no text/labels (labels are added in the edit), no logos, no watermark.
-Our own diagrams stay for the exact physics; the Flow clips are cinematic cutaways and backgrounds.
+# Aeroplane lift — mixed version: cinematic clips + our overlays (JMK, 17 Nov 2026)
+JMK: not the whole reel cinematic — only the right portions, and inside those clips our arrows, labels and equations must appear.
 
-## 1 · Hook (0:00) — take-off
-Vertical 9:16 cinematic shot, 8 seconds. A huge four-engine double-deck passenger airliner, plain white with no airline logos or text, takes off from a long runway at golden hour. Low-angle camera at the runway edge looking up: the nose lifts, the main wheels leave the ground, and the giant plane climbs over the camera. Heat haze behind the engines, warm sunset backlight, deep shadows, dust and light grass moving in the jet blast. Slow upward tilt following the plane. Photorealistic, IMAX-style, shallow depth of field. No text, no logos, no watermark, no extra engines, correct wing and tail shape.
+## Plan
+| Time | Part | Visual |
+|---|---|---|
+| 0:00–0:06 | Hook | CLIP A take-off → freeze → LIFT ↑ and WEIGHT ↓ arrows drawn on the plane, "500 TONNE FLYING?" |
+| 0:06–0:17 | Myth | our animation (parcel timing must be exact) |
+| 0:17–0:34 | Continuity | our streamline squeeze → CLIP B hose → freeze → A₁ / A₂ brackets on the hose, v₁ → v₂ arrows, A₁v₁ = A₂v₂ |
+| 0:34–0:50 | Curved path | CLIP C stone on a string → freeze → centripetal force arrow + "T" on the string, then our wing diagram |
+| 0:50–1:06 | Low pressure | our pressure diagram → CLIP D vapour over the wing → freeze → LOW P above, HIGH P below, LIFT ↑ |
+| 1:06–1:17 | Bernoulli card | our animation + card |
+| 1:17–1:25 | Newton 3rd | CLIP E cloud trough → freeze → air ↓ (action), wing ↑ (reaction) |
+| 1:25–1:34 | Quiz | our quiz screen (PYQ · Plus One Model Exam 2020) |
+Method: clip plays → slow-motion → freeze frame (slight zoom, darker) → arrows/labels/equations draw on the frozen frame with SFX → clip continues or cuts to our diagram.
 
-## 2 · Hook (0:03) — wing at lift-off
-Vertical 9:16, 8 seconds. View from a passenger window over the left wing of a large white airliner during take-off. The runway rushes past below, then the ground drops away as the plane lifts off; the long wing visibly flexes and bends slightly upward under load. Morning sunlight glints on the wing surface, light clouds ahead. Handheld-steady camera, realistic cabin window frame at the edges. Photorealistic. No text, no airline logos, no watermark, no people's faces.
+## Rules for every clip (so overlays fit)
+- Vertical 9:16, 8 s, no text, no logos, no watermark.
+- Main subject in the MIDDLE band of the frame; top quarter and bottom third calm (headline at top, captions at the bottom).
+- Camera steady; the last 2 seconds almost still (that is where the freeze happens).
 
-## 3 · Myth (0:06) — smoke wind tunnel
-Vertical 9:16, 8 seconds. Inside a dark aerodynamics wind tunnel, a smooth white aeroplane wing cross-section (airfoil, curved top, flatter bottom, tilted a few degrees nose-up) is fixed in the middle. Thin parallel lines of white smoke flow from left to right and bend smoothly around the wing: the smoke lines above the wing curve over the top and crowd closer together, the lines below stay wider apart, and behind the wing all lines turn slightly downward. Black background, cool blue side light, smoke glowing. Static camera, slow subtle push-in. Laboratory realism. No text, no labels, no turbulence before the wing, no smoke crossing through the wing.
+## CLIP A — take-off (hook)
+Vertical 9:16, 8 seconds. A huge four-engine double-deck passenger airliner, plain white with no airline logos or text, takes off at golden hour. Side-on view from beside the runway: the nose lifts and the plane climbs smoothly from left to right. The camera pans to keep the whole plane in the middle of the frame, side-on, wings clearly visible. Warm sunset backlight, heat haze behind the engines. In the last 2 seconds the plane is in a steady climb in the centre of the frame. Calm sky in the top quarter and bottom third of the frame. Photorealistic, cinematic. No text, no logos, no watermark, correct number of engines, correct wing and tail shape.
 
-## 4 · Continuity (0:22) — hose pipe
-Vertical 9:16, 8 seconds, slow motion. A Kerala backyard with coconut trees and a red-oxide floor. A hand holds a green garden hose: first the water flows out gently and falls close to the feet, then the thumb presses over the hose opening and the water shoots out as a fast, thin jet that travels far across the yard, sparkling in afternoon sunlight. Close-up on the thumb and nozzle, then the camera follows the jet. Photorealistic, warm light. No text, no watermark, correct hand with five fingers.
+## CLIP B — hose pipe (continuity)
+Vertical 9:16, 8 seconds, slow motion. Kerala backyard, coconut trees softly blurred in the background. Side view at waist height: a hand holds a green garden hose horizontally in the middle of the frame, the nozzle pointing right. First the water flows out gently and falls close by; then the thumb presses over the opening and the water shoots out as a fast, thin jet that goes far to the right, sparkling in sunlight. Locked-off tripod camera; the hose stays in the same place for the whole clip; the last 2 seconds show the steady fast jet. Photorealistic, warm afternoon light. No text, no watermark, correct hand with five fingers.
 
-## 5 · Curved path (0:38) — stone on a string
-Vertical 9:16, 8 seconds. On a school ground in Kerala at sunset, a teenage boy whirls a small stone tied to a string in a horizontal circle above his head. The string stays tight and straight from his hand to the stone; the stone moves smoothly in a circle; motion blur on the stone, dust in the backlight. Slow-motion, medium shot, then slow push-in on the taut string. Cinematic golden light. No text, no watermark, realistic hands, the stone must stay attached to the string.
+## CLIP C — stone on a string (curved path)
+Vertical 9:16, 8 seconds. Top-down view looking straight down from above: on a red-earth school ground in Kerala, a boy's hand in the centre of the frame whirls a small grey stone tied to a string in a horizontal circle around it. The string stays tight and straight from the hand to the stone; the stone moves smoothly in a circle around the centre of the frame. Golden evening light, long soft shadows. Locked-off camera directly above, no camera movement. Photorealistic. No text, no watermark, realistic hand, the stone always attached to the string.
 
-## 6 · Low pressure proof (0:52) — vapour over the wing
-Vertical 9:16, 8 seconds. A white airliner landing on a humid, overcast day near green hills. Close tracking shot of the wing: a thin white mist of condensation forms right above the upper surface of the wing and flows backward along it, while the air under the wing stays clear. Wing tip vortices trail behind. Soft grey daylight, rain-wet atmosphere. Smooth aerial tracking camera beside the wing. Photorealistic. No text, no logos, no watermark, mist only above the wing.
+## CLIP D — vapour over the wing (low pressure)
+Vertical 9:16, 8 seconds. A white airliner landing on a humid, overcast day. Close side-on tracking shot of one wing, level with the wing, the wing crossing the middle of the frame from left to right: a thin white mist of condensation forms right above the upper surface of the wing and flows backward over it, while the air under the wing stays clear. Camera moves exactly with the plane so the wing stays fixed in the middle of the frame. Soft grey daylight. Photorealistic. No text, no logos, no watermark, mist only above the wing.
 
-## 7 · Newton's third law (1:08) — cloud pushed down
-Vertical 9:16, 8 seconds. Aerial view from slightly above and behind: a white airliner flies low just over the flat top of a thick layer of white clouds. As it passes, the air pushed down by the wings presses a long trough into the cloud surface behind the plane, and two spiralling vortices curl the cloud at the wing tips. Bright blue sky, sunlight on the clouds. Smooth drone-style follow camera. Photorealistic. No text, no logos, no watermark.
-
-## 8 · Quiz / outro (1:25) — cruise into sunset
-Vertical 9:16, 8 seconds. A white airliner cruises above a sea of clouds toward a huge orange sunset; long shadows across the cloud tops; the plane slowly gets smaller toward the horizon. Calm, majestic, slow camera drift. Keep the upper and middle third of the frame quiet (sky) because text will be added there. Photorealistic. No text, no logos, no watermark.
+## CLIP E — cloud pushed down (Newton's third law)
+Vertical 9:16, 8 seconds. Aerial side view: a white airliner flies low just over the flat top of a thick layer of white clouds, the plane in the middle of the frame moving right. Behind it, the air pushed down by the wings presses a long trough into the cloud top and two vortices curl the cloud at the wing tips. Camera follows the plane at the same speed, so the plane stays in the middle of the frame. Bright blue sky, sunlight on the clouds. Photorealistic. No text, no logos, no watermark.
 
 ## Science check
-- Clip 3: top smoke lines crowd together (continuity), all lines bend down behind the wing (downwash) — matches the reel.
-- Clip 6: real effect — low pressure over the wing cools the humid air, water vapour condenses (seen on take-off/landing in humid weather).
-- Clip 7: real effect — aircraft wakes leave troughs in cloud tops (downwash + wing-tip vortices).
-- Flow can still get details wrong: check each clip (smoke must not pass through the wing, string stays attached, five fingers, no logos/text) before use.
+- D: real — low pressure over the wing cools humid air → water vapour condenses (seen at take-off/landing in humid weather).
+- E: real — aircraft wakes press troughs into cloud tops (downwash + wing-tip vortices).
+- A hook: LIFT = WEIGHT in steady flight; during take-off climb lift ≥ weight (arrows equal-ish, no exaggeration).
+- Check every clip before use: string attached, five fingers, no logos/text, smoke/mist only where stated.

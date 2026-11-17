@@ -37,5 +37,5 @@ Vertical 9:16, 8 seconds. Aerial side view: a white airliner flies low just over
 ## Science check
 - D: real — low pressure over the wing cools humid air → water vapour condenses (seen at take-off/landing in humid weather).
 - E: real — aircraft wakes press troughs into cloud tops (downwash + wing-tip vortices).
-- A hook: LIFT = WEIGHT in steady flight; during take-off climb lift ≥ weight (arrows equal-ish, no exaggeration).
+- A hook: draw LIFT ↑ and WEIGHT ↓ about equal (steady flight: lift ≈ weight; in a steady climb thrust also helps, so do not draw lift much bigger).
 - Check every clip before use: string attached, five fingers, no logos/text, smoke/mist only where stated.

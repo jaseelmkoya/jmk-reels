@@ -2,7 +2,7 @@
 Status: READY, NOT SCHEDULED — Uplika connector needs reconnect (saved sign-in expired), so the 07:38 run could not upload or schedule.
 Topic came from topic_ideas.md NEXT (YouTube Studio idea, 15 Nov), so no news research this run.
 
-## Reel (76 s + 4 s end-card, no voice) — v2, 17 Nov: JMK asked to explain WHY the air is faster on top (up to 3 min is fine)
+## Reel (94 s + 4 s end-card, no voice) — v3 (JMK: also explain WHY pressure drops above the curve: air can't leave the wing (vacuum), curved path needs centripetal force, only pressure can push → atmospheric above, lower near wing). v2, 17 Nov: JMK asked to explain WHY the air is faster on top (up to 3 min is fine)
 New scenes: streamlines squeezed over the wing → equation of continuity A₁v₁ = A₂v₂ (hose pipe); curved path needs a net force → low pressure above, high P in front pushes air into it → speeds up.
 Hook "500 TONNE FLYING?" (A380 take-off) → "equal transit time" myth: top parcel reaches the trailing edge first →
 Bernoulli card (P + ½ρv² + ρgh = constant), LOW P / HIGH P, LIFT → downwash: action (wing pushes air down) / reaction (air pushes wing up) →

@@ -158,7 +158,9 @@ LINES = [
     ("അപ്പോൾ മുകളിൽ *velocity* എന്തുകൊണ്ട് കൂടുന്നു? രണ്ട് കാരണം.", YELLOW),
     ("Wing-ന്റെ വളഞ്ഞ മുകൾഭാഗവും ചെരിവും (*angle of attack*) മുകളിലെ *streamlines*-നെ അടുപ്പിക്കുന്നു.", CYAN),
     ("ഒഴുകാനുള്ള *area* കുറഞ്ഞാൽ *velocity* കൂടും — *equation of continuity*. Hose pipe അമർത്തുമ്പോൾ വെള്ളം ദൂരെ പോകുന്നത് പോലെ!", YELLOW),
-    ("പിന്നെ, air വളഞ്ഞ wing-നൊപ്പം താഴേക്ക് തിരിയണം. വളഞ്ഞ വഴിക്ക് ഒരു *force* വേണം — അതിനാൽ wing-ന് മുകളിൽ *pressure* കുറയുന്നു.", PINK),
+    ("പിന്നെ, air വളഞ്ഞ wing-നൊപ്പം താഴേക്ക് തിരിയുന്നു. നേരെ പോയാൽ wing-നടുത്ത് *vacuum* വരും — ചുറ്റുമുള്ള air അതിനെ wing-ലേക്ക് അമർത്തുന്നു.", PINK),
+    ("വളഞ്ഞ വഴിയിൽ പോകാൻ centre-ലേക്ക് ഒരു *centripetal force* വേണം. കല്ല് ചരടിൽ കെട്ടി കറക്കുമ്പോൾ ചരടിന്റെ *tension* പോലെ.", YELLOW),
+    ("Air-ന് ചരടില്ല — തള്ളാൻ *pressure* മാത്രം! മുകളിൽ നിന്ന് *atmospheric pressure* താഴേക്ക് തള്ളുന്നു. *Net force* താഴേക്ക് കിട്ടാൻ wing-നടുത്തെ *pressure* അതിലും കുറവായിരിക്കണം.", ORANGE),
     ("മുന്നിലെ *high pressure* air-നെ ഈ *low pressure*-ലേക്ക് തള്ളുന്നു — അങ്ങനെ *speed* കൂടുന്നു!", CYAN),
     ("ചുരുക്കത്തിൽ: മുകളിൽ *velocity* കൂടുതൽ, *pressure* കുറവ്. താഴെ *pressure* കൂടുതൽ.", CYAN),
     ("ഈ *pressure difference* wing-നെ മുകളിലേക്ക് തള്ളുന്നു — ഇതാണ് *lift*.", GREEN),
@@ -171,16 +173,18 @@ S = [max(6.0, _dur(LINES[0][0], 1.6)),
      _dur(LINES[1][0], 0.6) + _dur(LINES[2][0], 1.6),
      _dur(LINES[3][0], 0.6) + _dur(LINES[4][0], 0.8) + _dur(LINES[5][0], 1.8),
      _dur(LINES[6][0], 0.8) + _dur(LINES[7][0], 1.8),
-     max(10.5, _dur(LINES[8][0], 1.0) + _dur(LINES[9][0], 2.2)),
-     _dur(LINES[10][0], 0.8) + _dur(LINES[11][0], 2.0),
+     _dur(LINES[8][0], 1.0) + _dur(LINES[9][0], 1.8),
+     max(10.5, _dur(LINES[10][0], 1.0) + _dur(LINES[11][0], 2.2)),
+     _dur(LINES[12][0], 0.8) + _dur(LINES[13][0], 2.0),
      8.5]
 ST = [0.0]
 for d_ in S: ST.append(ST[-1] + d_)
 starts = [ST[0] + 0.5, ST[1] + 0.3, ST[1] + 0.3 + _dur(LINES[1][0], 0.6),
           ST[2] + 0.3, ST[2] + 0.3 + _dur(LINES[3][0], 0.6), ST[2] + 0.3 + _dur(LINES[3][0], 0.6) + _dur(LINES[4][0], 0.8),
           ST[3] + 0.3, ST[3] + 0.3 + _dur(LINES[6][0], 0.8),
-          ST[4] + 0.4, ST[4] + 0.4 + _dur(LINES[8][0], 1.0),
-          ST[5] + 0.3, ST[5] + 0.3 + _dur(LINES[10][0], 0.8)]
+          ST[4] + 0.3, ST[4] + 0.3 + _dur(LINES[8][0], 1.0),
+          ST[5] + 0.4, ST[5] + 0.4 + _dur(LINES[10][0], 1.0),
+          ST[6] + 0.3, ST[6] + 0.3 + _dur(LINES[12][0], 0.8)]
 CAP = Captions([(txt, st, None, hl) for (txt, hl), st in zip(LINES, starts)], None, size=52, wpm_pace=PACE)
 def caps(fr, s_idx, t, y=1340): CAP.draw(fr, ST[s_idx] + t, y)
 
@@ -234,13 +238,13 @@ def s2(fr, t, d):
     caps(fr, 1, t)
 
 def s3(fr, t, d):
-    fr.paste(push(LAB, t + 8, S[4], 1.02, 1.06), (0, 0))
+    fr.paste(push(LAB, t + 8, S[5], 1.02, 1.06), (0, 0))
     L = SS(W, H, 1); flow(L.d, t)
     fr.paste(L.done(), (0, 0), L.done())
     wing(d)
     appear(fr, LOWP, 300, 585, t, 1.2)
     appear(fr, HIGHP, 520, 1190, t, 1.8)
-    a = ease_out(prog(t, starts[9] - ST[4], 0.6))
+    a = ease_out(prog(t, starts[11] - ST[5], 0.6))
     if a > 0:
         arrow(d, CX0 + CH * 0.35, CY0 + 30, CX0 + CH * 0.35, CY0 - 30 - 240 * a, GREEN, 16, 46)
         paste(fr, LIFT, CX0 + CH * 0.35 + 130, CY0 - 250 * a - 30, a)
@@ -249,10 +253,10 @@ def s3(fr, t, d):
     appear(fr, LAW_PILL, W / 2, 310, t, 0.2, pop=True)
     appear(fr, LAW_CARD, W / 2, 390, t, 0.4)
     appear(fr, LAW, W / 2, 410, t, 0.5)
-    caps(fr, 4, t)
+    caps(fr, 5, t)
 
 def s4(fr, t, d):
-    fr.paste(push(LAB, t + 20, S[5], 1.0, 1.04), (0, 0))
+    fr.paste(push(LAB, t + 20, S[6], 1.0, 1.04), (0, 0))
     L = SS(W, H, 1); flow(L.d, t, down=1.6)
     fr.paste(L.done(), (0, 0), L.done())
     wing(d)
@@ -262,14 +266,14 @@ def s4(fr, t, d):
             x = CX0 + CH + 30 + k * 70
             arrow(d, x, 1010, x + 20, 1010 + 170 * a + 10, ORANGE, 12, 36)
     appear(fr, ACT, 760, 1230, t, 0.6)
-    b = ease_out(prog(t, starts[11] - ST[5], 0.6))
+    b = ease_out(prog(t, starts[13] - ST[6], 0.6))
     if b > 0:
         arrow(d, CX0 + CH * 0.4, CY0 - 20, CX0 + CH * 0.4, CY0 - 40 - 220 * b, GREEN, 16, 46)
-    appear(fr, REACT, W / 2, 500, t, starts[11] - ST[5] + 0.1)
+    appear(fr, REACT, W / 2, 500, t, starts[13] - ST[6] + 0.1)
     fr.paste(VIG, (0, 0), VIG)
     paste(fr, H4, W / 2, 190, 1.0)
     appear(fr, N3, W / 2, 330, t, 0.2, pop=True)
-    caps(fr, 5, t)
+    caps(fr, 6, t)
 
 def s5(fr, t, d):
     fr.paste(push(LAB, t + 30, 8, 1.05, 1.08), (0, 0))
@@ -306,37 +310,96 @@ def s_cont(fr, t, d):
     appear(fr, CONT, W / 2, 330, t, starts[5] - ST[2] + 0.2, pop=True)
     caps(fr, 2, t)
 
-def s_curve(fr, t, d):
-    fr.paste(push(LAB, t + 12, S[3], 1.0, 1.04), (0, 0))
+H_TURN = headline("WHY DOES AIR *TURN?*", hl=PINK, size=88)
+VAC = boxed(text_img("*vacuum?*", 40, max_w=300, hl=RED), outline=(235, 70, 80, 220))
+CPL = text_img("*centripetal force*|a = v²/r", 36, max_w=330, hl=PINK, lh=1.4)
+INSET = card(560, 250, fill=(9, 14, 38, 235), outline=(255, 107, 157, 160))
+P0L = boxed(text_img("*atmospheric pressure* ↓", 38, max_w=600, hl=ORANGE), outline=(255, 159, 67, 200))
+PLL = boxed(text_img("Wing-നടുത്ത് *pressure കുറവ്* ↑", 36, max_w=640, hl=CYAN), outline=(79, 209, 255, 200))
+XP = CX0 + CH * 0.42
+
+def _curve_base(fr, t, d, k):
+    fr.paste(push(LAB, t + 12 + k, 16, 1.0, 1.04), (0, 0))
     L = SS(W, H, 1); flow(L.d, t, dots=False, alpha=150)
-    pts, tau = SLS[3]
-    L.d.line([tuple(p) for p in pts], fill=(255, 107, 157, 255), width=7)
+    L.d.line([tuple(p) for p in SLS[3][0]], fill=(255, 107, 157, 255), width=7)
     fr.paste(L.done(), (0, 0), L.done())
     wing(d)
-    # parcel riding the highlighted streamline, looping over the wing
-    q = (t * V0 * 0.8) % (CX0 + CH + 200)
-    x = q - 40
+
+def _rider(d, t, speed=0.8):
+    x = (t * V0 * speed) % (CX0 + CH + 200) - 40
     y = sl_y(3, x)
     d.ellipse((x - 20, y - 20, x + 20, y + 20), fill=PINK, outline=WHITE, width=4)
-    if CX0 + CH * 0.2 < x < CX0 + CH * 0.95:
-        arrow(d, x, y + 26, x, y + 110, PINK, 10, 30)
-        paste(fr, FL, x + 150, y + 40, 1.0)
-    appear(fr, LPL, CX0 + CH * 0.45, 600, t, starts[6] - ST[3] + 3.0)
-    appear(fr, HPL, 150, 960, t, starts[7] - ST[3])
-    b = ease_out(prog(t, starts[7] - ST[3] + 0.6, 0.6))
-    if b > 0:
-        arrow(d, 150, 930, 150 + (CX0 + CH * 0.3 - 150) * b, 930 - 230 * b, ORANGE, 12, 38)
+    return x, y
+
+def s_curve(fr, t, d):
+    _curve_base(fr, t, d, 0)
+    ev = starts[7] - ST[3]
+    x, y = _rider(d, t)
+    # "what if it went straight?" — dashed straight path + gap next to the wing
+    a = ease_out(prog(t, 2.6, 0.5)) * (1 - prog(t, ev - 0.3, 0.4))
+    if a > 0.02:
+        ya = sl_y(3, XP)
+        L2 = SS(W, H, 1)
+        poly = [(XP, ya)] + [(xx, sl_y(3, xx)) for xx in range(int(XP), W + 20, 20)][::-1] + []
+        poly = [(XP, ya), (W, ya)] + [(xx, sl_y(3, xx)) for xx in range(W, int(XP), -20)]
+        L2.d.polygon(poly, fill=(235, 70, 80, int(90 * a)))
+        fr.paste(L2.done(), (0, 0), L2.done())
+        for xx in range(int(XP), W, 44):
+            d.line((xx, ya, xx + 24, ya), fill=WHITE, width=5)
+        paste(fr, VAC, 900, ya + 30, a)
+    if t > ev:
+        if CX0 + CH * 0.2 < x < CX0 + CH * 0.95:
+            arrow(d, x, y + 26, x, y + 110, PINK, 10, 30)
+        b = ease_out(prog(t, ev + 0.2, 0.4))
+        paste(fr, INSET, W / 2, 1020, b)
+        if b > 0.5:
+            cx, cy, r = 400, 1145, 80
+            d.ellipse((cx - r, cy - r, cx + r, cy + r), outline=(120, 130, 190), width=3)
+            an = t * 4
+            sx, sy = cx + r * math.cos(an), cy + r * math.sin(an)
+            d.line((cx, cy, sx, sy), fill=WHITE, width=4)
+            arrow(d, sx, sy, cx + r * 0.35 * math.cos(an), cy + r * 0.35 * math.sin(an), PINK, 8, 24)
+            d.ellipse((sx - 16, sy - 16, sx + 16, sy + 16), fill=ORANGE)
+            d.ellipse((cx - 7, cy - 7, cx + 7, cy + 7), fill=WHITE)
+            paste(fr, CPL, 660, 1085, b)
     fr.paste(VIG, (0, 0), VIG)
-    paste(fr, H_CURVE, W / 2, 190, 1.0)
+    paste(fr, H_TURN, W / 2, 190, 1.0)
     caps(fr, 3, t)
 
-SCENES = [(S[i], f) for i, f in enumerate((s1, s2, s_cont, s_curve, s3, s4, s5))]
+def s_press(fr, t, d):
+    _curve_base(fr, t, d, 16)
+    ev = starts[9] - ST[4]
+    yp = sl_y(3, XP)
+    if t < ev:
+        d.rounded_rectangle((XP - 26, yp - 26, XP + 26, yp + 26), radius=8, fill=PINK, outline=WHITE, width=4)
+        a = ease_out(prog(t, 3.0, 0.5))
+        if a > 0:
+            arrow(d, XP, yp - 40 - 190 * a, XP, yp - 34, ORANGE, 18, 46)
+        appear(fr, P0L, XP, yp - 330, t, 3.0)
+        b = ease_out(prog(t, 6.6, 0.5))
+        if b > 0:
+            arrow(d, XP, yp + 34 + 50 * b, XP, yp + 30, (30, 90, 200), 8, 22)
+        appear(fr, PLL, W / 2, 1010, t, 6.6)
+        appear(fr, FL, XP + 230, yp - 150, t, 5.2)
+    else:
+        _rider(d, t - ev, 1.1)
+        appear(fr, LPL, XP, yp - 150, t, ev)
+        appear(fr, HPL, 150, 960, t, ev)
+        b = ease_out(prog(t, ev + 0.6, 0.6))
+        if b > 0:
+            arrow(d, 150, 930, 150 + (CX0 + CH * 0.3 - 150) * b, 930 - 230 * b, ORANGE, 12, 38)
+    fr.paste(VIG, (0, 0), VIG)
+    paste(fr, H_CURVE, W / 2, 190, 1.0)
+    caps(fr, 4, t)
+
+SCENES = [(S[i], f) for i, f in enumerate((s1, s2, s_cont, s_curve, s_press, s3, s4, s5))]
 VOICE = None
 MUSIC_GAIN = 0.4
-MUSIC = [(0.0, "hype"), (ST[1], "tension"), (ST[2], "curious"), (ST[3], "space"), (ST[4], "curious"), (ST[5], "drive"), (ST[6], "uplift")]
+MUSIC = [(0.0, "hype"), (ST[1], "tension"), (ST[2], "curious"), (ST[3], "space"), (ST[4], "tension"), (ST[5], "curious"), (ST[6], "drive"), (ST[7], "uplift")]
 SFX = [(0.0, "whoosh"), (0.4, "engine"), (2.2, "pop"), (ST[1] + 0.6, "swoosh"), (starts[2], "thud"),
-       (starts[3], "boing"), (starts[4], "pop"), (starts[5], "ding"), (starts[6], "swoosh"), (starts[7], "whoosh"),
-       (ST[4] + 0.2, "pop"), (ST[4] + 1.2, "pop"), (ST[4] + 1.8, "pop"), (starts[9], "ding"), (ST[5] + 0.6, "whoosh"), (starts[11], "ding"),
-       (ST[6] + 0.0, "pop"), (ST[6] + 1.0, "ticks"), (ST[6] + 2.4, "pop"), (ST[6] + 2.8, "pop"), (ST[6] + 5.4, "chime")]
+       (starts[3], "boing"), (starts[4], "pop"), (starts[5], "ding"), (ST[3] + 2.6, "thud"), (starts[7], "pop"),
+       (ST[4] + 3.0, "whoosh"), (ST[4] + 5.2, "pop"), (ST[4] + 6.6, "pop"), (starts[9], "whoosh"),
+       (ST[5] + 0.2, "pop"), (ST[5] + 1.2, "pop"), (ST[5] + 1.8, "pop"), (starts[11], "ding"), (ST[6] + 0.6, "whoosh"), (starts[13], "ding"),
+       (ST[7] + 0.0, "pop"), (ST[7] + 1.0, "ticks"), (ST[7] + 2.4, "pop"), (ST[7] + 2.8, "pop"), (ST[7] + 5.4, "chime")]
 for s_ in ST[1:-1]: SFX.append((s_ - 0.05, "swoosh"))
 if __name__ == "__main__": print("total", round(ST[-1], 1), [round(x, 1) for x in S])

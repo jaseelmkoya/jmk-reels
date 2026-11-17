@@ -1,16 +1,18 @@
-AIRPLANE LIFT REEL — VOICE-OVER SCRIPT (76 സെക്കൻഡ് + end-card; 17 Nov: 'മുകളിൽ എന്തുകൊണ്ട് velocity കൂടി' ചേർത്തു)
+AIRPLANE LIFT REEL — VOICE-OVER SCRIPT (94 സെക്കൻഡ് + end-card; 17 Nov: 'മുകളിൽ എന്തുകൊണ്ട് velocity കൂടി' ചേർത്തു)
 [0:00 – 0:06]  (Hook — പറന്നുയരുന്ന വിമാനം, LIFT arrow)
 "അഞ്ഞൂറ് ടണ്ണിലേറെ ഭാരമുള്ള Airbus A380 വായുവിൽ നിൽക്കുന്നത് എങ്ങനെ?"
 [0:06 – 0:16]  (Equal transit time = MYTH; മുകളിലെ dot ആദ്യം എത്തുന്നു)
 "School-ൽ പഠിച്ച കഥ: മുകളിലെയും താഴത്തെയും air ഒരേ സമയം പിന്നിൽ എത്തണം. ഇത് myth ആണ്! മുകളിലെ air ആദ്യം എത്തും — അത്ര വേഗത്തിലാണ് ഒഴുക്ക്."
 [0:16 – 0:34]  (WHY FASTER ON TOP? → NARROW PATH = FAST; A₁v₁ = A₂v₂ card)
 "അപ്പോൾ മുകളിൽ velocity എന്തുകൊണ്ട് കൂടുന്നു? രണ്ട് കാരണം. Wing-ന്റെ വളഞ്ഞ മുകൾഭാഗവും ചെരിവും, angle of attack, മുകളിലെ streamlines-നെ അടുപ്പിക്കുന്നു. ഒഴുകാനുള്ള area കുറഞ്ഞാൽ velocity കൂടും — equation of continuity. Hose pipe അമർത്തുമ്പോൾ വെള്ളം ദൂരെ പോകുന്നത് പോലെ!"
-[0:34 – 0:49]  (CURVE NEEDS LOW P — pink streamline, net force ↓, HIGH P → LOW P arrow)
-"പിന്നെ, air വളഞ്ഞ wing-നൊപ്പം താഴേക്ക് തിരിയണം. വളഞ്ഞ വഴിക്ക് ഒരു force വേണം — അതിനാൽ wing-ന് മുകളിൽ pressure കുറയുന്നു. മുന്നിലെ high pressure air-നെ ഈ low pressure-ലേക്ക് തള്ളുന്നു — അങ്ങനെ speed കൂടുന്നു!"
-[0:49 – 1:00]  (Bernoulli's principle card — English-ൽ വായിക്കുക; LOW P / HIGH P; LIFT arrow)
+[0:34 – 0:50]  (WHY DOES AIR TURN? — dashed straight path + "vacuum?", then stone-on-string inset, centripetal force a = v²/r)
+"പിന്നെ, air വളഞ്ഞ wing-നൊപ്പം താഴേക്ക് തിരിയുന്നു. നേരെ പോയാൽ wing-നടുത്ത് vacuum വരും — ചുറ്റുമുള്ള air അതിനെ wing-ലേക്ക് അമർത്തുന്നു. വളഞ്ഞ വഴിയിൽ പോകാൻ centre-ലേക്ക് ഒരു centripetal force വേണം. കല്ല് ചരടിൽ കെട്ടി കറക്കുമ്പോൾ ചരടിന്റെ tension പോലെ."
+[0:50 – 1:06]  (CURVE NEEDS LOW P — atmospheric pressure ↓ big arrow, small ↑ arrow near wing, net force ↓; then HIGH P → LOW P)
+"Air-ന് ചരടില്ല — തള്ളാൻ pressure മാത്രം! മുകളിൽ നിന്ന് atmospheric pressure താഴേക്ക് തള്ളുന്നു. Net force താഴേക്ക് കിട്ടാൻ wing-നടുത്തെ pressure അതിലും കുറവായിരിക്കണം. മുന്നിലെ high pressure air-നെ ഈ low pressure-ലേക്ക് തള്ളുന്നു — അങ്ങനെ speed കൂടുന്നു!"
+[1:06 – 1:17]  (Bernoulli's principle card — English-ൽ വായിക്കുക; LOW P / HIGH P; LIFT arrow)
 "Bernoulli's principle: P plus half rho v squared plus rho g h is constant. ചുരുക്കത്തിൽ: മുകളിൽ velocity കൂടുതൽ, pressure കുറവ്. താഴെ pressure കൂടുതൽ. ഈ pressure difference wing-നെ മുകളിലേക്ക് തള്ളുന്നു — ഇതാണ് lift."
-[1:00 – 1:08]  (Newton's third law — downwash arrows)
+[1:17 – 1:25]  (Newton's third law — downwash arrows)
 "ഒപ്പം wing air-നെ താഴേക്ക് തള്ളുന്നു — action. Air wing-നെ മുകളിലേക്ക് തള്ളുന്നു — reaction!"
-[1:08 – 1:16]  (Quiz)
+[1:25 – 1:34]  (Quiz)
 "Bernoulli's principle ഏത് conservation-ൽ നിന്നാണ്? A, Energy. B, Momentum. ഉത്തരം comment ചെയ്യൂ! Follow ചെയ്യൂ."
 Answer: A) Energy (concept quiz, no PYQ label).

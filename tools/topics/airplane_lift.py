@@ -66,10 +66,10 @@ def streamline(y0, down=1.0):
     """Polyline (x, y) and local speed for a streamline starting far left at height y0."""
     upper = y0 < CY0
     dist = abs(y0 - CY0)
-    k = math.exp(-max(0, dist - 20) / 170)
+    k = math.exp(-max(0, dist - 20) / (110 if upper else 170))
     pts, sp = [], []
     for x in np.linspace(-40, W + 40, 220):
-        y = y0 + _surf(x, upper) * k * (1.0 if upper else 0.9)
+        y = y0 + _surf(x, upper) * k * (1.6 if upper else 0.9)
         up = 26 * k * math.exp(-((x - CX0 + 40) / 110) ** 2)                 # upwash ahead of the wing
         dw = 90 * down * (0.4 + 0.6 * k) / (1 + math.exp(-(x - CX0 - CH) / 70))   # downwash behind
         y = y - up + dw
@@ -133,12 +133,34 @@ TB = text_img("B) Momentum", 44, max_w=460)
 CMT = text_img("ഉത്തരം *comment* ചെയ്യൂ!", 56, max_w=900, hl=CYAN)
 FOL = text_img("*Follow* ചെയ്യൂ", 56, max_w=900, hl=YELLOW)
 
+H_WHY = headline("WHY *FASTER* ON TOP?", hl=YELLOW, size=88)
+H_CONT = headline("NARROW PATH = *FAST*", hl=CYAN, size=90)
+H_CURVE = headline("CURVE NEEDS *LOW P*", hl=PINK, size=90)
+CONT_PILL = pill("EQUATION OF CONTINUITY", 36, bg=CYAN)
+CONT = text_img("*A₁v₁ = A₂v₂*   (Av = constant)", 54, max_w=920, hl=YELLOW)
+A1L = boxed(text_img("*A₁* വലുത് → *v₁* കുറവ്", 36, max_w=500, hl=ORANGE), outline=(255, 159, 67, 200))
+A2L = boxed(text_img("*A₂* ചെറുത് → *v₂* കൂടുതൽ", 36, max_w=520, hl=CYAN), outline=(79, 209, 255, 200))
+HPL = boxed(text_img("*HIGH P*", 40, max_w=300, hl=ORANGE), outline=(255, 159, 67, 200))
+LPL = boxed(text_img("*LOW P*", 40, max_w=300, hl=CYAN), outline=(79, 209, 255, 200))
+FL = boxed(text_img("*net force* ↓", 36, max_w=400, hl=PINK), outline=(255, 107, 157, 200))
+def sl_y(si, x):
+    pts = SLS[si][0]
+    return float(np.interp(x, pts[:, 0], pts[:, 1]))
+def bracket(d, x, y1, y2, col):
+    d.line((x, y1, x, y2), fill=col, width=6)
+    d.line((x - 14, y1, x + 14, y1), fill=col, width=6); d.line((x - 14, y2, x + 14, y2), fill=col, width=6)
+
 # ---------- narration (word by word, reading pace) ----------
 LINES = [
     ("500 ടണ്ണിലേറെ ഭാരമുള്ള *Airbus A380* വായുവിൽ നിൽക്കുന്നത് എങ്ങനെ?", YELLOW),
     ("പഠിച്ച കഥ: മുകളിലെയും താഴത്തെയും *air* ഒരേ സമയം പിന്നിൽ എത്തണം.", WHITE),
     ("ഇത് *myth* ആണ്! മുകളിലെ *air* ആദ്യം എത്തും — അത്ര വേഗത്തിലാണ് ഒഴുക്ക്.", RED),
-    ("മുകളിൽ *velocity* കൂടുതൽ → *pressure* കുറവ്. താഴെ *pressure* കൂടുതൽ.", CYAN),
+    ("അപ്പോൾ മുകളിൽ *velocity* എന്തുകൊണ്ട് കൂടുന്നു? രണ്ട് കാരണം.", YELLOW),
+    ("Wing-ന്റെ വളഞ്ഞ മുകൾഭാഗവും ചെരിവും (*angle of attack*) മുകളിലെ *streamlines*-നെ അടുപ്പിക്കുന്നു.", CYAN),
+    ("ഒഴുകാനുള്ള *area* കുറഞ്ഞാൽ *velocity* കൂടും — *equation of continuity*. Hose pipe അമർത്തുമ്പോൾ വെള്ളം ദൂരെ പോകുന്നത് പോലെ!", YELLOW),
+    ("പിന്നെ, air വളഞ്ഞ wing-നൊപ്പം താഴേക്ക് തിരിയണം. വളഞ്ഞ വഴിക്ക് ഒരു *force* വേണം — അതിനാൽ wing-ന് മുകളിൽ *pressure* കുറയുന്നു.", PINK),
+    ("മുന്നിലെ *high pressure* air-നെ ഈ *low pressure*-ലേക്ക് തള്ളുന്നു — അങ്ങനെ *speed* കൂടുന്നു!", CYAN),
+    ("ചുരുക്കത്തിൽ: മുകളിൽ *velocity* കൂടുതൽ, *pressure* കുറവ്. താഴെ *pressure* കൂടുതൽ.", CYAN),
     ("ഈ *pressure difference* wing-നെ മുകളിലേക്ക് തള്ളുന്നു — ഇതാണ് *lift*.", GREEN),
     ("ഒപ്പം wing *air*-നെ താഴേക്ക് തള്ളുന്നു — *action*.", ORANGE),
     ("*Air* wing-നെ മുകളിലേക്ക് തള്ളുന്നു — *reaction*!", GREEN),
@@ -147,13 +169,18 @@ PACE = 0.42
 def _dur(text, extra): return len(text.split()) * PACE + extra
 S = [max(6.0, _dur(LINES[0][0], 1.6)),
      _dur(LINES[1][0], 0.6) + _dur(LINES[2][0], 1.6),
-     max(10.5, _dur(LINES[3][0], 1.0) + _dur(LINES[4][0], 2.2)),
-     _dur(LINES[5][0], 0.8) + _dur(LINES[6][0], 2.0),
+     _dur(LINES[3][0], 0.6) + _dur(LINES[4][0], 0.8) + _dur(LINES[5][0], 1.8),
+     _dur(LINES[6][0], 0.8) + _dur(LINES[7][0], 1.8),
+     max(10.5, _dur(LINES[8][0], 1.0) + _dur(LINES[9][0], 2.2)),
+     _dur(LINES[10][0], 0.8) + _dur(LINES[11][0], 2.0),
      8.5]
 ST = [0.0]
 for d_ in S: ST.append(ST[-1] + d_)
-starts = [ST[0] + 0.5, ST[1] + 0.3, ST[1] + 0.3 + _dur(LINES[1][0], 0.6), ST[2] + 0.4, ST[2] + 0.4 + _dur(LINES[3][0], 1.0),
-          ST[3] + 0.3, ST[3] + 0.3 + _dur(LINES[5][0], 0.8)]
+starts = [ST[0] + 0.5, ST[1] + 0.3, ST[1] + 0.3 + _dur(LINES[1][0], 0.6),
+          ST[2] + 0.3, ST[2] + 0.3 + _dur(LINES[3][0], 0.6), ST[2] + 0.3 + _dur(LINES[3][0], 0.6) + _dur(LINES[4][0], 0.8),
+          ST[3] + 0.3, ST[3] + 0.3 + _dur(LINES[6][0], 0.8),
+          ST[4] + 0.4, ST[4] + 0.4 + _dur(LINES[8][0], 1.0),
+          ST[5] + 0.3, ST[5] + 0.3 + _dur(LINES[10][0], 0.8)]
 CAP = Captions([(txt, st, None, hl) for (txt, hl), st in zip(LINES, starts)], None, size=52, wpm_pace=PACE)
 def caps(fr, s_idx, t, y=1340): CAP.draw(fr, ST[s_idx] + t, y)
 
@@ -207,13 +234,13 @@ def s2(fr, t, d):
     caps(fr, 1, t)
 
 def s3(fr, t, d):
-    fr.paste(push(LAB, t + 8, S[2], 1.02, 1.06), (0, 0))
+    fr.paste(push(LAB, t + 8, S[4], 1.02, 1.06), (0, 0))
     L = SS(W, H, 1); flow(L.d, t)
     fr.paste(L.done(), (0, 0), L.done())
     wing(d)
     appear(fr, LOWP, 300, 585, t, 1.2)
     appear(fr, HIGHP, 520, 1190, t, 1.8)
-    a = ease_out(prog(t, starts[4] - ST[2], 0.6))
+    a = ease_out(prog(t, starts[9] - ST[4], 0.6))
     if a > 0:
         arrow(d, CX0 + CH * 0.35, CY0 + 30, CX0 + CH * 0.35, CY0 - 30 - 240 * a, GREEN, 16, 46)
         paste(fr, LIFT, CX0 + CH * 0.35 + 130, CY0 - 250 * a - 30, a)
@@ -222,10 +249,10 @@ def s3(fr, t, d):
     appear(fr, LAW_PILL, W / 2, 310, t, 0.2, pop=True)
     appear(fr, LAW_CARD, W / 2, 390, t, 0.4)
     appear(fr, LAW, W / 2, 410, t, 0.5)
-    caps(fr, 2, t)
+    caps(fr, 4, t)
 
 def s4(fr, t, d):
-    fr.paste(push(LAB, t + 20, S[3], 1.0, 1.04), (0, 0))
+    fr.paste(push(LAB, t + 20, S[5], 1.0, 1.04), (0, 0))
     L = SS(W, H, 1); flow(L.d, t, down=1.6)
     fr.paste(L.done(), (0, 0), L.done())
     wing(d)
@@ -235,14 +262,14 @@ def s4(fr, t, d):
             x = CX0 + CH + 30 + k * 70
             arrow(d, x, 1010, x + 20, 1010 + 170 * a + 10, ORANGE, 12, 36)
     appear(fr, ACT, 760, 1230, t, 0.6)
-    b = ease_out(prog(t, starts[6] - ST[3], 0.6))
+    b = ease_out(prog(t, starts[11] - ST[5], 0.6))
     if b > 0:
         arrow(d, CX0 + CH * 0.4, CY0 - 20, CX0 + CH * 0.4, CY0 - 40 - 220 * b, GREEN, 16, 46)
-    appear(fr, REACT, W / 2, 500, t, starts[6] - ST[3] + 0.1)
+    appear(fr, REACT, W / 2, 500, t, starts[11] - ST[5] + 0.1)
     fr.paste(VIG, (0, 0), VIG)
     paste(fr, H4, W / 2, 190, 1.0)
     appear(fr, N3, W / 2, 330, t, 0.2, pop=True)
-    caps(fr, 3, t)
+    caps(fr, 5, t)
 
 def s5(fr, t, d):
     fr.paste(push(LAB, t + 30, 8, 1.05, 1.08), (0, 0))
@@ -257,12 +284,59 @@ def s5(fr, t, d):
     appear(fr, CMT, W / 2, 1080, t, 4.0, pop=True)
     appear(fr, FOL, W / 2, 1240, t, 5.4, pop=True)
 
-SCENES = [(S[i], f) for i, f in enumerate((s1, s2, s3, s4, s5))]
+def s_cont(fr, t, d):
+    fr.paste(push(LAB, t + 4, S[2], 1.0, 1.04), (0, 0))
+    L = SS(W, H, 1); flow(L.d, t)
+    fr.paste(L.done(), (0, 0), L.done())
+    wing(d)
+    a = ease_out(prog(t, starts[4] - ST[2], 0.5))
+    if a > 0:
+        xa, xb = 110, CX0 + CH * 0.32
+        y1, y2 = sl_y(1, xa), sl_y(3, xa)
+        y3, y4 = sl_y(1, xb), sl_y(3, xb)
+        L2 = SS(W, H, 1)
+        L2.d.polygon([(xa, y1), (xb, y3), (xb, y4), (xa, y2)], fill=(255, 209, 102, int(60 * a)))
+        fr.paste(L2.done(), (0, 0), L2.done())
+        bracket(d, xa, y1, y2, ORANGE); bracket(d, xb, y3, y4, CYAN)
+        appear(fr, A1L, 250, 470, t, starts[4] - ST[2] + 0.3)
+        appear(fr, A2L, 770, 470, t, starts[4] - ST[2] + 0.8)
+    fr.paste(VIG, (0, 0), VIG)
+    paste(fr, H_WHY if t < starts[4] - ST[2] else H_CONT, W / 2, 190, 1.0)
+    appear(fr, CONT_PILL, W / 2, 1230, t, starts[5] - ST[2], pop=True)
+    appear(fr, CONT, W / 2, 330, t, starts[5] - ST[2] + 0.2, pop=True)
+    caps(fr, 2, t)
+
+def s_curve(fr, t, d):
+    fr.paste(push(LAB, t + 12, S[3], 1.0, 1.04), (0, 0))
+    L = SS(W, H, 1); flow(L.d, t, dots=False, alpha=150)
+    pts, tau = SLS[3]
+    L.d.line([tuple(p) for p in pts], fill=(255, 107, 157, 255), width=7)
+    fr.paste(L.done(), (0, 0), L.done())
+    wing(d)
+    # parcel riding the highlighted streamline, looping over the wing
+    q = (t * V0 * 0.8) % (CX0 + CH + 200)
+    x = q - 40
+    y = sl_y(3, x)
+    d.ellipse((x - 20, y - 20, x + 20, y + 20), fill=PINK, outline=WHITE, width=4)
+    if CX0 + CH * 0.2 < x < CX0 + CH * 0.95:
+        arrow(d, x, y + 26, x, y + 110, PINK, 10, 30)
+        paste(fr, FL, x + 150, y + 40, 1.0)
+    appear(fr, LPL, CX0 + CH * 0.45, 600, t, starts[6] - ST[3] + 3.0)
+    appear(fr, HPL, 150, 960, t, starts[7] - ST[3])
+    b = ease_out(prog(t, starts[7] - ST[3] + 0.6, 0.6))
+    if b > 0:
+        arrow(d, 150, 930, 150 + (CX0 + CH * 0.3 - 150) * b, 930 - 230 * b, ORANGE, 12, 38)
+    fr.paste(VIG, (0, 0), VIG)
+    paste(fr, H_CURVE, W / 2, 190, 1.0)
+    caps(fr, 3, t)
+
+SCENES = [(S[i], f) for i, f in enumerate((s1, s2, s_cont, s_curve, s3, s4, s5))]
 VOICE = None
 MUSIC_GAIN = 0.4
-MUSIC = [(0.0, "hype"), (ST[1], "tension"), (ST[2], "curious"), (ST[3], "drive"), (ST[4], "uplift")]
-SFX = [(0.0, "whoosh"), (0.4, "engine"), (2.2, "pop"), (ST[1] + 0.6, "swoosh"), (starts[2], "thud"), (ST[2] + 0.2, "pop"),
-       (ST[2] + 1.2, "pop"), (ST[2] + 1.8, "pop"), (starts[4], "ding"), (ST[3] + 0.6, "whoosh"), (starts[6], "ding"),
-       (ST[4] + 0.0, "pop"), (ST[4] + 1.0, "ticks"), (ST[4] + 2.4, "pop"), (ST[4] + 2.8, "pop"), (ST[4] + 5.4, "chime")]
+MUSIC = [(0.0, "hype"), (ST[1], "tension"), (ST[2], "curious"), (ST[3], "space"), (ST[4], "curious"), (ST[5], "drive"), (ST[6], "uplift")]
+SFX = [(0.0, "whoosh"), (0.4, "engine"), (2.2, "pop"), (ST[1] + 0.6, "swoosh"), (starts[2], "thud"),
+       (starts[3], "boing"), (starts[4], "pop"), (starts[5], "ding"), (starts[6], "swoosh"), (starts[7], "whoosh"),
+       (ST[4] + 0.2, "pop"), (ST[4] + 1.2, "pop"), (ST[4] + 1.8, "pop"), (starts[9], "ding"), (ST[5] + 0.6, "whoosh"), (starts[11], "ding"),
+       (ST[6] + 0.0, "pop"), (ST[6] + 1.0, "ticks"), (ST[6] + 2.4, "pop"), (ST[6] + 2.8, "pop"), (ST[6] + 5.4, "chime")]
 for s_ in ST[1:-1]: SFX.append((s_ - 0.05, "swoosh"))
 if __name__ == "__main__": print("total", round(ST[-1], 1), [round(x, 1) for x in S])

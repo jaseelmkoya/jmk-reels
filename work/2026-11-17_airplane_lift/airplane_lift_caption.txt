@@ -1,6 +1,7 @@
 500 ടണ്ണിലേറെ ഭാരമുള്ള വിമാനം വായുവിൽ നിൽക്കുന്നത് എങ്ങനെ? ✈️
 
 "മുകളിലെയും താഴത്തെയും air ഒരേ സമയം പിന്നിൽ എത്തണം" — ഈ school story ഒരു myth ആണ്! മുകളിലെ air ആദ്യം എത്തും.
+എന്തുകൊണ്ട് മുകളിൽ വേഗം? Wing streamlines-നെ അടുപ്പിക്കുന്നു (Av = constant), വളഞ്ഞ വഴിക്ക് മുകളിൽ low pressure വേണം.
 മുകളിൽ velocity കൂടുതൽ → pressure കുറവ് (Bernoulli's principle: P + ½ρv² + ρgh = constant).
 ഒപ്പം wing air-നെ താഴേക്ക് തള്ളുന്നു, air wing-നെ മുകളിലേക്ക് — Newton's third law.
 

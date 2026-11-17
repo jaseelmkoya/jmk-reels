@@ -18,3 +18,11 @@ Files: airplane_lift_ig.mp4, airplane_lift_yt.mp4, airplane_lift_cover.jpg, capt
 IG: accountIds ["conn_ab2a55cfffecc11d"], _ig.mp4, contentType reel, coverMediaId = cover, content = airplane_lift_caption.txt.
 YT: accountIds ["conn_a84a14b4318a8e68"], _yt.mp4, title/tags from airplane_lift_youtube.txt, content = airplane_lift_caption_yt.txt, public, categoryId 27, ml, madeForKids false.
 Or: set the sheet row's O/P date+time and Status "Post ചെയ്യാം" → the 17:00 task posts it.
+
+## v4 — JMK's Google Flow clips mixed in (17 Nov)
+JMK sent 11 Flow clips (prompts in flow_prompts.md). Checked each one:
+- USED: take-off (hook, freeze + LIFT/WEIGHT arrows), hose pipe (continuity, freeze + thumb ring + v arrow), vapour over the wing 1–3.5 s (Bernoulli scene, LOW P/HIGH P/LIFT + "mist = low pressure-ന്റെ തെളിവ്"), wind tunnel (Newton 3rd action, ↓ arrows on the deflected air), cloud trough rear view (reaction ↑ arrow), sunset cruise (quiz background).
+- NOT USED: stone on a string (no string visible, stone jumps — wrong physics; our own animation kept); second hose (hand disappears); first vapour clip (cartoon curls, strange smoke on runway); side-view cloud clip (no clear trough; rear view is better); window take-off (not needed).
+- Vapour clip used only 1.0–3.5 s (after 4 s the mist turns into unnatural curls).
+- Raw clips not committed (large, ~100 MB): frames are extracted to <workdir>/clips/<name>/ at 30 fps (CLIP_T0 in airplane_lift.py gives the start times: c1 1.5 s, c2 1.0 s, c8 1.0 s, c10 3.0 s, c11 3.0 s, c5 0 s).
+- Cover now uses the real take-off frame (5.5 s).

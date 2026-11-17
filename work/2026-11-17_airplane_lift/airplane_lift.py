@@ -113,7 +113,7 @@ H3 = headline("FAST AIR = *LOW P*", hl=CYAN, size=92)
 H4 = headline("AIR *DOWN* = WING *UP*", hl=GREEN, size=88)
 LAW_PILL = pill("BERNOULLI'S PRINCIPLE", 38, bg=YELLOW)
 LAW = text_img("Non-viscous, incompressible fluid · streamline flow|*P + ½ρv² + ρgh = constant*", 38, max_w=920, hl=YELLOW, lh=1.45)
-LAW_CARD = card(960, LAW.height + 40)
+LAW_CARD = card(960, LAW.height + 40, fill=(9, 14, 38, 210), outline=(255, 209, 102, 120))
 LOWP = boxed(text_img("*LOW P* · fast air", 40, max_w=500, hl=CYAN), outline=(79, 209, 255, 200))
 HIGHP = boxed(text_img("*HIGH P* · slow air", 40, max_w=500, hl=ORANGE), outline=(255, 159, 67, 200))
 LIFT = text_img("*LIFT*", 64, max_w=300, hl=GREEN)
@@ -151,6 +151,46 @@ def bracket(d, x, y1, y2, col):
     d.line((x, y1, x, y2), fill=col, width=6)
     d.line((x - 14, y1, x + 14, y1), fill=col, width=6); d.line((x - 14, y2, x + 14, y2), fill=col, width=6)
 
+
+# ---------- JMK's Google Flow clips (17 Nov): frames pre-extracted at 30 fps into clips/<name>/ ----------
+CLIPS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "clips")
+CLIP_T0 = {"c1": 1.5, "c2": 1.0, "c8": 1.0, "c10": 3.0, "c11": 3.0, "c5": 0.0}   # clip time of frame 0001
+_cache = {}
+def clip_frame(name, ct):
+    n = len(os.listdir(os.path.join(CLIPS, name)))
+    i = min(max(int(round((ct - CLIP_T0[name]) * 30)), 0), n - 1) + 1
+    key = (name, i)
+    if key not in _cache:
+        if len(_cache) > 40: _cache.clear()
+        _cache[key] = Image.open(os.path.join(CLIPS, name, f"{i:04d}.jpg")).convert("RGB")
+    return _cache[key]
+def show_clip(fr, name, ct, z=1.0, c=(540, 960), dark=0.0):
+    im = clip_frame(name, ct)
+    if z > 1.001:
+        cx, cy = c; w, h = W / z, H / z
+        x0 = min(max(cx - cx / z, 0), W - w); y0 = min(max(cy - cy / z, 0), H - h)
+        im = im.crop((int(x0), int(y0), int(x0 + w), int(y0 + h))).resize((W, H), Image.BICUBIC)
+    if dark > 0: im = Image.blend(im, Image.new("RGB", (W, H), (0, 0, 0)), dark)
+    fr.paste(im, (0, 0))
+def zp(x, y, z, c):  # where point (x, y) of the clip lands after zoom z about c
+    return c[0] + (x - c[0]) * z, c[1] + (y - c[1]) * z
+def _shade():
+    a = np.zeros((H, W), np.uint8)
+    for y in range(H):
+        v = 0
+        if y < 560: v = 170 * (1 - y / 560)
+        if y > 1250: v = max(v, 190 * min(1, (y - 1250) / 200))
+        a[y, :] = int(v)
+    im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); im.putalpha(Image.fromarray(a)); return im
+SHADE = _shade()
+WEIGHT = text_img("*WEIGHT*", 56, max_w=320, hl=ORANGE)
+RING_A = boxed(text_img("Thumb: *A* കുറഞ്ഞു", 38, max_w=520, hl=CYAN), outline=(79, 209, 255, 200))
+JET_V = boxed(text_img("*v* കൂടി! വെള്ളം ദൂരെ", 38, max_w=520, hl=YELLOW), outline=(255, 209, 102, 200))
+PROOF = boxed(text_img("ഈ *mist* = *low pressure*-ന്റെ തെളിവ്: air തണുത്ത് *vapour* മേഘമാകുന്നു", 34, max_w=900, hl=CYAN, lh=1.4), outline=(79, 209, 255, 200))
+LOWP2 = boxed(text_img("*LOW P* · fast air", 38, max_w=500, hl=CYAN), outline=(79, 209, 255, 200))
+HIGHP2 = boxed(text_img("*HIGH P*", 38, max_w=300, hl=ORANGE), outline=(255, 159, 67, 200))
+TROUGH = boxed(text_img("Air താഴേക്ക് — മേഘം അമർന്നു", 34, max_w=600, hl=ORANGE), outline=(255, 159, 67, 200))
+
 # ---------- narration (word by word, reading pace) ----------
 LINES = [
     ("500 ടണ്ണിലേറെ ഭാരമുള്ള *Airbus A380* വായുവിൽ നിൽക്കുന്നത് എങ്ങനെ?", YELLOW),
@@ -170,7 +210,7 @@ LINES = [
 ]
 PACE = 0.42
 def _dur(text, extra): return len(text.split()) * PACE + extra
-S = [max(6.0, _dur(LINES[0][0], 1.6)),
+S = [7.0,
      _dur(LINES[1][0], 0.6) + _dur(LINES[2][0], 1.6),
      _dur(LINES[3][0], 0.6) + _dur(LINES[4][0], 0.8) + _dur(LINES[5][0], 1.8),
      _dur(LINES[6][0], 0.8) + _dur(LINES[7][0], 1.8),
@@ -191,23 +231,18 @@ def caps(fr, s_idx, t, y=1340): CAP.draw(fr, ST[s_idx] + t, y)
 
 # ---------- scenes ----------
 def s1(fr, t, d):
-    base = SKY.copy(); bd = ImageDraw.Draw(base)
-    bd.rectangle((0, 1390, BW, BH), fill=(40, 44, 60))
-    for k in range(12):
-        x = (k * 180 - t * 900) % (BW + 200) - 100
-        bd.rectangle((x, 1440, x + 90, 1452), fill=(240, 240, 240))
-    fr.paste(push(base, t, S[0], 1.0, 1.06), (0, 0))
-    clouds(d, t)
-    lift = ease_in_out(prog(t, 0.3, S[0] - 0.3))
-    ang = -0.22 * ease_out(prog(t, 0.2, 1.2))
-    plane(d, W / 2 - 40 + 60 * lift, 1250 - 420 * lift, 1.15, ang)
-    # lift arrow on the wing
-    a = ease_out(prog(t, 2.2, 0.5))
+    ct = 1.5 + min(t, 4.0) * 1.25                   # take-off plays, freezes at clip 6.5 s
+    fz = ease_out(prog(t, 4.0, 0.6)); c = (470, 900); z = 1 + 0.05 * fz
+    show_clip(fr, "c1", ct, z, c, dark=0.25 * fz)
+    a = ease_out(prog(t, 4.3, 0.5))
     if a > 0:
-        wx, wy = W / 2 - 40 + 60 * lift - 20, 1250 - 420 * lift + 40
-        arrow(d, wx, wy, wx, wy - 260 * a - 10, GREEN, 14, 44)
-        paste(fr, LIFT, wx + 120, wy - 250 * a - 40, a)
-    fr.paste(VIG, (0, 0), VIG)
+        x, y = zp(470, 860, z, c)
+        arrow(d, x, y, x, y - 340 * a - 10, GREEN, 16, 46)
+        paste(fr, LIFT, x + 140, y - 330 * a - 20, a)
+        x2, y2 = zp(470, 960, z, c)
+        arrow(d, x2, y2, x2, y2 + 340 * a + 10, ORANGE, 16, 46)
+        paste(fr, WEIGHT, x2 + 170, y2 + 280 * a - 30, a)
+    fr.paste(SHADE, (0, 0), SHADE)
     paste(fr, H1, W / 2, 220, 1.0)                                    # hook from frame 0
     paste(fr, TAG, W / 2, 365, ease_out(prog(t, 1.5, 0.4)))
     caps(fr, 0, t)
@@ -239,17 +274,18 @@ def s2(fr, t, d):
     caps(fr, 1, t)
 
 def s3(fr, t, d):
-    fr.paste(push(LAB, t + 8, S[5], 1.02, 1.06), (0, 0))
-    L = SS(W, H, 1); flow(L.d, t)
-    fr.paste(L.done(), (0, 0), L.done())
-    wing(d)
-    appear(fr, LOWP, 300, 585, t, 1.2)
-    appear(fr, HIGHP, 520, 1190, t, 1.8)
+    ct = 1.2 + min(t, 4.6) * 0.5                    # JMK's clip: mist forms above the wing (slow motion), freeze 3.5 s
+    fz = ease_out(prog(t, 4.6, 0.6)); c = (600, 900); z = 1 + 0.04 * fz
+    show_clip(fr, "c8", ct, z, c, dark=0.15 * fz)
+    appear(fr, LOWP2, 330, 610, t, 4.8)
+    appear(fr, HIGHP2, 840, 1050, t, 5.3)
     a = ease_out(prog(t, starts[11] - ST[5], 0.6))
     if a > 0:
-        arrow(d, CX0 + CH * 0.35, CY0 + 30, CX0 + CH * 0.35, CY0 - 30 - 240 * a, GREEN, 16, 46)
-        paste(fr, LIFT, CX0 + CH * 0.35 + 130, CY0 - 250 * a - 30, a)
-    fr.paste(VIG, (0, 0), VIG)
+        x, y = zp(600, 930, z, c)
+        arrow(d, x, y, x, y - 260 * a - 10, GREEN, 16, 46)
+        paste(fr, LIFT, x + 150, y - 260 * a - 20, a)
+    appear(fr, PROOF, W / 2, 1180, t, 2.2, out_at=starts[11] - ST[5] - 0.4)
+    fr.paste(SHADE, (0, 0), SHADE)
     paste(fr, H3, W / 2, 190, 1.0)
     appear(fr, LAW_PILL, W / 2, 310, t, 0.2, pop=True)
     appear(fr, LAW_CARD, W / 2, 390, t, 0.4)
@@ -257,27 +293,40 @@ def s3(fr, t, d):
     caps(fr, 5, t)
 
 def s4(fr, t, d):
-    fr.paste(push(LAB, t + 20, S[6], 1.0, 1.04), (0, 0))
-    L = SS(W, H, 1); flow(L.d, t, down=1.6)
-    fr.paste(L.done(), (0, 0), L.done())
-    wing(d)
-    a = ease_out(prog(t, 0.5, 0.6))
-    if a > 0:
-        for k in range(3):
-            x = CX0 + CH + 30 + k * 70
-            arrow(d, x, 1010, x + 20, 1010 + 170 * a + 10, ORANGE, 12, 36)
-    appear(fr, ACT, 760, 1230, t, 0.6)
-    b = ease_out(prog(t, starts[13] - ST[6], 0.6))
-    if b > 0:
-        arrow(d, CX0 + CH * 0.4, CY0 - 20, CX0 + CH * 0.4, CY0 - 40 - 220 * b, GREEN, 16, 46)
-    appear(fr, REACT, W / 2, 500, t, starts[13] - ST[6] + 0.1)
-    fr.paste(VIG, (0, 0), VIG)
+    t13 = starts[13] - ST[6]
+    if t < t13:                                      # JMK's wind-tunnel clip: air turned DOWN behind the wing (action)
+        ct = 3.0 + min(t, 3.4) * 1.2
+        fz = ease_out(prog(t, 3.4, 0.5)); c = (540, 900); z = 1 + 0.04 * fz
+        show_clip(fr, "c10", ct, z, c, dark=0.1 * fz)
+        a = ease_out(prog(t, 1.2, 0.6))
+        if a > 0:
+            for k, x in enumerate((900, 980, 1040)):
+                x1, y1 = zp(x, 1020 + k * 30, z, c)
+                arrow(d, x1, y1, x1 + 10, y1 + 230 * a + 10, ORANGE, 12, 36)
+        appear(fr, ACT, 340, 1170, t, 1.4)
+    else:                                            # JMK's cloud clip: air pushed down, wing pushed up (reaction)
+        u = t - t13
+        ct = 3.5 + min(u, 2.9) * 1.2
+        fz = ease_out(prog(u, 2.9, 0.5)); c = (540, 950); z = 1 + 0.04 * fz
+        show_clip(fr, "c11", ct, z, c, dark=0.1 * fz)
+        a = ease_out(prog(u, 0.3, 0.6))
+        if a > 0:
+            for x in (470, 610):
+                x1, y1 = zp(x, 1080, z, c)
+                arrow(d, x1, y1, x1, y1 + 200 * a + 10, ORANGE, 12, 36)
+        b = ease_out(prog(u, 0.8, 0.6))
+        if b > 0:
+            x, y = zp(540, 900, z, c)
+            arrow(d, x, y, x, y - 280 * b - 10, GREEN, 16, 46)
+        appear(fr, REACT, W / 2, 470, t, t13 + 0.9)
+        appear(fr, TROUGH, W / 2, 1180, t, t13 + 0.4)
+    fr.paste(SHADE, (0, 0), SHADE)
     paste(fr, H4, W / 2, 190, 1.0)
     appear(fr, N3, W / 2, 330, t, 0.2, pop=True)
     caps(fr, 6, t)
 
 def s5(fr, t, d):
-    fr.paste(push(LAB, t + 30, 8, 1.05, 1.08), (0, 0))
+    show_clip(fr, "c5", min(t, 9.8), dark=0.55)     # JMK's sunset-cruise clip behind the quiz
     fr.paste(VIG, (0, 0), VIG)
     appear(fr, QUIZ, W / 2, 290, t, 0.0, pop=True)
     appear(fr, PYQ, W / 2, 385, t, 0.3, pop=True)
@@ -291,25 +340,43 @@ def s5(fr, t, d):
     appear(fr, FOL, W / 2, 1270, t, 5.4, pop=True)
 
 def s_cont(fr, t, d):
-    fr.paste(push(LAB, t + 4, S[2], 1.0, 1.04), (0, 0))
-    L = SS(W, H, 1); flow(L.d, t)
-    fr.paste(L.done(), (0, 0), L.done())
-    wing(d)
-    a = ease_out(prog(t, starts[4] - ST[2], 0.5))
-    if a > 0:
-        xa, xb = 110, CX0 + CH * 0.32
-        y1, y2 = sl_y(1, xa), sl_y(3, xa)
-        y3, y4 = sl_y(1, xb), sl_y(3, xb)
-        L2 = SS(W, H, 1)
-        L2.d.polygon([(xa, y1), (xb, y3), (xb, y4), (xa, y2)], fill=(255, 209, 102, int(60 * a)))
-        fr.paste(L2.done(), (0, 0), L2.done())
-        bracket(d, xa, y1, y2, ORANGE); bracket(d, xb, y3, y4, CYAN)
-        appear(fr, A1L, 250, 470, t, starts[4] - ST[2] + 0.3)
-        appear(fr, A2L, 770, 470, t, starts[4] - ST[2] + 0.8)
-    fr.paste(VIG, (0, 0), VIG)
+    t5 = starts[5] - ST[2]
+    if t < t5:
+        fr.paste(push(LAB, t + 4, S[2], 1.0, 1.04), (0, 0))
+        L = SS(W, H, 1); flow(L.d, t)
+        fr.paste(L.done(), (0, 0), L.done())
+        wing(d)
+        a = ease_out(prog(t, starts[4] - ST[2], 0.5))
+        if a > 0:
+            xa, xb = 110, CX0 + CH * 0.32
+            y1, y2 = sl_y(1, xa), sl_y(3, xa)
+            y3, y4 = sl_y(1, xb), sl_y(3, xb)
+            L2 = SS(W, H, 1)
+            L2.d.polygon([(xa, y1), (xb, y3), (xb, y4), (xa, y2)], fill=(255, 209, 102, int(60 * a)))
+            fr.paste(L2.done(), (0, 0), L2.done())
+            bracket(d, xa, y1, y2, ORANGE); bracket(d, xb, y3, y4, CYAN)
+            appear(fr, A1L, 250, 470, t, starts[4] - ST[2] + 0.3)
+            appear(fr, A2L, 770, 470, t, starts[4] - ST[2] + 0.8)
+        fr.paste(VIG, (0, 0), VIG)
+    else:                                            # JMK's hose clip: gentle flow → thumb → fast jet, freeze
+        u = t - t5
+        ct = 1.0 + min(u, 5.0) * 1.5
+        fz = ease_out(prog(u, 5.0, 0.6)); c = (620, 1000); z = 1 + 0.05 * fz
+        show_clip(fr, "c2", ct, z, c, dark=0.2 * fz)
+        a = ease_out(prog(u, 5.2, 0.4))
+        if a > 0:
+            x, y = zp(608, 1000, z, c)
+            d.ellipse((x - 62, y - 62, x + 62, y + 62), outline=CYAN, width=7)
+            paste(fr, RING_A, x - 120, y - 210, a)
+            b = ease_out(prog(u, 5.8, 0.5))
+            if b > 0:
+                x1, y1 = zp(680, 960, z, c); x2, y2 = zp(1030, 870, z, c)
+                arrow(d, x1, y1 - 40, x1 + (x2 - x1) * b, y1 - 40 + (y2 - y1) * b, YELLOW, 14, 42)
+                paste(fr, JET_V, 760, 1150, b)
+        fr.paste(SHADE, (0, 0), SHADE)
     paste(fr, H_WHY if t < starts[4] - ST[2] else H_CONT, W / 2, 190, 1.0)
-    appear(fr, CONT_PILL, W / 2, 1230, t, starts[5] - ST[2], pop=True)
-    appear(fr, CONT, W / 2, 330, t, starts[5] - ST[2] + 0.2, pop=True)
+    appear(fr, CONT_PILL, W / 2, 300, t, t5, pop=True)
+    appear(fr, CONT, W / 2, 375, t, t5 + 0.2, pop=True)
     caps(fr, 2, t)
 
 H_TURN = headline("WHY DOES AIR *TURN?*", hl=PINK, size=88)
@@ -398,7 +465,7 @@ SCENES = [(S[i], f) for i, f in enumerate((s1, s2, s_cont, s_curve, s_press, s3,
 VOICE = None
 MUSIC_GAIN = 0.4
 MUSIC = [(0.0, "hype"), (ST[1], "tension"), (ST[2], "curious"), (ST[3], "space"), (ST[4], "tension"), (ST[5], "curious"), (ST[6], "drive"), (ST[7], "uplift")]
-SFX = [(0.0, "whoosh"), (0.4, "engine"), (2.2, "pop"), (ST[1] + 0.6, "swoosh"), (starts[2], "thud"),
+SFX = [(0.0, "whoosh"), (0.4, "engine"), (4.0, "thud"), (4.3, "pop"), (ST[1] + 0.6, "swoosh"), (starts[2], "thud"),
        (starts[3], "boing"), (starts[4], "pop"), (starts[5], "ding"), (ST[3] + 2.6, "thud"), (starts[7], "pop"),
        (ST[4] + 3.0, "whoosh"), (ST[4] + 5.2, "pop"), (ST[4] + 6.6, "pop"), (starts[9], "whoosh"),
        (ST[5] + 0.2, "pop"), (ST[5] + 1.2, "pop"), (ST[5] + 1.8, "pop"), (starts[11], "ding"), (ST[6] + 0.6, "whoosh"), (starts[13], "ding"),

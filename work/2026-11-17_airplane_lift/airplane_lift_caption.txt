@@ -5,6 +5,7 @@
 മുകളിൽ velocity കൂടുതൽ → pressure കുറവ് (Bernoulli's principle: P + ½ρv² + ρgh = constant).
 ഒപ്പം wing air-നെ താഴേക്ക് തള്ളുന്നു, air wing-നെ മുകളിലേക്ക് — Newton's third law.
 
+📝 PYQ: Plus One Model Exam 2020
 ❓ Bernoulli's principle ഏത് conservation-ൽ നിന്നാണ്? A) Energy B) Momentum
 ഉത്തരം comment ചെയ്യൂ! 👇
 Follow ചെയ്യൂ 🔔

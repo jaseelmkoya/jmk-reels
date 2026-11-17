@@ -3,7 +3,7 @@ Myth: 'equal transit time' (air over the top and bottom must meet at the trailin
 top reaches the trailing edge FIRST (NASA Glenn 'Incorrect Lift Theory'). Lift = pressure difference
 (faster flow on top → lower pressure, Bernoulli) + wing turns air downward (downwash) → air pushes wing up (Newton's 3rd).
 A380 maximum take-off mass ≈ 575 t ("500 ടണ്ണിലേറെ").
-Quiz: concept (no PYQ label): Bernoulli's principle is based on conservation of A) energy B) momentum → A.
+Quiz: PYQ Plus One Model Exam 2020 ('Bernoulli's theorem is based on …' → conservation of energy): Bernoulli's principle is based on conservation of A) energy B) momentum → A.
 No voice by default: captions word by word at reading pace."""
 import math, sys, os, random
 import numpy as np
@@ -125,6 +125,7 @@ N3 = pill("NEWTON'S THIRD LAW", 36, bg=GREEN)
 TAG = pill("PLUS ONE PHYSICS · FLUIDS", 26, bg=CYAN)
 
 QUIZ = pill("QUIZ TIME", 44, fg=(9, 14, 38), bg=PINK)
+PYQ = pill("PYQ · Plus One Model Exam 2020", 32, fg=WHITE, bg=(80, 60, 160))
 Q = text_img("*Bernoulli's principle* ഏത് *conservation*-ൽ നിന്നാണ്?", 58, max_w=920, hl=YELLOW)
 OPT_A = card(480, 150, fill=(79, 209, 255, 40), outline=(79, 209, 255, 200))
 OPT_B = card(480, 150, fill=(255, 159, 67, 40), outline=(255, 159, 67, 200))
@@ -279,14 +280,15 @@ def s5(fr, t, d):
     fr.paste(push(LAB, t + 30, 8, 1.05, 1.08), (0, 0))
     fr.paste(VIG, (0, 0), VIG)
     appear(fr, QUIZ, W / 2, 290, t, 0.0, pop=True)
-    appear(fr, Q, W / 2, 420, t, 0.4)
+    appear(fr, PYQ, W / 2, 385, t, 0.3, pop=True)
+    appear(fr, Q, W / 2, 480, t, 0.6)
     for i, (c, tx, cx) in enumerate(((OPT_A, TA, 280), (OPT_B, TB, 800))):
         st = 2.4 + 0.4 * i
-        appear(fr, c, cx, 820, t, st, pop=True)
+        appear(fr, c, cx, 860, t, st, pop=True)
         if t > st + 0.1:
-            paste(fr, tx, cx, 862, ease_out(prog(t, st + 0.05, 0.3)))
-    appear(fr, CMT, W / 2, 1080, t, 4.0, pop=True)
-    appear(fr, FOL, W / 2, 1240, t, 5.4, pop=True)
+            paste(fr, tx, cx, 902, ease_out(prog(t, st + 0.05, 0.3)))
+    appear(fr, CMT, W / 2, 1110, t, 4.0, pop=True)
+    appear(fr, FOL, W / 2, 1270, t, 5.4, pop=True)
 
 def s_cont(fr, t, d):
     fr.paste(push(LAB, t + 4, S[2], 1.0, 1.04), (0, 0))

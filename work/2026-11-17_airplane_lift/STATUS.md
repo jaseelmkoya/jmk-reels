@@ -6,7 +6,7 @@ Topic came from topic_ideas.md NEXT (YouTube Studio idea, 15 Nov), so no news re
 New scenes: streamlines squeezed over the wing → equation of continuity A₁v₁ = A₂v₂ (hose pipe); curved path needs a net force → low pressure above, high P in front pushes air into it → speeds up.
 Hook "500 TONNE FLYING?" (A380 take-off) → "equal transit time" myth: top parcel reaches the trailing edge first →
 Bernoulli card (P + ½ρv² + ρgh = constant), LOW P / HIGH P, LIFT → downwash: action (wing pushes air down) / reaction (air pushes wing up) →
-quiz: Bernoulli's principle comes from conservation of A) energy B) momentum (answer A; concept quiz, no PYQ label).
+quiz: Bernoulli's principle comes from conservation of A) energy B) momentum (answer A; PYQ: Plus One Model Exam 2020 — label added 17 Nov after JMK asked).
 Files: airplane_lift_ig.mp4, airplane_lift_yt.mp4, airplane_lift_cover.jpg, captions (IG/YT), youtube txt, voiceover script, airplane_lift.py.
 
 ## Fact check

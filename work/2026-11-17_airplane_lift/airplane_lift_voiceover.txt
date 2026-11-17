@@ -14,5 +14,5 @@ AIRPLANE LIFT REEL — VOICE-OVER SCRIPT (94 സെക്കൻഡ് + end-card
 [1:17 – 1:25]  (Newton's third law — downwash arrows)
 "ഒപ്പം wing air-നെ താഴേക്ക് തള്ളുന്നു — action. Air wing-നെ മുകളിലേക്ക് തള്ളുന്നു — reaction!"
 [1:25 – 1:34]  (Quiz)
-"Bernoulli's principle ഏത് conservation-ൽ നിന്നാണ്? A, Energy. B, Momentum. ഉത്തരം comment ചെയ്യൂ! Follow ചെയ്യൂ."
-Answer: A) Energy (concept quiz, no PYQ label).
+"Plus One Model Exam രണ്ടായിരത്തി ഇരുപതിലെ ചോദ്യം: Bernoulli's principle ഏത് conservation-ൽ നിന്നാണ്? A, Energy. B, Momentum. ഉത്തരം comment ചെയ്യൂ! Follow ചെയ്യൂ."
+Answer: A) Energy (PYQ: Plus One Model Exam 2020).

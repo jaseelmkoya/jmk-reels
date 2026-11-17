@@ -69,3 +69,9 @@ Reference: work/2026-11-16_starship_catch/starship_catch_thumb_jmk.jpg (JMK's ow
 - Middle right, beside the subject: 2–3 short yellow Malayalam lines saying what happened ("റോക്കറ്റിനെ | കൈകൊണ്ട് | പിടിച്ച് ടവർ!").
 - Bottom right: JMK's shocked reaction cut-out, big (brand/faces/jmk_shock.png; add more expressions to brand/faces/ when JMK sends photos).
 - Few words, no small text, no logos. Instagram reel cover = this image (coverMediaId). YouTube Shorts take no custom thumbnail through the API.
+
+## Quiz = PYQ check, every reel (JMK, 17 Nov 2026 — "ഇനി ഇങ്ങനെ ആവർത്തിക്കരുത്, കൃത്യമായി നോക്കണം")
+The 17 Nov aeroplane reel went out to JMK with "concept quiz, no PYQ label" although the question was Plus One Model Exam 2020.
+Before writing ANY quiz: load the PYQ skill for the class (plus-one-physics-pyq / plus-two PYQ skill) and search the chapter's bank for the
+quiz question. If it is there, show the exact label on screen (pill "PYQ · Plus One Model Exam 2020"), in both captions and in the voice-over script.
+Write "concept quiz, no PYQ label" only after the bank was actually searched and the question is not in it — and say so in STATUS.md.

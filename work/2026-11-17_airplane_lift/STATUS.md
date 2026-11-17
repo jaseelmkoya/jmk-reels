@@ -26,3 +26,4 @@ JMK sent 11 Flow clips (prompts in flow_prompts.md). Checked each one:
 - Vapour clip used only 1.0–3.5 s (after 4 s the mist turns into unnatural curls).
 - Raw clips not committed (large, ~100 MB): frames are extracted to <workdir>/clips/<name>/ at 30 fps (CLIP_T0 in airplane_lift.py gives the start times: c1 1.5 s, c2 1.0 s, c8 1.0 s, c10 3.0 s, c11 3.0 s, c5 0 s).
 - Cover now uses the real take-off frame (5.5 s).
+- 18 Nov 00:0x: JMK sent a new stone-on-string clip (side view). NOT USED: from ~1.5 s the boy's hand is open (palm and fingers spread) while the string keeps whirling from his fingertips — nobody is holding the string, so the physics is wrong. Asked JMK for a regenerate (fist gripping the string, high 3/4 angle).

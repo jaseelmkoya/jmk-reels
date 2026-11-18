@@ -27,3 +27,11 @@ JMK sent 11 Flow clips (prompts in flow_prompts.md). Checked each one:
 - Raw clips not committed (large, ~100 MB): frames are extracted to <workdir>/clips/<name>/ at 30 fps (CLIP_T0 in airplane_lift.py gives the start times: c1 1.5 s, c2 1.0 s, c8 1.0 s, c10 3.0 s, c11 3.0 s, c5 0 s).
 - Cover now uses the real take-off frame (5.5 s).
 - 18 Nov 00:0x: JMK sent a new stone-on-string clip (side view). NOT USED: from ~1.5 s the boy's hand is open (palm and fingers spread) while the string keeps whirling from his fingertips — nobody is holding the string, so the physics is wrong. Asked JMK for a regenerate (fist gripping the string, high 3/4 angle).
+
+## v5 — AI voice (18 Nov, JMK: "ഓഡിയോ ElevenLabs-ൽ നിന്ന് എടുത്തോളൂ")
+- ElevenLabs eleven_v4, JMK's clone voice D6wSSgA3oM61Ljd71fAY, 1 take, mood tags per section (1,733 credits). Flow xtH3iYck2Ztc78zi8vtG.
+- JMK heard "vacuum" read as "വക്കം" → that sentence regenerated with Malayalam spelling "വാക്വം" (55 credits) and spliced in at 35.02 s (+0.83 s). Word times: eleven_scribe_v1 (0 credits), in airplane_lift_vo.py.
+- JMK re-sent the Flow clips (18 Nov 10:56): c1 take-off, c2 hose, c8 vapour (the one with curls after 4 s), c10 wind tunnel, c11 cloud trough rear, c5 sunset; also the window take-off and the first vapour clip (unused). Frames extracted at 30 fps outside the repo.
+- Full re-render timed to the words (airplane_lift_vo.py; PLAT=yt for YouTube: "Subscribe ചെയ്യൂ" said and shown). Quiz beats on the voice; PYQ label unchanged (Plus One Model Exam 2020).
+- FINAL: airplane_lift_aivoice_ig.mp4 (100.4 s) / airplane_lift_aivoice_yt.mp4 (100.9 s), -16 LUFS. No cover made (JMK makes covers himself from 18 Nov).
+- Voice wavs not committed. NOT scheduled — waiting for JMK's ok. When posting: AI labels on (aiGenerated, isAiGenerated, containsSyntheticMedia).

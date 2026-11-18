@@ -35,3 +35,4 @@ JMK sent 11 Flow clips (prompts in flow_prompts.md). Checked each one:
 - Full re-render timed to the words (airplane_lift_vo.py; PLAT=yt for YouTube: "Subscribe ചെയ്യൂ" said and shown). Quiz beats on the voice; PYQ label unchanged (Plus One Model Exam 2020).
 - FINAL: airplane_lift_aivoice_ig.mp4 (100.4 s) / airplane_lift_aivoice_yt.mp4 (100.9 s), -16 LUFS. No cover made (JMK makes covers himself from 18 Nov).
 - Voice wavs not committed. NOT scheduled — waiting for JMK's ok. When posting: AI labels on (aiGenerated, isAiGenerated, containsSyntheticMedia).
+- 18 Nov 11:12: YouTube uploaded UNLISTED (JMK) — https://www.youtube.com/watch?v=iMGHx4ckXic (post_c6f29d49522d51ba, AI label on). JMK: post tomorrow (19 Nov) — Instagram + make YouTube public then.

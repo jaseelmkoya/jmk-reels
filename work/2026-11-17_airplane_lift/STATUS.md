@@ -36,3 +36,4 @@ JMK sent 11 Flow clips (prompts in flow_prompts.md). Checked each one:
 - FINAL: airplane_lift_aivoice_ig.mp4 (100.4 s) / airplane_lift_aivoice_yt.mp4 (100.9 s), -16 LUFS. No cover made (JMK makes covers himself from 18 Nov).
 - Voice wavs not committed. NOT scheduled — waiting for JMK's ok. When posting: AI labels on (aiGenerated, isAiGenerated, containsSyntheticMedia).
 - 18 Nov 11:12: YouTube uploaded UNLISTED (JMK) — https://www.youtube.com/watch?v=iMGHx4ckXic (post_c6f29d49522d51ba, AI label on). JMK: post tomorrow (19 Nov) — Instagram + make YouTube public then.
+- 19 Nov 07:45 (scheduled run) — tried to schedule IG reel 19 Nov 18:30 with airplane_lift_aivoice_ig.mp4 (Uplika media med_670d6f905c03ab9d, AI label, no cover). The publish call was BLOCKED by the session's permission check → NOT scheduled. YouTube iMGHx4ckXic still UNLISTED. Waiting for JMK: reply "ok post" in the session (or set tracker O/P + "Post ചെയ്യാം" for the 17:00 task).

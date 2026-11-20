@@ -14,3 +14,4 @@
 - Output: maglev_cine_aivoice_ig.mp4 / _yt.mp4 (103 s incl. end-card). Captions caption_ig_v2.txt / caption_yt_v2.txt (AI voice + AI visuals labels). If posted: aiGenerated true, IG isAiGenerated, YT containsSyntheticMedia.
 - JMK 20 Nov: "ഈ വീഡിയോ ഷെഡ്യൂൾ ചെയ്യണ്ട" → NOT scheduled. Sent to JMK for review.
 - 20 Nov: JMK heard a 'സ' after 'Follow ചെയ്യൂ' (start of 'Subscribe' left in the IG voice) → IG voice now ends at 98.2 s (fade 98.1–98.2), remixed + end-card. Whole reel re-checked (frame every 2.5 s).
+- 20 Nov: JMK's screen recording (ScreenRecording_11-20-2026_13-58-15_1.mov, tyre lifting off, mph read-out) put in at the lift moment instead of Flow c3: first 4.5 s, landscape centred on a blurred copy, tyre leaves the ground on 'ഉയരൂ'; our km/h gauge fades out during it; pill 'LIFT! 93 mph ≈ 150 km/h'. Scenes 1 and 7 re-rendered, both cuts remixed. Recording kept outside the repo.

@@ -162,18 +162,25 @@ LIFT = pill("LIFT!  150 km/h", 40, fg=(9, 14, 38), bg=GREEN)
 C2_D = 4.8                                   # wheel close-up, then side view (c3)
 TL = C2_D + 2.8                              # c3: the cyan gap appears ~2.8 s into the clip
 S1V = lambda t: 6 + 144 * t / TL if t < TL else min(220.0, 150 + 20 * (t - TL))
+LIFT_SR = pill("LIFT!  93 mph ≈ 150 km/h", 40, fg=(9, 14, 38), bg=GREEN)
+SR_LIFT = 3.2                                 # JMK's screen recording 'sr': the tyre leaves the ground ~3.2 s in
 def s1(fr, t, d):
+    use_sr = os.path.isdir(os.path.join(CLIPS, "sr"))
     if t < C2_D:
         clip_over(fr, "c2", 0.5 + t)
     else:
         clip_over(fr, "c2", 0.5 + C2_D)
-        clip_over(fr, "c3", t - C2_D, ease_out(prog(t, C2_D, 0.35)))
+        clip_over(fr, "sr" if use_sr else "c3", t - C2_D, ease_out(prog(t, C2_D, 0.35)))
     shade(fr)
     v = S1V(t)
     up = ease_out(prog(t, TL, 0.6))
-    gauge(fr, d, W / 2, 430, v, vmax=300)
+    ga = 1 - prog(t, C2_D, 0.35) if use_sr else 1.0          # the recording has its own speed read-out
+    if ga > 0.01:
+        L = Image.new("RGBA", (W, 700), (0, 0, 0, 0)); gauge(L, ImageDraw.Draw(L), W / 2, 430, v, vmax=300)
+        paste(fr, L, W / 2, 0, ga)
     if up > 0:
-        paste(fr, LIFT, W / 2, 1140, up, 0.7 + 0.3 * ease_back(prog(t, TL, 0.4)))
+        if use_sr: paste(fr, LIFT_SR, W / 2, 360, up, 0.7 + 0.3 * ease_back(prog(t, TL, 0.4)))
+        else: paste(fr, LIFT, W / 2, 1140, up, 0.7 + 0.3 * ease_back(prog(t, TL, 0.4)))
     paste(fr, H1, W / 2, 190)
     caps(fr, 1, t)
 

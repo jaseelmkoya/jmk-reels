@@ -86,7 +86,7 @@ mc.CAP = CAP
 # scene-internal beats from word times
 w = lambda key, n: T(IDX[key][0] + n)                      # n-th word of a spoken key
 mc.TL = w("L2", 7) - B[1]                                   # lift on 'ഉയരൂ'
-mc.C2_D = mc.TL - 2.8
+mc.C2_D = mc.TL - (mc.SR_LIFT if os.path.isdir(os.path.join(mc.CLIPS, "sr")) else 2.8)
 mc.C4_END = w("L3", 5) - B[2]                               # 'Track-ൽ' → guideway coils clip
 mc.C5_END = t0("L4") - B[2] - 0.2                           # 'Magnet …' → animation
 mc.LZ_AT = w("LAW", 17) - B[6]                              # 'Lenz's law:'

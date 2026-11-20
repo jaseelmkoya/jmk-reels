@@ -6,3 +6,4 @@
 - History angle: none (did not fit naturally).
 - Video: no voice, 82 s + 4 s end-card (why-explanation, longer than 40 s by design). Files: maglev_ig.mp4 / maglev_yt.mp4 / maglev_final.mp4, topic file maglev.py (copy of tools/topics/maglev.py), caption_ig.txt, caption_yt.txt, youtube.txt, maglev_voiceover.txt. No cover (JMK makes his own).
 - Note: magnet-in-copper-pipe reel (14 Nov, also Lenz's law) is still on hold (O column ✖), so no clash.
+- SCHEDULED 20 Nov 18:30 IST (no voice): IG post_cb50d6b549362721 (med_729522ee8cc83c02), YT post_35d5d2e62c3b4176 (med_e120ca307deb7347), no AI labels.

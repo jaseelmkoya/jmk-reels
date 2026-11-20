@@ -1,0 +1,1 @@
+- 2026-11-20 Fri · Real life · Wireless phone charging — mutual induction (Plus Two Ch6 EMI)

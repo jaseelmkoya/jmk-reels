@@ -1,0 +1,13 @@
+Wire ഇല്ലാതെ phone charge ആകുന്നത് എങ്ങനെ? 📱⚡
+
+Charger pad-ലെ coil-ൽ AC current → മാറുന്ന magnetic field.
+Phone-ലെ coil-ലൂടെ magnetic flux മാറുന്നു → induced emf (ε₂ = −M dI₁/dt).
+ഇതാണ് Mutual induction — Transformer-ന്റെയും principle ഇതു തന്നെ!
+
+Steady DC ആണെങ്കിൽ charge ആകുമോ? 🤔 ഉത്തരം comment ചെയ്യൂ 👇
+Plus Two EMI chapter-ന് Save ചെയ്തു വെച്ചോ 📌 Friends-ന് Share ചെയ്യൂ!
+ഇന്നത്തെ Maglev reel-ഉം ഇതേ EMI ആണ് — കണ്ടോ? 🚄
+
+Follow ചെയ്യൂ 🔔 @jmk.space
+
+#plustwophysics #keralasyllabus #physicsmalayalam #electromagneticinduction #mutualinduction #christmasexam

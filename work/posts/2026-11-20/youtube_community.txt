@@ -1,0 +1,5 @@
+Wire ഇല്ലാതെ phone charge ആകുന്നത് എങ്ങനെ? 📱⚡
+Charger coil-ൽ AC → മാറുന്ന magnetic flux → phone coil-ൽ induced emf = Mutual induction!
+Steady DC ആണെങ്കിൽ charge ആകുമോ? Comment ചെയ്യൂ 👇
+Plus Two Physics · Electromagnetic Induction
+Subscribe ചെയ്യൂ 🔔

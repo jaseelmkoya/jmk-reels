@@ -13,3 +13,4 @@
 - JMK asked for ElevenLabs voice: eleven_v4, voice D6wSSgA3oM61Ljd71fAY, 1 take (1589 credits); word times eleven_scribe_v1 (0 credits) → tools/topics/maglev_words.json. Full re-render timed to words: tools/topics/maglev_cine.py + maglev_cine_vo.py (PLAT=yt cuts 'Follow ചെയ്യൂ!' and uses 'Subscribe ചെയ്യൂ!'). Voice mp3 removed from repo after fetch.
 - Output: maglev_cine_aivoice_ig.mp4 / _yt.mp4 (103 s incl. end-card). Captions caption_ig_v2.txt / caption_yt_v2.txt (AI voice + AI visuals labels). If posted: aiGenerated true, IG isAiGenerated, YT containsSyntheticMedia.
 - JMK 20 Nov: "ഈ വീഡിയോ ഷെഡ്യൂൾ ചെയ്യണ്ട" → NOT scheduled. Sent to JMK for review.
+- 20 Nov: JMK heard a 'സ' after 'Follow ചെയ്യൂ' (start of 'Subscribe' left in the IG voice) → IG voice now ends at 98.2 s (fade 98.1–98.2), remixed + end-card. Whole reel re-checked (frame every 2.5 s).

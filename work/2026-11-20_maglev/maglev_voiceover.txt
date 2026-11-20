@@ -1,0 +1,19 @@
+MAGLEV REEL — VOICE-OVER SCRIPT (82 s + 4 s end-card) · Plus Two · Ch6 Electromagnetic Induction
+(On-screen captions appear word by word at reading pace; read along. Numbers in words, names in Malayalam.)
+
+[0:00 – 0:07]  "ജപ്പാനിലെ ഈ ട്രെയിൻ track തൊടാതെ ഏകദേശം പത്ത് സെന്റിമീറ്റർ ഉയർന്നാണ് ഓടുന്നത് — മണിക്കൂറിൽ അറുനൂറ്റി മൂന്ന് കിലോമീറ്റർ, world record!"
+[0:08 – 0:13]  "പക്ഷേ ഒരു twist: start ചെയ്യുമ്പോൾ ഇത് സാധാരണ wheels-ൽ ആണ് ഓടുന്നത്!"
+[0:13 – 0:17]  "ഏകദേശം മണിക്കൂറിൽ നൂറ്റമ്പത് കിലോമീറ്റർ കഴിഞ്ഞാൽ മാത്രമേ ഇത് ഉയരൂ. എന്തുകൊണ്ട്?"
+[0:18 – 0:25]  "ട്രെയിനിൽ ശക്തമായ superconducting magnets. Track-ൽ വെറും coils — ഉയർത്താനുള്ള ഇവയ്ക്ക് power supply ഇല്ല!"
+[0:25 – 0:28]  "Magnet മുകളിലൂടെ പായുമ്പോൾ coil-ലൂടെയുള്ള magnetic flux മാറുന്നു."
+[0:29 – 0:35]  "Flux മാറിയാൽ induced emf ഉണ്ടാകും — Faraday's law. അപ്പോൾ coil-ൽ induced current ഒഴുകുന്നു."
+[0:35 – 0:40]  "ഈ current ഏത് ദിശയിൽ? Lenz's law: flux-ലെ മാറ്റത്തെ എതിർക്കുന്ന ദിശയിൽ."
+[0:40 – 0:47]  "അങ്ങനെ coil തന്നെ ഒരു magnet ആകുന്നു — N-ന് നേരെ N! Magnet-നെ മുകളിലേക്ക് തള്ളുന്നു. ട്രെയിൻ ഉയരുന്നു!"
+[0:49 – 0:57]  "ഇനി speed: induced emf = flux മാറുന്ന rate. പതുക്കെ പോയാൽ flux പതുക്കെ മാറും — emf ചെറുത്, തള്ളൽ കുറവ്."
+[0:58 – 1:03]  "വേഗം കൂടുമ്പോൾ emf, current, തള്ളൽ എല്ലാം കൂടും. അതുകൊണ്ടാണ് നൂറ്റമ്പത് കിലോമീറ്റർ വരെ wheels!"
+[1:05 – 1:09]  "ഇതെല്ലാം Plus Two-വിലെ Electromagnetic Induction chapter-ലെ രണ്ട് നിയമങ്ങൾ!"
+
+[1:05 – 1:11]  (Law cards — English-ൽ വായിക്കുക) "Faraday's law: The magnitude of the induced emf equals the time rate of change of magnetic flux. Lenz's law: The induced current opposes the change in flux that produces it."
+[1:11 – 1:21]  (Quiz) "Quiz time! Plus Two Christmas Exam twenty nineteen-ൽ വന്ന ചോദ്യം: Time rate of change of magnetic flux is …? A — Induced emf, B — Induced current. ഉത്തരം comment ചെയ്യൂ! Follow ചെയ്യൂ."
+
+Answer: A) Induced emf (Faraday's law).  PYQ: Plus Two Christmas Exam 2019, Q2 (1 mark).

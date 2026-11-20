@@ -1,0 +1,14 @@
+ട്രെയിൻ track തൊടാതെ 603 km/h-ൽ പറക്കുന്നത് എങ്ങനെ? 🚄
+
+ജപ്പാനിലെ SCMaglev ഏകദേശം 10 cm ഉയർന്നാണ് ഓടുന്നത്. പക്ഷേ 150 km/h വരെ wheels-ൽ!
+Magnet coil-ന് മുകളിലൂടെ പായുമ്പോൾ magnetic flux മാറുന്നു → induced emf (Faraday's law: ε = −N dφ/dt) → induced current.
+Lenz's law: ഈ current flux-ലെ മാറ്റത്തെ എതിർക്കുന്നു → coil-ഉം magnet ആകുന്നു, N-ന് നേരെ N → ട്രെയിൻ ഉയരുന്നു. Speed കൂടിയാലേ emf-ഉം തള്ളലും മതിയാകൂ!
+
+📝 PYQ: Plus Two Christmas Exam 2019
+❓ Time rate of change of magnetic flux is ___
+A) Induced emf  B) Induced current
+ഉത്തരം comment ചെയ്യൂ! 👇
+
+#physicsinmalayalam #plustwophysics #keralasyllabus #maglev #lenzslaw #electromagneticinduction
+
+Subscribe ചെയ്യൂ 🔔

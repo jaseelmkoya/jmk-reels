@@ -77,8 +77,7 @@ S4 = f"""{TAG}<div class="num" style="top:0">4/4</div><div class="main">
 <h2>Exam-ന് <span class="y">ഓർക്കാൻ</span> 📌</h2>
 <div class="card"><div class="a"><span class="y">Mutual inductance (M):</span> total flux linked with a coil when one ampere flows in the neighbouring coil.</div>
 <div class="a" style="margin-top:16px">Unit: <span class="c">henry (H)</span> · <span class="c">φ₂ = M I₁</span></div></div>
-<div class="sub" style="margin-top:44px">ഇന്നത്തെ <span class="p">Maglev reel</span>-ഉം ഇതേ <span class="c">EMI</span> ആണ് — കണ്ടോ? 🚄</div>
-<h2 style="text-align:center;font-size:62px;margin-top:60px">💾 Save · 📤 Share · 🔔 <span class="y">Follow</span></h2></div>"""
+<h2 style="text-align:center;font-size:62px;margin-top:90px">💾 Save · 📤 Share · 🔔 <span class="y">Follow</span></h2></div>"""
 
 STA = f"""{TAG}
 <h1 style="margin-top:120px;font-size:96px">ഇന്ന് <span class="y">6:30</span>-ന് പുതിയ reel 🔔</h1>

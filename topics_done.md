@@ -10,3 +10,4 @@
 - 2026-11-16 SpaceX Starship Flight 15: tower catch of Ship 42 — third law, orbit (v=√(GM/r)), reentry plasma, thrust>weight (made 15 Nov night, JMK's clips)
 - 2026-11-17 · Plus One · Mechanical Properties of Fluids · Why aeroplanes fly — equal-transit-time myth, Bernoulli (P + ½ρv² + ρgh = const), downwash/Newton's 3rd law · quiz PYQ Plus One Model Exam 2020: Bernoulli ← conservation of energy · no voice · READY, not scheduled (Uplika reconnect needed)
 - 2026-11-20 · Plus Two · Ch6 Electromagnetic Induction · Maglev train floats (SCMaglev 603 km/h, wheels till ~150 km/h) — Faraday ε = −N dφ/dt + Lenz's law, emf ∝ speed · PYQ Plus Two Christmas Exam 2019 (time rate of change of flux = induced emf) · no voice · no scientist
+  - 2026-11-20 cinematic AI-voice version: history segment Michael Faraday (1831, induction) · not scheduled (JMK)

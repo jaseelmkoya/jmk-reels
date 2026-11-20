@@ -7,3 +7,9 @@
 - Video: no voice, 82 s + 4 s end-card (why-explanation, longer than 40 s by design). Files: maglev_ig.mp4 / maglev_yt.mp4 / maglev_final.mp4, topic file maglev.py (copy of tools/topics/maglev.py), caption_ig.txt, caption_yt.txt, youtube.txt, maglev_voiceover.txt. No cover (JMK makes his own).
 - Note: magnet-in-copper-pipe reel (14 Nov, also Lenz's law) is still on hold (O column ✖), so no clash.
 - SCHEDULED 20 Nov 18:30 IST (no voice): IG post_cb50d6b549362721 (med_729522ee8cc83c02), YT post_35d5d2e62c3b4176 (med_e120ca307deb7347), no AI labels.
+- 20 Nov ~15:45 IST: the scheduled no-voice posts (IG post_cb50d6b549362721, YT post_35d5d2e62c3b4176) were no longer in Uplika (deleted outside this run); 18:30 slot now has Into the Singularity Part 5 (IG).
+- 20 Nov ~16:00: CINEMATIC v2 with JMK's Google Flow clips (laptop c1–c5, c7; phone 'exported' .mov = c6 Faraday experiment; C7_Mob not used). Clips kept outside the repo (session uploads; frames in /tmp/claude-0/mg/clips). Prompts: flow_prompts.md / flow_prompts_v2.md.
+- History segment added: Michael Faraday, 1831, London — magnet moved into coil → galvanometer deflects only while moving (Royal Institution / EBSCO "Faraday Converts Magnetic Force into Electricity"). Labelled "AI visual reconstruction".
+- JMK asked for ElevenLabs voice: eleven_v4, voice D6wSSgA3oM61Ljd71fAY, 1 take (1589 credits); word times eleven_scribe_v1 (0 credits) → tools/topics/maglev_words.json. Full re-render timed to words: tools/topics/maglev_cine.py + maglev_cine_vo.py (PLAT=yt cuts 'Follow ചെയ്യൂ!' and uses 'Subscribe ചെയ്യൂ!'). Voice mp3 removed from repo after fetch.
+- Output: maglev_cine_aivoice_ig.mp4 / _yt.mp4 (103 s incl. end-card). Captions caption_ig_v2.txt / caption_yt_v2.txt (AI voice + AI visuals labels). If posted: aiGenerated true, IG isAiGenerated, YT containsSyntheticMedia.
+- JMK 20 Nov: "ഈ വീഡിയോ ഷെഡ്യൂൾ ചെയ്യണ്ട" → NOT scheduled. Sent to JMK for review.

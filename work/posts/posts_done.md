@@ -1,1 +1,2 @@
 - 2026-11-20 Fri · Real life · Wireless phone charging — mutual induction (Plus Two Ch6 EMI)
+- 2026-11-21 Sat · Space fact · Earth/Sun as black hole — Schwarzschild radius from escape speed (Plus One Gravitation)

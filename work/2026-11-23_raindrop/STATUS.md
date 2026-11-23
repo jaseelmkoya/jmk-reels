@@ -10,3 +10,4 @@
 - Quiz: PYQ · Plus One Model Exam 2024 (plus-one-physics-pyq Ch9: "Rain drops are being accelerated while falling … name of the constant velocity → Terminal velocity"). Searched the bank.
 - No voice. 67.3 s + 4 s end-card (71.3 s). Files: raindrop_ig.mp4 / raindrop_yt.mp4 / raindrop_final.mp4, raindrop.py (also tools/topics/raindrop.py), caption_ig.txt, caption_yt.txt, youtube.txt, voiceover.txt. No cover (JMK makes his own).
 - SCHEDULED 23 Nov 18:30 IST: IG post_95a2b5ccefd133a7 (med_5d34513400c5dabf), YT post_b76769dc96da6252 (med_936ab79924c5a79d), no AI labels.
+- 23 Nov 1:25 PM — JMK: 'ഇതിന്ന് പോസ്റ്റ് ചെയ്യേണ്ട' → both posts moved to DRAFT (IG post_95a2b5ccefd133a7, YT post_b76769dc96da6252). ON HOLD — never post without JMK's ok + date.

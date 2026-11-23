@@ -1,0 +1,13 @@
+2 km മുകളിൽ നിന്ന് വീണിട്ടും മഴത്തുള്ളി വെടിയുണ്ട പോലെ കൊള്ളാത്തത് എന്തുകൊണ്ട്? 🌧️
+
+Air ഇല്ലായിരുന്നെങ്കിൽ v = √(2gh) ≈ 200 m/s (≈ 700 km/h)! പക്ഷേ ശരിക്കും വലിയ തുള്ളി പോലും ≈ 9 m/s മാത്രം.
+Speed കൂടുമ്പോൾ air-ന്റെ viscous force (drag) കൂടും → drag + buoyancy = weight ആകുമ്പോൾ net force = 0 → a = 0.
+ആ constant വേഗമാണ് Terminal velocity: vₜ = 2a²(ρ − σ)g / 9η (വലിയ തുള്ളി കൂടുതൽ വേഗത്തിൽ).
+
+📝 PYQ: Plus One Model Exam 2024
+❓ മഴത്തുള്ളി ഒടുവിൽ ഒരു constant velocity-യിൽ വീഴുന്നു. ആ velocity-യുടെ പേര്?
+A) Terminal velocity  B) Escape velocity
+ഉത്തരം comment ചെയ്യൂ! 👇
+Follow ചെയ്യൂ 🔔
+
+#physicsinmalayalam #plusonephysics #keralasyllabus #terminalvelocity #keralarain #fluidmechanics

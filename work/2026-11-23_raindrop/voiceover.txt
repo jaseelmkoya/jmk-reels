@@ -1,0 +1,20 @@
+RAINDROP · TERMINAL VELOCITY — VOICE-OVER SCRIPT (67 s + 4 s end-card)
+[0:00 – 0:05]  (Hook — RAIN = BULLET? മേഘം, വീഴുന്ന തുള്ളി, 2 km)
+"രണ്ട് കിലോമീറ്റർ മുകളിൽ നിന്ന് വീണിട്ടും മഴത്തുള്ളി വെടിയുണ്ട പോലെ കൊള്ളാത്തത് എന്തുകൊണ്ട്? ഏകദേശം രണ്ട് കിലോമീറ്റർ ഉയരത്തിലെ മേഘത്തിൽ നിന്നാണ് മഴത്തുള്ളി വീഴുന്നത്!"
+[0:06 – 0:14]  (NO AIR vs AIR — gauge 713 km/h, v = √(2gh))
+"Air ഇല്ലായിരുന്നെങ്കിൽ v square equals u square plus two a s പ്രകാരം v ഏകദേശം ഇരുന്നൂറ് meter per second — ഏകദേശം എഴുന്നൂറ് kilometer per hour! വെടിയുണ്ട പോലെ!"
+[0:15 – 0:21]  (Right lane — 32 km/h)
+"പക്ഷേ ശരിക്കും വലിയ തുള്ളി പോലും ഒൻപത് meter per second, അതായത് മുപ്പത്തിരണ്ട് kilometer per hour വരെയേ എത്തൂ. എന്തുകൊണ്ട്?"
+[0:21 – 0:27]  (AIR FIGHTS BACK — air flowing past the drop, drag arrow)
+"Air ഒരു fluid ആണ്. വീഴുന്ന തുള്ളിയെ air എതിർക്കുന്നു — viscous force, അഥവാ drag."
+[0:27 – 0:35]  (speed bar rises, drag arrow grows, Stokes' law)
+"Speed കൂടുമ്പോൾ തുള്ളിക്ക് ചുറ്റുമുള്ള air layers കൂടുതൽ വേഗത്തിൽ തെന്നിമാറണം — അതുകൊണ്ട് viscous force കൂടുന്നു. Stokes' law: F equals six pi eta a v."
+[0:35 – 0:40]  (FORCES BALANCE — weight, drag, buoyancy arrows; v–t graph)
+"താഴേക്ക് weight, m g, മാറുന്നില്ല. മുകളിലേക്ക് drag പ്ലസ് buoyancy കൂടിക്കൂടി വരുന്നു."
+[0:40 – 0:49]  (NET FORCE = 0 → a = 0; graph flattens at vₜ)
+"രണ്ടും തുല്യമാകുമ്പോൾ net force പൂജ്യം, acceleration പൂജ്യം — F equals m a. പിന്നെ velocity മാറില്ല!"
+[0:49 – 0:58]  (TERMINAL VELOCITY card — read in English, big vs small drop)
+"Terminal velocity: The constant maximum velocity of a body falling through a viscous fluid. v t equals two a square into rho minus sigma into g by nine eta. വലിയ തുള്ളി കൂടുതൽ വേഗത്തിൽ, ചെറിയ ചാറ്റൽമഴത്തുള്ളി പതുക്കെ."
+[0:58 – 1:07]  (QUIZ — PYQ · Plus One Model Exam 2024)
+"Quiz time! Plus One Model Exam 2024-ൽ വന്ന ചോദ്യം: മഴത്തുള്ളി ഒടുവിൽ ഒരു constant velocity-യിൽ വീഴുന്നു. ആ velocity-യുടെ പേര്? A, Terminal velocity. B, Escape velocity. ഉത്തരം comment ചെയ്യൂ! Follow ചെയ്യൂ!"
+(ഉത്തരം: A — Terminal velocity · PYQ: Plus One Model Exam 2024)

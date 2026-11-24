@@ -10,3 +10,4 @@
 - History / scientist: none (didn't fit naturally; Faraday already used 20 Nov).
 - Quiz: PYQ · Plus Two Christmas Exam 2025 (Q7, True/False: efficiency of a transformer = output power / input power → True). Searched plus-two-physics-christmas-pyq bank.
 - No voice. 72.5 s + 4 s end-card. Files: transformer_hum_ig.mp4 / _yt.mp4 / _final.mp4, transformer_hum.py (also tools/topics/), caption_ig.txt, caption_yt.txt, youtube.txt, voiceover.txt. No cover. New SFX "hum" added to tools/mix_voice.py.
+- DRAFTS — waiting for JMK's ok (24 Nov 7:45 AM IST): IG post_786809ba9cdefeba (med_918a5a9d391528fa), YT post_60474e98a12caad8 (med_e65e519af7862ce8). No AI labels.

@@ -86,6 +86,12 @@ def sfx(kind):
         n = int(0.6 * SR); t = np.arange(n) / SR
         y = bandnoise(n, 2000, 8000) * (rng.random(n) > 0.6) + 0.4 * np.sign(np.sin(2 * np.pi * 120 * t)) * bandnoise(n, 200, 2000)
         return y * np.exp(-t * 5) * 0.12
+    if kind == "hum":  # transformer hum (100 Hz + harmonics, 4 s)
+        n = int(4.0 * SR); t = np.arange(n) / SR
+        y = sum(a * np.sin(2 * np.pi * f * t) for f, a in ((100, 1.0), (200, 0.6), (300, 0.35), (400, 0.2), (600, 0.1)))
+        y *= 1 + 0.08 * np.sin(2 * np.pi * 0.7 * t)
+        e = np.minimum(1, t / 0.4) * np.minimum(1, (t[-1] - t) / 0.6)
+        return y * e * 0.06
     raise ValueError(kind)
 
 def read_wav(p):

@@ -1,0 +1,14 @@
+TRANSFORMER HUM — VOICE-OVER SCRIPT (72.5 s + 4 s end-card) · no voice in the posted draft
+[0:00 – 0:08]  (Hook — pole transformer humming, house)
+"റോഡരികിലെ KSEB transformer എപ്പോഴും മ്മ്മ്മ് എന്ന് മൂളുന്നത് എന്തുകൊണ്ടാണ്? പതിനൊന്നായിരം volt line-ലെ current നമ്മുടെ വീട്ടിലെത്തുമ്പോൾ ഇരുനൂറ്റിമുപ്പത് volt! ഇത് ചെയ്യുന്നത് ഈ transformer ആണ്."
+[0:08 – 0:21]  (Inside: iron core, primary and secondary coils, flux arrows, bulb)
+"Primary coil-ൽ AC ഒഴുകുമ്പോൾ iron core-ൽ magnetic flux ഉണ്ടാകുന്നു — അത് ഓരോ നിമിഷവും മാറുന്നു. മാറുന്ന flux secondary coil-ൽ emf ഉണ്ടാക്കുന്നു — ഇതാണ് mutual induction."
+[0:21 – 0:29]  (Card — read in English)
+"A transformer works on the principle of mutual induction. V s by V p equals N s by N p. Step-down transformer-ൽ secondary-യിൽ turns കുറവ്, അതുകൊണ്ട് voltage കുറവ്. DC കൊടുത്താൽ flux മാറില്ല, emf ഇല്ല — അതുകൊണ്ട് transformer AC-ൽ മാത്രം."
+[0:29 – 0:49]  (The 100 Hz hum — core shrinks, sound waves)
+"AC fifty hertz: ഒരു സെക്കൻഡിൽ നൂറ് തവണ magnetic field-ന്റെ ദിശ മാറുന്നു. Magnetise ആകുമ്പോഴെല്ലാം iron core വളരെ ചെറുതായി ചുരുങ്ങുന്നു — ദിശ ഏതായാലും! ഇതിനെ magnetostriction എന്ന് പറയും. അപ്പോൾ core സെക്കൻഡിൽ നൂറ് തവണ വിറയ്ക്കുന്നു — hundred hertz sound — അതാണ് ആ മ്മ്മ്മ്!"
+[0:49 – 1:03]  (Energy losses tiles, efficiency, safety)
+"ഈ വിറയലും ചൂടും energy loss ആണ് — copper loss, eddy currents, hysteresis, flux leakage. Output power എപ്പോഴും input power-നേക്കാൾ അല്പം കുറവ്. ചൂട് കളയാനാണ് oil-ഉം cooling fins-ഉം. High voltage — അടുത്ത് പോകരുത്, തൊടരുത്!"
+[1:03 – 1:12]  (Quiz — PYQ · Plus Two Christmas Exam 2025)
+"Quiz time! Plus Two Christmas exam ഇരുപത്തിയഞ്ചിൽ വന്ന ചോദ്യം: True or False — Efficiency of a transformer equals output power by input power. ഉത്തരം comment ചെയ്യൂ! Follow ചെയ്യൂ."
+ANSWER: A) True (efficiency = output power / input power). PYQ: Plus Two Christmas Exam 2025, Q7 (1 mark).

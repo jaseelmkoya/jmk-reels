@@ -1,0 +1,14 @@
+റോഡരികിലെ KSEB transformer എപ്പോഴും 'മ്മ്മ്മ്...' എന്ന് മൂളുന്നത് എന്തുകൊണ്ട്? ⚡
+
+11000 V line-നെ 230 V ആക്കുന്നത് transformer — mutual induction: മാറുന്ന flux secondary coil-ൽ emf ഉണ്ടാക്കുന്നു (Vₛ/Vₚ = Nₛ/Nₚ).
+AC 50 Hz → field സെക്കൻഡിൽ 100 തവണ ദിശ മാറുന്നു → ഓരോ തവണയും iron core ചെറുതായി ചുരുങ്ങുന്നു → 100 Hz വിറയൽ = hum!
+ഈ വിറയലും ചൂടും energy loss ആണ് (copper loss, eddy currents, hysteresis, flux leakage). ⚠️ High voltage — അടുത്ത് പോകരുത്.
+
+📝 PYQ: Plus Two Christmas Exam 2025
+❓ True or False: Efficiency of a transformer = output power / input power
+A) True  B) False
+ഉത്തരം comment ചെയ്യൂ! 👇
+
+#physicsinmalayalam #plustwophysics #keralasyllabus #transformer #alternatingcurrent #christmasexam #shorts
+
+Subscribe ചെയ്യൂ 🔔

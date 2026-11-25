@@ -48,19 +48,31 @@ def R(x):
     return y0 + (y1 - y0) * (x - x0) / (x1 - x0)
 WORDS = [{"start": R(t)} for t in DOC]
 
+# Equations are ONE caption token each (JMK 25 Nov: "equations മുറിഞ്ഞു പോയി"): "token|n" = one token for n spoken words.
 LINES = [
     ("കൈ നീട്ടി പതുക്കെ കറങ്ങുന്നു. കൈ മടക്കിയതും *spin* മൂന്നിരട്ടി വേഗതയിൽ. ആരും തള്ളിയില്ല.", YELLOW),
-    ("കസേരയുടെ *axis*-ന് ചുറ്റും പുറത്തുനിന്നും ഒരു *torque*-ഉമില്ല. *External* *torque* *zero.*", CYAN),
-    ("*τ* = *dL* */dt.* *Torque* ഇല്ലെങ്കിൽ *angular* *momentum* *L* മാറില്ല. നോക്കൂ, *L* ബാർ അനങ്ങുന്നില്ല.", ORANGE),
-    ("If external torque is zero, the angular momentum *L* = *I* *ω* is constant. *I₁* *ω₁* = *I₂* *ω₂.*", YELLOW),
+    ("കസേരയുടെ *axis*-ന് ചുറ്റും പുറത്തുനിന്നും ഒരു *torque*-ഉമില്ല. *External* *torque* *=0.*", CYAN),
+    ("*τ=dL/dt.*|4 *Torque* ഇല്ലെങ്കിൽ *angular* *momentum* *L* മാറില്ല. നോക്കൂ, *L* ബാർ അനങ്ങുന്നില്ല.", ORANGE),
+    ("If external torque is zero, the angular momentum *L=Iω*|4 is constant. *I₁ω₁=I₂ω₂.*|5", YELLOW),
     ("*L* മാറാതെ നിൽക്കണം. *I* കുറഞ്ഞാൽ *ω* കൂടിയേ പറ്റൂ.", PINK),
-    ("ഇനി *I* എന്തിന് കുറയുന്നു? *Moment* *of* *inertia* *I* = *Σ* *m* *r* *square.* *Mass* *axis*-ൽ നിന്നും എത്ര ദൂരെ എന്നതാണ് പ്രധാനം.", CYAN),
-    ("*r* *square* ആണ്. കയ്യിലെ *mass*-ന്റെ *r* പകുതിയായാൽ ആ ഭാഗത്തിന്റെ *I* നാലിലൊന്നാകും.", ORANGE),
+    ("ഇനി *I* എന്തിന് കുറയുന്നു? *Moment* *of* *inertia* *I=Σmr².*|6 *Mass* *axis*-ൽ നിന്നും എത്ര ദൂരെ എന്നതാണ് പ്രധാനം.", CYAN),
+    ("*r²*|2 ആണ്. കയ്യിലെ *mass*-ന്റെ *r* പകുതിയായാൽ ആ ഭാഗത്തിന്റെ *I* നാലിലൊന്നാകും.", ORANGE),
     ("*I* കുറഞ്ഞു, *ω* കൂടി. *Ice* *skaters*-ഉം *diver*-ഉം ചെയ്യുന്നത് ഇതേ *trick* തന്നെ.", PINK),
-    ("അപ്പോൾ കൂടിയ *kinetic* *energy* എവിടെ നിന്ന്? *K* = ½ *I* *ω* ² = *L* ² / *2I.* കൈ ഉള്ളിലേക്ക് വലിക്കുമ്പോൾ നമ്മുടെ പേശികൾ ചെയ്യുന്ന *work*-ൽ നിന്ന്.", GREEN),
+    ("അപ്പോൾ കൂടിയ *kinetic* *energy* എവിടെ നിന്ന്? *K=½Iω²=L²/2I.*|11 കൈ ഉള്ളിലേക്ക് വലിക്കുമ്പോൾ നമ്മുടെ പേശികൾ ചെയ്യുന്ന *work*-ൽ നിന്ന്.", GREEN),
 ]
-assert sum(len(t.split()) for t, _ in LINES) == len(DOC) - 8, (sum(len(t.split()) for t, _ in LINES), len(DOC) - 8)
-CAP = Captions.from_words(LINES, WORDS[7:], size=52, maxw=8)
+def _merge(lines, words):
+    out_l, out_w, k = [], [], 0
+    for text, hl in lines:
+        toks = []
+        for tk in text.split():
+            n = 1
+            if "|" in tk: tk, n = tk.rsplit("|", 1); n = int(n)
+            toks.append(tk); out_w.append(words[k]); k += n
+        out_l.append((" ".join(toks), hl))
+    assert k == len(words) - 1, (k, len(words))
+    return out_l, out_w + [words[k]]
+_L, _W = _merge(LINES, WORDS[7:])
+CAP = Captions.from_words(_L, _W, size=52, maxw=8)
 
 def w(i): return WORDS[i]["start"]          # real start of word i (index in DOC)
 def r(t): return R(t)                        # real time of a list time

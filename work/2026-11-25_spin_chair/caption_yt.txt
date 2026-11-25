@@ -1,0 +1,14 @@
+കറങ്ങുന്ന കസേരയിൽ കൈ മടക്കിയാൽ വേഗം കൂടുന്നത് എന്തുകൊണ്ട്? 🌀
+
+ആരും തള്ളുന്നില്ല — external torque = 0 → τ = dL/dt → angular momentum L = Iω മാറില്ല.
+Moment of inertia I = Σmr²: കൈ മടക്കുമ്പോൾ r കുറയുന്നു (r² ആണ്!) → I കുറയുന്നു → ω കൂടണം (I₁ω₁ = I₂ω₂).
+കൂടിയ kinetic energy (K = L²/2I) കൈ ഉള്ളിലേക്ക് വലിക്കുമ്പോൾ നമ്മൾ ചെയ്യുന്ന work-ൽ നിന്ന്. Ice skater-ഉം diver-ഉം ഇതേ trick!
+
+📝 PYQ: Plus One March 2022
+❓ ഭൂമി ചുരുങ്ങി volume 1/64 ആയാൽ ഒരു ദിവസം എത്ര മണിക്കൂർ?
+A) 1.5 hours  B) 24 hours
+ഉത്തരം comment ചെയ്യൂ! 👇
+
+#physicsinmalayalam #plusonephysics #keralasyllabus #angularmomentum #rotationalmotion #christmasexam #shorts
+
+Subscribe ചെയ്യൂ 🔔

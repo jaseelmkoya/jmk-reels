@@ -1,0 +1,14 @@
+SPIN CHAIR REEL — VOICE-OVER SCRIPT (69 സെക്കൻഡ് + 4 s end-card)
+[0:00 – 0:07]  (Hook — top view, കൈ നീട്ടി കറക്കം → കൈ മടക്കുന്നു, ω × 3)
+"കറങ്ങുന്ന കസേരയിൽ കൈ മടക്കിയാൽ വേഗം കൂടുന്നത് എന്തുകൊണ്ട്? കൈ നീട്ടി പതുക്കെ കറങ്ങുന്നു... കൈ മടക്കിയതും spin മൂന്നിരട്ടി വേഗത്തിൽ! ആരും തള്ളിയില്ല!"
+[0:08 – 0:21]  (NO TORQUE — I, ω, L bars)
+"കസേരയുടെ axis-ന് ചുറ്റും പുറത്തുനിന്ന് ഒരു torque-ഉം ഇല്ല: external torque zero. Tau equals dL by dt — torque ഇല്ലെങ്കിൽ angular momentum L മാറില്ല. നോക്കൂ, L ബാർ അനങ്ങുന്നില്ല!"
+[0:21 – 0:28]  (Law card — English-ൽ വായിക്കുക)
+"If external torque is zero, the angular momentum L equals I omega is constant. I one omega one equals I two omega two. L മാറാതെ നിൽക്കണം — I കുറഞ്ഞാൽ omega കൂടിയേ പറ്റൂ."
+[0:28 – 0:49]  (MOMENT OF INERTIA, I = Σmr²)
+"ഇനി I എന്തിന് കുറയുന്നു? Moment of inertia, I equals sigma m r square — mass axis-ൽ നിന്ന് എത്ര ദൂരെ എന്നതാണ് പ്രധാനം. r square ആണ്! കയ്യിലെ mass-ന്റെ r പകുതിയായാൽ ആ ഭാഗത്തിന്റെ I നാലിലൊന്നാകും. I കുറഞ്ഞു, omega കൂടി. Ice skater-ഉം diver-ഉം ചെയ്യുന്നത് ഇതേ trick തന്നെ!"
+[0:49 – 0:60]  (EXTRA ENERGY? K = ½Iω² = L²/2I)
+"അപ്പോൾ കൂടിയ kinetic energy എവിടെ നിന്ന്? K equals half I omega square, equals L square by two I — കൈ ഉള്ളിലേക്ക് വലിക്കുമ്പോൾ നമ്മുടെ പേശികൾ ചെയ്യുന്ന work-ൽ നിന്ന്!"
+[1:00 – 1:09]  (QUIZ — PYQ · Plus One March 2022)
+"ഇനി ഒരു PYQ — Plus One March 2022. ഭൂമി ചുരുങ്ങി volume ഇപ്പോഴത്തേതിന്റെ one by sixty-four ആയാൽ ഒരു ദിവസം എത്ര മണിക്കൂർ? A, one point five hours; B, twenty-four hours. ഉത്തരം comment ചെയ്യൂ! Follow ചെയ്യൂ."
+ANSWER: A — V ∝ R³ → R/4 → I = ⅖MR² becomes I/16 → ω × 16 → day = 24/16 = 1.5 h. (PYQ · Plus One March 2022, Ch6; bank: "Calculate the duration of a day when Earth shrinks to 1/64 th of its initial volume.")

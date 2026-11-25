@@ -177,7 +177,7 @@ def s5(fr, t, d):
     if YT: appear(fr, SUB, W / 2, 1390, t, at(86.05, 5), pop=True)
 
 SCENES = [(S[i], f) for i, f in enumerate((s0, s1, s2, s3, s4, s5))]
-VOICE = os.path.join(VO_DIR, "vo_full.wav" if YT else "vo_ig.wav")
+VOICE = os.path.join(VO_DIR, "vo_full2.wav" if YT else "vo_ig2.wav")
 MUSIC_GAIN = 0.32
 MUSIC = [(0.0, "curious"), (ST[1], "tension"), (ST[2], "uplift"), (ST[3], "drive"), (ST[4], "curious"), (ST[5], "tension")]
 MUSIC_SEED = 2511

@@ -48,15 +48,16 @@ def prism(w=900, labels=True, scale=1.0):
     x1, x2 = ax - t * (ax - L), ax + t * (R - ax)
     i = math.radians(48.59); d = (math.cos(math.radians(30) - i), math.sin(math.radians(30) - i))
     p0 = (x1 - 210 * d[0], yr - 210 * d[1])
-    p3 = (x2 + 210 * d[0], yr - 210 * -d[1])
+    p3 = (x2 + 210 * d[0], yr - 210 * d[1])  # emergent bends towards the base (downwards)
     ext = (x1 + 260 * d[0], yr + 260 * -d[1] * -1)
-    ext = (x1 + 300 * d[0], yr + 300 * d[1])
+    ext = (x1 + 420 * d[0], yr + 420 * d[1])
     nl = 130; nx, ny = math.cos(math.radians(30)), math.sin(math.radians(30))
     s = f"""<svg width="{w}" height="{int(430*w/900)}" viewBox="0 0 900 430" style="align-self:center;margin-top:14px">
 <polygon points="{ax},{ay} {L},{by} {R},{by}" fill="rgba(79,209,255,.13)" stroke="#4fd1ff" stroke-width="5"/>
 <line x1="{x1-nl*nx}" y1="{yr-nl*ny}" x2="{x1+nl*nx}" y2="{yr+nl*ny}" stroke="#8a90b8" stroke-width="3" stroke-dasharray="8 8"/>
 <line x1="{x2+nl*nx}" y1="{yr-nl*ny}" x2="{x2-nl*nx}" y2="{yr+nl*ny}" stroke="#8a90b8" stroke-width="3" stroke-dasharray="8 8"/>
 <line x1="{x1}" y1="{yr}" x2="{ext[0]}" y2="{ext[1]}" stroke="#ff9f43" stroke-width="3" stroke-dasharray="10 8"/>
+<line x1="{x2}" y1="{yr}" x2="{(x1+x2)/2 - 30*d[0]}" y2="{yr + ((x2-x1)/2 + 30)*d[1]/d[0]*1}" stroke="#ff9f43" stroke-width="3" stroke-dasharray="10 8"/>
 <polyline points="{p0[0]},{p0[1]} {x1},{yr} {x2},{yr} {p3[0]},{p3[1]}" fill="none" stroke="#ffd166" stroke-width="7" stroke-linejoin="round"/>
 <polygon points="{(p0[0]+x1)/2+14*d[0]},{(p0[1]+yr)/2+14*d[1]} {(p0[0]+x1)/2-12*d[0]-9*d[1]},{(p0[1]+yr)/2-12*d[1]+9*d[0]} {(p0[0]+x1)/2-12*d[0]+9*d[1]},{(p0[1]+yr)/2-12*d[1]-9*d[0]}" fill="#ffd166"/>
 <polygon points="{(x1+x2)/2+16},{yr} {(x1+x2)/2-10},{yr-11} {(x1+x2)/2-10},{yr+11}" fill="#ffd166"/>
@@ -66,8 +67,8 @@ def prism(w=900, labels=True, scale=1.0):
 <text x="{x1-95}" y="{yr-8}" font-family="Comic" font-size="38" fill="#5be49b">i</text>
 <text x="{x1+30}" y="{yr+50}" font-family="Comic" font-size="34" fill="#5be49b">r₁</text>
 <text x="{x2-70}" y="{yr+50}" font-family="Comic" font-size="34" fill="#5be49b">r₂</text>
-<text x="{x2+80}" y="{yr-8}" font-family="Comic" font-size="38" fill="#5be49b">e</text>
-<text x="{ext[0]-20}" y="{ext[1]+10}" font-family="Comic" font-size="38" fill="#ff9f43">δ</text>"""
+<text x="{x2+62}" y="{yr+2}" font-family="Comic" font-size="38" fill="#5be49b">e</text>
+<text x="{(x1+x2)/2+92}" y="{yr + (x2-x1)/2*d[1]/d[0] + 14}" font-family="Comic" font-size="38" fill="#ff9f43">δ</text>"""
     return s + "</svg>"
 
 S1 = f"""{TAG}<div class="num">1/5</div>

@@ -10,3 +10,4 @@
 - History / scientist: none (didn't fit naturally).
 - Quiz: PYQ · Plus One March 2022 (Ch6 bank: "Calculate the duration of a day when Earth shrinks to 1/64 th of its initial volume") → A) 1.5 hours (R/4 → I/16 → ω×16). Searched plus-one-physics-pyq.
 - No voice. 69.4 s + 4 s end-card. Files: spin_chair_ig.mp4 / _yt.mp4 / _final.mp4, spin_chair.py (also tools/topics/), caption_ig.txt, caption_yt.txt, youtube.txt, voiceover.txt. No cover.
+- DRAFTS — waiting for JMK's ok (25 Nov 7:45 AM IST): IG post_ae564a39ac1a8790 (med_91ff540007c5955c), YT post_d67d292cbcca737a (med_201afec9d40c35cf). No AI labels.

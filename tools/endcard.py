@@ -134,7 +134,7 @@ def frame_yt(fr, t):
     paste(fr, _c("card", _card_bg), W / 2, 360 + dy, a)
     paste(fr, _c("ytav", lambda: _big_avatar(BRAND[1][2], (255, 255, 255), 280)), W / 2, 430 + dy, a)
     paste(fr, _c("ytname", lambda: text_img(BRAND[1][1], 64, max_w=800)), W / 2, 740 + dy, a)
-    paste(fr, _c("ytsub", lambda: text_img("@jaseelmkoyajmk · Physics in Malayalam", 34, max_w=800, color=(190, 196, 220))), W / 2, 830 + dy, a)
+    paste(fr, _c("ytsub", lambda: text_img("Physics in Malayalam", 34, max_w=800, color=(190, 196, 220))), W / 2, 830 + dy, a)
     T1, T2 = 1.3, 2.4
     if t < T1:
         btn = _c("sub", lambda: _button("SUBSCRIBE", YT_RED, w=470))

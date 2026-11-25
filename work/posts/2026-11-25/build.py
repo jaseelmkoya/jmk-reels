@@ -34,7 +34,7 @@ h2{font-family:Comic,AnekX;font-size:64px;line-height:1.3;margin-top:28px}
 .ig{color:#ff9fc4}.yt{color:#ff8a7a}
 """
 FOOT = """<div class="brand"><span class="ig"><i class="ico" style="-webkit-mask-image:url(icons/instagram-white.png)"></i>@jmk.space</span>
-<span class="yt"><i class="ico" style="-webkit-mask-image:url(icons/youtube-white.png)"></i>@jaseelmkoyajmk</span></div>"""
+<span class="yt"><i class="ico" style="-webkit-mask-image:url(icons/youtube-white.png)"></i>JMK Space</span></div>"""
 
 TAG = '<div class="tag">PLUS TWO PHYSICS · RAY OPTICS</div>'
 PYQ = '<div class="pyq">PYQ · Plus Two Christmas Exam 2019 · Q24 (4 marks)</div>'

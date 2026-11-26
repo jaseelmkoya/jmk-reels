@@ -3,3 +3,4 @@
 - 2026-11-23 Mon · Quiz · Projectile range 30° vs 60° (Plus One Christmas 2025 Q16, Motion in a Plane)
 - 2026-11-24 Tue · Formula card · Work, Energy and Power (Plus One Ch5)
 - 2026-11-25 Wed · PYQ carousel · Prism refractive index derivation (Plus Two Christmas 2019 Q24, Ray Optics)
+- 2026-11-26 Thu · Mistakes · Laws of Motion: action-reaction, first law, mass vs weight, impulse unit (Plus One Ch4)

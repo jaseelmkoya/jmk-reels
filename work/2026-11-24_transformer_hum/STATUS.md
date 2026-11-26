@@ -11,3 +11,12 @@
 - Quiz: PYQ · Plus Two Christmas Exam 2025 (Q7, True/False: efficiency of a transformer = output power / input power → True). Searched plus-two-physics-christmas-pyq bank.
 - No voice. 72.5 s + 4 s end-card. Files: transformer_hum_ig.mp4 / _yt.mp4 / _final.mp4, transformer_hum.py (also tools/topics/), caption_ig.txt, caption_yt.txt, youtube.txt, voiceover.txt. No cover. New SFX "hum" added to tools/mix_voice.py.
 - DRAFTS — waiting for JMK's ok (24 Nov 7:45 AM IST): IG post_786809ba9cdefeba (med_918a5a9d391528fa), YT post_60474e98a12caad8 (med_e65e519af7862ce8). No AI labels.
+
+## 26 Nov run (plan slot Thu 26 Nov) — no new video
+News check (last 72 h) — nothing important + physics-linked:
+- Kerala bus accidents/fires (Kuttippuram overturn 7 Nov etc.) — older than 72 h: https://www.deccanchronicle.com/southern-states/kerala/one-dead-26-injured-as-private-bus-overturns-in-keralas-kuttippuram-1974043
+- ISRO: NISAR operational (early Nov), no new launch this week: https://www.business-standard.com/india-news/nisar-satellite-to-be-declared-operational-on-november-7-isro-chief-125110500901_1.html
+- SpaceX Starship 13 Nov flight (double catch thwarted) — already old: https://www.foxcarolina.com/2026/11/13/spacexs-attempt-starship-double-catch-is-thwarted-when-booster-ends-up-gulf-mexico/
+- Physics news: nothing major found (https://phys.org/physics-news/)
+- India viral/tech: nothing physics-linked.
+Tracker: row 41 note updated, views refreshed (rows 27, 35, 39). Drafts still waiting for JMK's ok.

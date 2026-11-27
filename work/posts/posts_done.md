@@ -4,3 +4,4 @@
 - 2026-11-24 Tue · Formula card · Work, Energy and Power (Plus One Ch5)
 - 2026-11-25 Wed · PYQ carousel · Prism refractive index derivation (Plus Two Christmas 2019 Q24, Ray Optics)
 - 2026-11-26 Thu · Mistakes · Laws of Motion: action-reaction, first law, mass vs weight, impulse unit (Plus One Ch4)
+- 2026-11-27 Fri · Real life · Pressure cooker — boiling point vs pressure, Munnar ≈95 °C (Plus One Ch10 Thermal Properties; Christmas 2024 Q9)

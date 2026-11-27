@@ -11,3 +11,12 @@
 - No voice. 67.3 s + 4 s end-card (71.3 s). Files: raindrop_ig.mp4 / raindrop_yt.mp4 / raindrop_final.mp4, raindrop.py (also tools/topics/raindrop.py), caption_ig.txt, caption_yt.txt, youtube.txt, voiceover.txt. No cover (JMK makes his own).
 - SCHEDULED 23 Nov 18:30 IST: IG post_95a2b5ccefd133a7 (med_5d34513400c5dabf), YT post_b76769dc96da6252 (med_936ab79924c5a79d), no AI labels.
 - 23 Nov 1:25 PM — JMK: 'ഇതിന്ന് പോസ്റ്റ് ചെയ്യേണ്ട' → both posts moved to DRAFT (IG post_95a2b5ccefd133a7, YT post_b76769dc96da6252). ON HOLD — never post without JMK's ok + date.
+
+## 27 Nov run (plan slot Fri 27 Nov) — no new video, still ON HOLD (drafts)
+News check (5 searches, last 72 h) — nothing important + physics-linked:
+- Kerala: only older rain/accident items (bus overturn 7 Nov, rain alerts 12 Nov): https://www.newkerala.com/news/a/heavy-rain-alert-kerala-services-restored-after-landslide-175.htm
+- ISRO: no launch this week; NVS-03 (NavIC) planned late 2026: https://www.newsbytesapp.com/news/science/isro-to-launch-nvs-03-to-restore-navic-service-late-2026/tldr
+- World space: Starship 14th flight / double-catch items are from mid-Nov (already covered): https://www.astronomy.com/whats-launching-this-week/starship-reaches-orbit-on-14th-test-flight/
+- Physics: nothing major found: https://phys.org/physics-news/
+- India viral/tech/sports: nothing physics-linked.
+Tracker: row 40 note updated (rev 92). Drafts still waiting for JMK's ok + date.

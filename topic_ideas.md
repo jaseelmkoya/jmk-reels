@@ -16,3 +16,4 @@ News check 21 Nov (5 searches, last 72 h): nothing fresh with a clear physics li
    - Quiz: concept quiz, no PYQ label (searched plus-two-physics-christmas-pyq + plus-two-physics-material: no labelled fission question). "U-235 fission-ൽ ഏകദേശം എത്ര energy? A) 200 MeV B) 2 eV" → A.
    - Length ~60–75 s (storykit.py).
 2. ~~Raindrop / terminal velocity~~ — made 23 Nov (work/2026-11-23_raindrop/).
+- Backlog: ~~Brazil nut effect~~ — made 28 Nov (work/2026-11-28_brazil_nut/).
